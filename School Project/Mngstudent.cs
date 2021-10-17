@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+
 
 namespace School_Project
 {
@@ -13,6 +15,17 @@ namespace School_Project
         public Mngstudent()
         {
             InitializeComponent();
+        }
+
+        private void Mngstudent_Load(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void addnewbutton_Click(object sender, EventArgs e)
+        {
+            Add_Student s = new Add_Student();
+            s.ShowDialog();
         }
     }
 }

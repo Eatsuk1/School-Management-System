@@ -23,6 +23,7 @@ namespace School_Project
         private void Manage_Students_Click(object sender, EventArgs e)
         {
             Mngstudent s = new Mngstudent();
+            s.LoadRecords();
             s.ShowDialog();
         }
     }

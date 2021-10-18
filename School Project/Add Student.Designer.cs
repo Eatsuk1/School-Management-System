@@ -74,7 +74,7 @@ namespace School_Project
             // gender
             // 
             this.gender.AutoSize = true;
-            this.gender.Location = new System.Drawing.Point(385, 124);
+            this.gender.Location = new System.Drawing.Point(45, 205);
             this.gender.Name = "gender";
             this.gender.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.gender.Size = new System.Drawing.Size(45, 15);
@@ -85,7 +85,7 @@ namespace School_Project
             // dateofbirth
             // 
             this.dateofbirth.AutoSize = true;
-            this.dateofbirth.Location = new System.Drawing.Point(385, 57);
+            this.dateofbirth.Location = new System.Drawing.Point(45, 260);
             this.dateofbirth.Name = "dateofbirth";
             this.dateofbirth.Size = new System.Drawing.Size(73, 15);
             this.dateofbirth.TabIndex = 4;
@@ -97,7 +97,7 @@ namespace School_Project
             this.genderbox.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.genderbox.Location = new System.Drawing.Point(450, 119);
+            this.genderbox.Location = new System.Drawing.Point(95, 202);
             this.genderbox.Name = "genderbox";
             this.genderbox.Size = new System.Drawing.Size(79, 23);
             this.genderbox.TabIndex = 6;
@@ -106,7 +106,7 @@ namespace School_Project
             // dateofbirthbox
             // 
             this.dateofbirthbox.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateofbirthbox.Location = new System.Drawing.Point(464, 54);
+            this.dateofbirthbox.Location = new System.Drawing.Point(124, 254);
             this.dateofbirthbox.Name = "dateofbirthbox";
             this.dateofbirthbox.Size = new System.Drawing.Size(102, 23);
             this.dateofbirthbox.TabIndex = 7;
@@ -114,7 +114,7 @@ namespace School_Project
             // 
             // savebutton
             // 
-            this.savebutton.Location = new System.Drawing.Point(95, 346);
+            this.savebutton.Location = new System.Drawing.Point(74, 346);
             this.savebutton.Name = "savebutton";
             this.savebutton.Size = new System.Drawing.Size(120, 48);
             this.savebutton.TabIndex = 8;
@@ -124,7 +124,7 @@ namespace School_Project
             // 
             // clearbutton
             // 
-            this.clearbutton.Location = new System.Drawing.Point(292, 346);
+            this.clearbutton.Location = new System.Drawing.Point(254, 346);
             this.clearbutton.Name = "clearbutton";
             this.clearbutton.Size = new System.Drawing.Size(120, 48);
             this.clearbutton.TabIndex = 9;
@@ -176,7 +176,7 @@ namespace School_Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(466, 431);
             this.Controls.Add(this.idbox);
             this.Controls.Add(this.id);
             this.Controls.Add(this.agebox);

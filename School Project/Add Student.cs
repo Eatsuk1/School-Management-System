@@ -12,15 +12,16 @@ namespace School_Project
     public partial class Add_Student : Form
     {
         SqlConnection cn;
-        SqlCommand cm;
         ClassDB db = new ClassDB();
+        Mngstudent f;
         string _title = "School Management System";
 
-        public Add_Student()
+        public Add_Student(Mngstudent f)
         {
             InitializeComponent();
             cn = new SqlConnection();
             cn.ConnectionString = db.GetConnection();
+            this.f = f;
         }
 
         private void Add_Student_Load(object sender, EventArgs e)
@@ -47,27 +48,25 @@ namespace School_Project
         {
             try
             {
-                if (namebox.Text == "" | classbox.Text == "" | genderbox.Text == "")
+                if (namebox.Text == "" | classbox.Text == "" | genderbox.Text == "" | idbox.Text == "" | agebox.Text == "")
                 {
                     MessageBox.Show("No fields must be left blank!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     return;
                 }
-                if (MessageBox.Show("Are you sure all the student details are entered correctly?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure all student details are corrected?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                   
-
                     cn.Open();
-                    cm.CommandType = CommandType.StoredProcedure;
-                    cm.CommandText = "add_student";
+                    SqlCommand cm = new SqlCommand("INSERT INTO student_info(id, name, class, age, gender, dob)VALUES(@id, @name, @class, @age, @gender, @dob)", cn);
                     cm.Parameters.AddWithValue("@id", idbox.Text);
                     cm.Parameters.AddWithValue("@name", namebox.Text);
                     cm.Parameters.AddWithValue("@class", classbox.Text);
                     cm.Parameters.AddWithValue("@age", agebox.Text);
-                    cm.Parameters.AddWithValue("@gender", genderbox.SelectedItem);
-                    cm.Parameters.AddWithValue("@dob", dateofbirthbox.Value);
+                    cm.Parameters.AddWithValue("@gender", genderbox.Text);
+                    cm.Parameters.AddWithValue("@dob", dateofbirthbox.Text);
                     cm.ExecuteNonQuery();
                     cn.Close();
                     MessageBox.Show("Record has successfully saved!", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    f.LoadRecords();
                 }
                 
             }catch(Exception ex)
@@ -82,7 +81,9 @@ namespace School_Project
             namebox.Clear();
             genderbox.Text = "";
             classbox.Clear();
-            agebox.Clear();
+            agebox.Text = "";
+            idbox.Clear();
+            dateofbirthbox.Value = DateTime.Now;
         }
 
         private void genderbox_SelectedIndexChanged(object sender, EventArgs e)

@@ -67,6 +67,7 @@ namespace School_Project
                     cn.Close();
                     MessageBox.Show("Record has successfully saved!", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     f.LoadRecords();
+                    Close();
                 }
                 
             }catch(Exception ex)

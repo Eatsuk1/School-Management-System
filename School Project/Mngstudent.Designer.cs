@@ -31,8 +31,8 @@ namespace School_Project
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mngstudent));
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.search = new System.Windows.Forms.Label();
+            this.searchbox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,29 +43,44 @@ namespace School_Project
             this.addnewbutton = new System.Windows.Forms.Button();
             this.deletebutton = new System.Windows.Forms.Button();
             this.editbutton = new System.Windows.Forms.Button();
+            this.searchfilter = new System.Windows.Forms.Label();
+            this.filterbox = new System.Windows.Forms.ComboBox();
+            this.searchbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // search
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Enter name to filter";
+            this.search.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.search.AutoSize = true;
+            this.search.Location = new System.Drawing.Point(51, 27);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(42, 15);
+            this.search.TabIndex = 0;
+            this.search.Text = "Search";
+            this.search.Click += new System.EventHandler(this.search_Click);
             // 
-            // textBox1
+            // searchbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(776, 23);
-            this.textBox1.TabIndex = 1;
+            this.searchbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchbox.Enabled = false;
+            this.searchbox.Location = new System.Drawing.Point(99, 24);
+            this.searchbox.Name = "searchbox";
+            this.searchbox.Size = new System.Drawing.Size(211, 23);
+            this.searchbox.TabIndex = 1;
+            this.searchbox.TextChanged += new System.EventHandler(this.searchbox_TextChanged);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -74,7 +89,7 @@ namespace School_Project
             this.age,
             this.gender,
             this.dateofbirth});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 68);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 72);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(776, 290);
@@ -121,7 +136,7 @@ namespace School_Project
             // dateofbirth
             // 
             this.dateofbirth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
             dataGridViewCellStyle1.NullValue = null;
             this.dateofbirth.DefaultCellStyle = dataGridViewCellStyle1;
             this.dateofbirth.HeaderText = "Date of Birth";
@@ -131,6 +146,10 @@ namespace School_Project
             // 
             // addnewbutton
             // 
+            this.addnewbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addnewbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addnewbutton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.addnewbutton.Location = new System.Drawing.Point(55, 383);
             this.addnewbutton.Name = "addnewbutton";
@@ -142,6 +161,10 @@ namespace School_Project
             // 
             // deletebutton
             // 
+            this.deletebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.deletebutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deletebutton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.deletebutton.Location = new System.Drawing.Point(600, 383);
             this.deletebutton.Name = "deletebutton";
@@ -153,6 +176,10 @@ namespace School_Project
             // 
             // editbutton
             // 
+            this.editbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.editbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editbutton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.editbutton.Location = new System.Drawing.Point(333, 383);
             this.editbutton.Name = "editbutton";
@@ -162,18 +189,64 @@ namespace School_Project
             this.editbutton.UseVisualStyleBackColor = true;
             this.editbutton.Click += new System.EventHandler(this.editbutton_Click);
             // 
+            // searchfilter
+            // 
+            this.searchfilter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchfilter.AutoSize = true;
+            this.searchfilter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.searchfilter.Location = new System.Drawing.Point(508, 27);
+            this.searchfilter.Name = "searchfilter";
+            this.searchfilter.Size = new System.Drawing.Size(87, 15);
+            this.searchfilter.TabIndex = 6;
+            this.searchfilter.Text = "Search by Filter";
+            // 
+            // filterbox
+            // 
+            this.filterbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.filterbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterbox.FormattingEnabled = true;
+            this.filterbox.Items.AddRange(new object[] {
+            "ID",
+            "Name",
+            "Class",
+            "Age",
+            "Gender"});
+            this.filterbox.Location = new System.Drawing.Point(601, 24);
+            this.filterbox.Name = "filterbox";
+            this.filterbox.Size = new System.Drawing.Size(100, 23);
+            this.filterbox.TabIndex = 7;
+            this.filterbox.SelectedIndexChanged += new System.EventHandler(this.filterbox_SelectedIndexChanged);
+            // 
+            // searchbutton
+            // 
+            this.searchbutton.Location = new System.Drawing.Point(316, 24);
+            this.searchbutton.Name = "searchbutton";
+            this.searchbutton.Size = new System.Drawing.Size(57, 25);
+            this.searchbutton.TabIndex = 8;
+            this.searchbutton.Text = "Enter";
+            this.searchbutton.UseVisualStyleBackColor = true;
+            this.searchbutton.Click += new System.EventHandler(this.searchbutton_Click);
+            // 
             // Mngstudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.searchbutton);
+            this.Controls.Add(this.filterbox);
+            this.Controls.Add(this.searchfilter);
             this.Controls.Add(this.editbutton);
             this.Controls.Add(this.deletebutton);
             this.Controls.Add(this.addnewbutton);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.searchbox);
+            this.Controls.Add(this.search);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Mngstudent";
             this.Text = "Manage Students";
             this.Load += new System.EventHandler(this.Mngstudent_Load);
@@ -185,17 +258,20 @@ namespace School_Project
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label search;
+        private System.Windows.Forms.TextBox searchbox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button addnewbutton;
         private System.Windows.Forms.Button deletebutton;
         private System.Windows.Forms.Button editbutton;
+        private System.Windows.Forms.Label searchfilter;
+        private System.Windows.Forms.ComboBox filterbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Class;
         private System.Windows.Forms.DataGridViewTextBoxColumn age;
         private System.Windows.Forms.DataGridViewTextBoxColumn gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateofbirth;
+        private System.Windows.Forms.Button searchbutton;
     }
 }

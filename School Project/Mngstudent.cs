@@ -31,7 +31,7 @@ namespace School_Project
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
-                dataGridView1.Rows.Add(dr["id"].ToString(), dr["name"].ToString(), dr["class"].ToString(), dr["age"].ToString(), dr["gender"].ToString(), dr["dob"].ToString());
+                dataGridView1.Rows.Add(dr["id"].ToString(), dr["name"].ToString(), dr["class"].ToString(), dr["age"].ToString(), dr["gender"].ToString(), DateTime.Parse(dr["dob"].ToString()).ToShortDateString());
             }
             dr.Close();
             cn.Close();
@@ -39,7 +39,7 @@ namespace School_Project
 
         private void Mngstudent_Load(object sender, EventArgs e)
         {
-
+           
         }
         
         private void addnewbutton_Click(object sender, EventArgs e)
@@ -82,9 +82,55 @@ namespace School_Project
             {
                
                 SqlCommand cm = new SqlCommand("delete from student_info where id = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
-               
+                cn.Open();
+                cm.ExecuteNonQuery();
+                cn.Close();
                 
                 MessageBox.Show("Deleted successfully.", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadRecords();
+            }
+        }
+
+        private void searchbox_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        public void LoadSearch(string searchWord)
+        {
+            dataGridView1.Rows.Clear();
+            cn.Open();
+            SqlCommand cm = new SqlCommand("select * from student_info where " + filterbox.Text + " = '" + searchWord + "'", cn);
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                dataGridView1.Rows.Add(dr["id"].ToString(), dr["name"].ToString(), dr["class"].ToString(), dr["age"].ToString(), dr["gender"].ToString(), DateTime.Parse(dr["dob"].ToString()).ToShortDateString());
+            }
+            dr.Close();
+            cn.Close();
+        }
+
+        private void search_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void filterbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (filterbox.Text == "ID" || filterbox.Text == "Name" || filterbox.Text == "Class" || filterbox.Text == "Age" || filterbox.Text == "Gender")
+            {
+                searchbox.Enabled = true;
+            }
+            else
+            {
+                searchbox.Enabled = false;
+            }
+        }
+
+        private void searchbutton_Click(object sender, EventArgs e)
+        {
+            LoadSearch(searchbox.Text);
+            if (searchbox.Text == "")
+            {
                 LoadRecords();
             }
         }

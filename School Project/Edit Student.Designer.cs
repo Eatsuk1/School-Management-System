@@ -142,6 +142,7 @@ namespace School_Project
             // 
             // genderbox
             // 
+            this.genderbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genderbox.FormattingEnabled = true;
             this.genderbox.Items.AddRange(new object[] {
             "Male",

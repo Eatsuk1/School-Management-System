@@ -117,6 +117,10 @@ namespace School_Project
             this.Class.Name = "Class";
             this.Class.ReadOnly = true;
             // 
+            this.Class.HeaderText = "Class";
+            this.Class.Name = "Class";
+            this.Class.ReadOnly = true;
+            // 
             // age
             // 
             this.age.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;

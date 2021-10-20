@@ -195,6 +195,7 @@ namespace School_Project
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Add_Student";
             this.Text = "Add Student";
+            this.Load += new System.EventHandler(this.Add_Student_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 

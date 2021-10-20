@@ -8,21 +8,11 @@ using System.Windows.Forms;
 
 namespace School_Project
 {
-    public partial class MngStaff : Form
+    public partial class Add_Staff : Form
     {
-        public MngStaff()
+        public Add_Staff()
         {
             InitializeComponent();
-        }
-
-        private void search_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addnewbutton_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

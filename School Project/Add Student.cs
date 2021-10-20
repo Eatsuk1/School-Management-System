@@ -96,5 +96,10 @@ namespace School_Project
         {
 
         }
+
+        private void Add_Student_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

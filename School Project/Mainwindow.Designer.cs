@@ -76,6 +76,7 @@ namespace School_Project
             this.Manage_Staff.Name = "Manage_Staff";
             this.Manage_Staff.Size = new System.Drawing.Size(118, 32);
             this.Manage_Staff.Text = "Manage Staff";
+            this.Manage_Staff.Click += new System.EventHandler(this.Manage_Staff_Click);
             // 
             // Manage_Marks
             // 

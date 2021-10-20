@@ -26,5 +26,11 @@ namespace School_Project
             s.LoadRecords();
             s.ShowDialog();
         }
+
+        private void Manage_Staff_Click(object sender, EventArgs e)
+        {
+            MngStaff s = new MngStaff();
+            s.ShowDialog();
+        }
     }
 }

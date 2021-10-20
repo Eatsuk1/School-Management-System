@@ -93,6 +93,10 @@ namespace School_Project
 
         private void searchbox_TextChanged(object sender, EventArgs e)
         {
+            if (searchbox.Text == "")
+            {
+                LoadRecords();
+            }
         }
 
         public void LoadSearch(string searchWord)
@@ -129,10 +133,6 @@ namespace School_Project
         private void searchbutton_Click(object sender, EventArgs e)
         {
             LoadSearch(searchbox.Text);
-            if (searchbox.Text == "")
-            {
-                LoadRecords();
-            }
         }
     }
 }

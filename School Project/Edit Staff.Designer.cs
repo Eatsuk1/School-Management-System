@@ -54,6 +54,7 @@ namespace School_Project
             this.clearbutton.TabIndex = 41;
             this.clearbutton.Text = "Clear";
             this.clearbutton.UseVisualStyleBackColor = true;
+            this.clearbutton.Click += new System.EventHandler(this.clearbutton_Click);
             // 
             // savebutton
             // 
@@ -63,6 +64,7 @@ namespace School_Project
             this.savebutton.TabIndex = 40;
             this.savebutton.Text = "Save";
             this.savebutton.UseVisualStyleBackColor = true;
+            this.savebutton.Click += new System.EventHandler(this.savebutton_Click);
             // 
             // qualificationbox
             // 
@@ -76,8 +78,10 @@ namespace School_Project
             this.designationbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.designationbox.FormattingEnabled = true;
             this.designationbox.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
+            "Giáo viên",
+            "Thủ thư",
+            "Bảo vệ",
+            "Lao công"});
             this.designationbox.Location = new System.Drawing.Point(161, 242);
             this.designationbox.Name = "designationbox";
             this.designationbox.Size = new System.Drawing.Size(127, 23);
@@ -104,7 +108,7 @@ namespace School_Project
             // dateofbirthbox
             // 
             this.dateofbirthbox.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateofbirthbox.Location = new System.Drawing.Point(368, 179);
+            this.dateofbirthbox.Location = new System.Drawing.Point(164, 173);
             this.dateofbirthbox.Name = "dateofbirthbox";
             this.dateofbirthbox.Size = new System.Drawing.Size(102, 23);
             this.dateofbirthbox.TabIndex = 35;
@@ -112,7 +116,7 @@ namespace School_Project
             // dateofbirth
             // 
             this.dateofbirth.AutoSize = true;
-            this.dateofbirth.Location = new System.Drawing.Point(289, 182);
+            this.dateofbirth.Location = new System.Drawing.Point(85, 179);
             this.dateofbirth.Name = "dateofbirth";
             this.dateofbirth.Size = new System.Drawing.Size(73, 15);
             this.dateofbirth.TabIndex = 34;
@@ -125,7 +129,7 @@ namespace School_Project
             this.genderbox.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.genderbox.Location = new System.Drawing.Point(136, 179);
+            this.genderbox.Location = new System.Drawing.Point(368, 173);
             this.genderbox.Name = "genderbox";
             this.genderbox.Size = new System.Drawing.Size(79, 23);
             this.genderbox.TabIndex = 33;
@@ -133,7 +137,7 @@ namespace School_Project
             // gender
             // 
             this.gender.AutoSize = true;
-            this.gender.Location = new System.Drawing.Point(85, 182);
+            this.gender.Location = new System.Drawing.Point(317, 176);
             this.gender.Name = "gender";
             this.gender.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.gender.Size = new System.Drawing.Size(45, 15);
@@ -204,17 +208,17 @@ namespace School_Project
 
         private System.Windows.Forms.Button clearbutton;
         private System.Windows.Forms.Button savebutton;
-        private System.Windows.Forms.TextBox qualificationbox;
-        private System.Windows.Forms.ComboBox designationbox;
         private System.Windows.Forms.Label qualification;
         private System.Windows.Forms.Label designation;
-        private System.Windows.Forms.DateTimePicker dateofbirthbox;
         private System.Windows.Forms.Label dateofbirth;
-        private System.Windows.Forms.ComboBox genderbox;
         private System.Windows.Forms.Label gender;
-        private System.Windows.Forms.TextBox namebox;
         private System.Windows.Forms.Label name;
-        private System.Windows.Forms.TextBox idbox;
         private System.Windows.Forms.Label id;
+        internal System.Windows.Forms.TextBox qualificationbox;
+        internal System.Windows.Forms.ComboBox designationbox;
+        internal System.Windows.Forms.DateTimePicker dateofbirthbox;
+        internal System.Windows.Forms.ComboBox genderbox;
+        internal System.Windows.Forms.TextBox namebox;
+        internal System.Windows.Forms.TextBox idbox;
     }
 }

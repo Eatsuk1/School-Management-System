@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 
 namespace School_Project
@@ -39,9 +34,9 @@ namespace School_Project
 
         private void Mngstudent_Load(object sender, EventArgs e)
         {
-           
+
         }
-        
+
         private void addnewbutton_Click(object sender, EventArgs e)
         {
             Add_Student s = new Add_Student(this);
@@ -50,8 +45,8 @@ namespace School_Project
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
-            
+
+
         }
 
         private void editbutton_Click(object sender, EventArgs e)
@@ -78,14 +73,14 @@ namespace School_Project
 
         private void deletebutton_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure to delete? Click Yes to confirm", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure to delete? Click Yes to confirm", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-               
+
                 SqlCommand cm = new SqlCommand("delete from student_info where id = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 cn.Close();
-                
+
                 MessageBox.Show("Deleted successfully.", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadRecords();
             }

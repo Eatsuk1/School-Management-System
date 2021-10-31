@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace School_Project
 {
     public partial class Mainwindow : Form
     {
+        bool isExit = true; //sử đụng dể phân biệt log out và thoát chương trình
+
         public Mainwindow()
         {
             InitializeComponent();
@@ -30,7 +27,40 @@ namespace School_Project
         private void Manage_Staff_Click(object sender, EventArgs e)
         {
             MngStaff s = new MngStaff();
+            s.LoadRecords();
             s.ShowDialog();
+        }
+
+        private void Mainwindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Manage_Marks_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Log_out_Click(object sender, EventArgs e)
+        {
+            isExit = false;
+            if (MessageBox.Show("Bạn có muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.Close();
+                Login f = new Login();
+                f.Show();
+            }
+        }
+
+        private void Mainwindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (isExit)
+            {
+                if (MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
         }
     }
 }

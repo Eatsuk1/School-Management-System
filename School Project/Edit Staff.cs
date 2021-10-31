@@ -1,18 +1,61 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace School_Project
 {
     public partial class Edit_Staff : Form
     {
-        public Edit_Staff()
+        SqlConnection cn;
+        ClassDB db = new ClassDB();
+        MngStaff f;
+        string _title = "School Management System";
+
+        public Edit_Staff(MngStaff f)
         {
             InitializeComponent();
+            cn = new SqlConnection();
+            cn.ConnectionString = db.GetConnection();
+            this.f = f;
+        }
+
+        private void savebutton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Are you sure all staff details are corrected?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    cn.Open();
+                    SqlCommand cm = new SqlCommand("UPDATE staff_info SET name = @name, dob = @dob, gender = @gender, designation = @designation, qualification = @qualification where id =@id", cn);
+                    cm.Parameters.AddWithValue("@name", namebox.Text);
+                    cm.Parameters.AddWithValue("@dob", dateofbirthbox.Text);
+                    cm.Parameters.AddWithValue("@gender", genderbox.Text);
+                    cm.Parameters.AddWithValue("@designation", designationbox.Text);
+                    cm.Parameters.AddWithValue("@qualification", qualificationbox.Text);
+                    cm.Parameters.AddWithValue("@id", idbox.Text);
+                    cm.ExecuteNonQuery();
+                    cn.Close();
+                    MessageBox.Show("Info has successfully saved!", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    f.LoadRecords();
+                    Close();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, _title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void clearbutton_Click(object sender, EventArgs e)
+        {
+            namebox.Clear();
+            genderbox.Text = "";
+            designationbox.Text = "";
+            qualificationbox.Clear();
+            idbox.Clear();
+            dateofbirthbox.Value = DateTime.Now;
         }
     }
 }

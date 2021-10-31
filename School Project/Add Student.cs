@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace School_Project
 {
@@ -38,7 +33,7 @@ namespace School_Project
         {
             agebox.Text = years(dateofbirthbox.Value.Date, DateTime.Now.Date).ToString();
         }
-        
+
         int years(DateTime start, DateTime end)
         {
             return (end.Year - start.Year - 1) + (((end.Month > start.Month) || (end.Month == start.Month) && (end.Day >= start.Day)) ? 1 : 0);
@@ -53,7 +48,7 @@ namespace School_Project
                     MessageBox.Show("No fields must be left blank!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     return;
                 }
-                if (MessageBox.Show("Are you sure all student details are corrected?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure all student details are correct?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
                     SqlCommand cm = new SqlCommand("INSERT INTO student_info(id, name, class, age, gender, dob)VALUES(@id, @name, @class, @age, @gender, @dob)", cn);
@@ -65,12 +60,13 @@ namespace School_Project
                     cm.Parameters.AddWithValue("@dob", dateofbirthbox.Text);
                     cm.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Record has successfully saved!", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Info has successfully saved!", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     f.LoadRecords();
                     Close();
                 }
-                
-            }catch(Exception ex)
+
+            }
+            catch (Exception ex)
             {
                 cn.Close();
                 MessageBox.Show(ex.Message, _title, MessageBoxButtons.OK, MessageBoxIcon.Warning);

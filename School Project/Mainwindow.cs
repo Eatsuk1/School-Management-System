@@ -17,18 +17,20 @@ namespace School_Project
 
         }
 
+        //quản lý học sinh
         private void Manage_Students_Click(object sender, EventArgs e)
         {
             Mngstudent s = new Mngstudent();
             s.LoadRecords();
-            s.ShowDialog();
+            s.Show();
         }
 
+        //quản lý nhân sự
         private void Manage_Staff_Click(object sender, EventArgs e)
         {
             MngStaff s = new MngStaff();
             s.LoadRecords();
-            s.ShowDialog();
+            s.Show();
         }
 
         private void Mainwindow_Load(object sender, EventArgs e)
@@ -41,6 +43,7 @@ namespace School_Project
            
         }
 
+        //đăng xuất
         private void Log_out_Click(object sender, EventArgs e)
         {
             isExit = false;
@@ -52,6 +55,7 @@ namespace School_Project
             }
         }
 
+        //đóng ứng dụng
         private void Mainwindow_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (isExit)

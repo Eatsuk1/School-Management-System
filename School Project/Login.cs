@@ -67,5 +67,10 @@ namespace School_Project
             cn.Close();
             return a;
         }
+
+        private void Login_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

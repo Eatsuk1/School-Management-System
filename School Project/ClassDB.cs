@@ -8,7 +8,7 @@ namespace School_Project
     {
         public string GetConnection()
         {
-            string cn = @"Data Source=SH1RO\SQLEXPRESS;Initial Catalog=ktpm;Integrated Security=True";
+            string cn = @"Server=tcp:ktpm20211.database.windows.net,1433;Initial Catalog=ktpm;Persist Security Info=False;User ID=anhlee;Password=Ktpm20211;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             return cn;
         }
     }

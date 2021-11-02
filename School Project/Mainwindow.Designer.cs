@@ -34,7 +34,6 @@ namespace School_Project
             this.Manage_Students = new System.Windows.Forms.ToolStripButton();
             this.Manage_Staff = new System.Windows.Forms.ToolStripButton();
             this.Manage_Marks = new System.Windows.Forms.ToolStripButton();
-            this.Manage_Fee = new System.Windows.Forms.ToolStripButton();
             this.Manage_Users = new System.Windows.Forms.ToolStripButton();
             this.Log_out = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
@@ -48,7 +47,6 @@ namespace School_Project
             this.Manage_Students,
             this.Manage_Staff,
             this.Manage_Marks,
-            this.Manage_Fee,
             this.Manage_Users,
             this.Log_out});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -86,15 +84,7 @@ namespace School_Project
             this.Manage_Marks.Name = "Manage_Marks";
             this.Manage_Marks.Size = new System.Drawing.Size(128, 32);
             this.Manage_Marks.Text = "Manage Marks";
-            // 
-            // Manage_Fee
-            // 
-            this.Manage_Fee.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Manage_Fee.Image = ((System.Drawing.Image)(resources.GetObject("Manage_Fee.Image")));
-            this.Manage_Fee.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Manage_Fee.Name = "Manage_Fee";
-            this.Manage_Fee.Size = new System.Drawing.Size(112, 32);
-            this.Manage_Fee.Text = "Manage Fee";
+            this.Manage_Marks.Click += new System.EventHandler(this.Manage_Marks_Click);
             // 
             // Manage_Users
             // 
@@ -113,6 +103,7 @@ namespace School_Project
             this.Log_out.Name = "Log_out";
             this.Log_out.Size = new System.Drawing.Size(85, 32);
             this.Log_out.Text = "Log out";
+            this.Log_out.Click += new System.EventHandler(this.Log_out_Click);
             // 
             // Mainwindow
             // 
@@ -125,6 +116,8 @@ namespace School_Project
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Mainwindow";
             this.Text = "Homepage";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Mainwindow_FormClosed);
+            this.Load += new System.EventHandler(this.Mainwindow_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -135,10 +128,9 @@ namespace School_Project
         #endregion
         internal System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton Manage_Students;
-        private System.Windows.Forms.ToolStripButton Manage_Staff;
         private System.Windows.Forms.ToolStripButton Manage_Marks;
-        private System.Windows.Forms.ToolStripButton Manage_Fee;
         private System.Windows.Forms.ToolStripButton Manage_Users;
         private System.Windows.Forms.ToolStripButton Log_out;
+        protected internal System.Windows.Forms.ToolStripButton Manage_Staff;
     }
 }

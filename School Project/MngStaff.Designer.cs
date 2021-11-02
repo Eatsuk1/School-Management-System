@@ -31,7 +31,6 @@ namespace School_Project
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MngStaff));
-            this.search = new System.Windows.Forms.Label();
             this.searchbox = new System.Windows.Forms.TextBox();
             this.searchbutton = new System.Windows.Forms.Button();
             this.searchfilter = new System.Windows.Forms.Label();
@@ -49,38 +48,27 @@ namespace School_Project
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // search
-            // 
-            this.search.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.search.AutoSize = true;
-            this.search.Location = new System.Drawing.Point(37, 35);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(42, 15);
-            this.search.TabIndex = 1;
-            this.search.Text = "Search";
-            this.search.Click += new System.EventHandler(this.search_Click);
-            // 
             // searchbox
             // 
             this.searchbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.searchbox.Enabled = false;
-            this.searchbox.Location = new System.Drawing.Point(85, 32);
+            this.searchbox.Location = new System.Drawing.Point(257, 30);
             this.searchbox.Name = "searchbox";
             this.searchbox.Size = new System.Drawing.Size(211, 23);
             this.searchbox.TabIndex = 2;
+            this.searchbox.TextChanged += new System.EventHandler(this.searchbox_TextChanged);
             // 
             // searchbutton
             // 
-            this.searchbutton.Location = new System.Drawing.Point(302, 30);
+            this.searchbutton.Location = new System.Drawing.Point(474, 30);
             this.searchbutton.Name = "searchbutton";
             this.searchbutton.Size = new System.Drawing.Size(57, 25);
             this.searchbutton.TabIndex = 9;
             this.searchbutton.Text = "Enter";
             this.searchbutton.UseVisualStyleBackColor = true;
+            this.searchbutton.Click += new System.EventHandler(this.searchbutton_Click);
             // 
             // searchfilter
             // 
@@ -89,7 +77,7 @@ namespace School_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.searchfilter.AutoSize = true;
             this.searchfilter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.searchfilter.Location = new System.Drawing.Point(500, 35);
+            this.searchfilter.Location = new System.Drawing.Point(58, 35);
             this.searchfilter.Name = "searchfilter";
             this.searchfilter.Size = new System.Drawing.Size(87, 15);
             this.searchfilter.TabIndex = 10;
@@ -103,16 +91,18 @@ namespace School_Project
             this.filterbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.filterbox.FormattingEnabled = true;
             this.filterbox.Items.AddRange(new object[] {
+            "",
             "ID",
             "Name",
             "Date of Birth",
             "Gender",
             "Designation",
             "Qualification"});
-            this.filterbox.Location = new System.Drawing.Point(593, 30);
+            this.filterbox.Location = new System.Drawing.Point(151, 30);
             this.filterbox.Name = "filterbox";
             this.filterbox.Size = new System.Drawing.Size(100, 23);
             this.filterbox.TabIndex = 11;
+            this.filterbox.SelectedIndexChanged += new System.EventHandler(this.filterbox_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
@@ -210,6 +200,7 @@ namespace School_Project
             this.editbutton.TabIndex = 14;
             this.editbutton.Text = "Edit Staff";
             this.editbutton.UseVisualStyleBackColor = true;
+            this.editbutton.Click += new System.EventHandler(this.editbutton_Click);
             // 
             // deletebutton
             // 
@@ -224,6 +215,7 @@ namespace School_Project
             this.deletebutton.TabIndex = 15;
             this.deletebutton.Text = "Delete Staff";
             this.deletebutton.UseVisualStyleBackColor = true;
+            this.deletebutton.Click += new System.EventHandler(this.deletebutton_Click);
             // 
             // MngStaff
             // 
@@ -238,11 +230,11 @@ namespace School_Project
             this.Controls.Add(this.searchfilter);
             this.Controls.Add(this.searchbutton);
             this.Controls.Add(this.searchbox);
-            this.Controls.Add(this.search);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MngStaff";
             this.Text = "Manage Staff";
+            this.Load += new System.EventHandler(this.MngStaff_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -250,13 +242,10 @@ namespace School_Project
         }
 
         #endregion
-
-        private System.Windows.Forms.Label search;
         private System.Windows.Forms.TextBox searchbox;
         private System.Windows.Forms.Button searchbutton;
         private System.Windows.Forms.Label searchfilter;
         private System.Windows.Forms.ComboBox filterbox;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button addnewbutton;
         private System.Windows.Forms.Button editbutton;
         private System.Windows.Forms.Button deletebutton;
@@ -266,5 +255,6 @@ namespace School_Project
         private System.Windows.Forms.DataGridViewTextBoxColumn gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn Designation;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qualification;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

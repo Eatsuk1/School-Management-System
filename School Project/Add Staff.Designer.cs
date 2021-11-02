@@ -81,7 +81,7 @@ namespace School_Project
             // gender
             // 
             this.gender.AutoSize = true;
-            this.gender.Location = new System.Drawing.Point(89, 170);
+            this.gender.Location = new System.Drawing.Point(336, 170);
             this.gender.Name = "gender";
             this.gender.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.gender.Size = new System.Drawing.Size(45, 15);
@@ -95,7 +95,7 @@ namespace School_Project
             this.genderbox.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.genderbox.Location = new System.Drawing.Point(140, 165);
+            this.genderbox.Location = new System.Drawing.Point(387, 167);
             this.genderbox.Name = "genderbox";
             this.genderbox.Size = new System.Drawing.Size(79, 23);
             this.genderbox.TabIndex = 19;
@@ -103,7 +103,7 @@ namespace School_Project
             // dateofbirth
             // 
             this.dateofbirth.AutoSize = true;
-            this.dateofbirth.Location = new System.Drawing.Point(304, 168);
+            this.dateofbirth.Location = new System.Drawing.Point(89, 170);
             this.dateofbirth.Name = "dateofbirth";
             this.dateofbirth.Size = new System.Drawing.Size(73, 15);
             this.dateofbirth.TabIndex = 20;
@@ -112,7 +112,7 @@ namespace School_Project
             // dateofbirthbox
             // 
             this.dateofbirthbox.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateofbirthbox.Location = new System.Drawing.Point(383, 164);
+            this.dateofbirthbox.Location = new System.Drawing.Point(168, 164);
             this.dateofbirthbox.Name = "dateofbirthbox";
             this.dateofbirthbox.Size = new System.Drawing.Size(102, 23);
             this.dateofbirthbox.TabIndex = 21;
@@ -140,8 +140,10 @@ namespace School_Project
             this.designationbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.designationbox.FormattingEnabled = true;
             this.designationbox.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
+            "Teacher",
+            "Librarian",
+            "Security",
+            "Lao công"});
             this.designationbox.Location = new System.Drawing.Point(165, 230);
             this.designationbox.Name = "designationbox";
             this.designationbox.Size = new System.Drawing.Size(127, 23);
@@ -162,6 +164,7 @@ namespace School_Project
             this.savebutton.TabIndex = 26;
             this.savebutton.Text = "Save";
             this.savebutton.UseVisualStyleBackColor = true;
+            this.savebutton.Click += new System.EventHandler(this.savebutton_Click);
             // 
             // clearbutton
             // 
@@ -171,6 +174,7 @@ namespace School_Project
             this.clearbutton.TabIndex = 27;
             this.clearbutton.Text = "Clear";
             this.clearbutton.UseVisualStyleBackColor = true;
+            this.clearbutton.Click += new System.EventHandler(this.clearbutton_Click);
             // 
             // Add_Staff
             // 
@@ -195,6 +199,7 @@ namespace School_Project
             this.MaximizeBox = false;
             this.Name = "Add_Staff";
             this.Text = "Add Staff";
+            this.Load += new System.EventHandler(this.Add_Staff_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

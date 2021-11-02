@@ -43,9 +43,9 @@ namespace School_Project
             // 
             this.loginlabel.AutoSize = true;
             this.loginlabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.loginlabel.Location = new System.Drawing.Point(166, 28);
+            this.loginlabel.Location = new System.Drawing.Point(190, 37);
             this.loginlabel.Name = "loginlabel";
-            this.loginlabel.Size = new System.Drawing.Size(148, 37);
+            this.loginlabel.Size = new System.Drawing.Size(184, 46);
             this.loginlabel.TabIndex = 0;
             this.loginlabel.Text = "Đăng nhập";
             // 
@@ -53,9 +53,9 @@ namespace School_Project
             // 
             this.usernamelabel.AutoSize = true;
             this.usernamelabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.usernamelabel.Location = new System.Drawing.Point(68, 101);
+            this.usernamelabel.Location = new System.Drawing.Point(78, 135);
             this.usernamelabel.Name = "usernamelabel";
-            this.usernamelabel.Size = new System.Drawing.Size(107, 20);
+            this.usernamelabel.Size = new System.Drawing.Size(137, 25);
             this.usernamelabel.TabIndex = 1;
             this.usernamelabel.Text = "Tên đăng nhập";
             // 
@@ -63,32 +63,35 @@ namespace School_Project
             // 
             this.passwordlabel.AutoSize = true;
             this.passwordlabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.passwordlabel.Location = new System.Drawing.Point(105, 149);
+            this.passwordlabel.Location = new System.Drawing.Point(120, 199);
             this.passwordlabel.Name = "passwordlabel";
-            this.passwordlabel.Size = new System.Drawing.Size(70, 20);
+            this.passwordlabel.Size = new System.Drawing.Size(91, 25);
             this.passwordlabel.TabIndex = 2;
             this.passwordlabel.Text = "Mật khẩu";
             // 
             // usernamebox
             // 
-            this.usernamebox.Location = new System.Drawing.Point(181, 102);
+            this.usernamebox.Location = new System.Drawing.Point(207, 136);
+            this.usernamebox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.usernamebox.Name = "usernamebox";
-            this.usernamebox.Size = new System.Drawing.Size(163, 23);
+            this.usernamebox.Size = new System.Drawing.Size(186, 27);
             this.usernamebox.TabIndex = 3;
             this.usernamebox.TextChanged += new System.EventHandler(this.usernamebox_TextChanged);
             // 
             // passwordbox
             // 
-            this.passwordbox.Location = new System.Drawing.Point(181, 149);
+            this.passwordbox.Location = new System.Drawing.Point(207, 199);
+            this.passwordbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.passwordbox.Name = "passwordbox";
-            this.passwordbox.Size = new System.Drawing.Size(163, 23);
+            this.passwordbox.Size = new System.Drawing.Size(186, 27);
             this.passwordbox.TabIndex = 4;
             // 
             // loginbutton
             // 
-            this.loginbutton.Location = new System.Drawing.Point(105, 205);
+            this.loginbutton.Location = new System.Drawing.Point(120, 273);
+            this.loginbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.loginbutton.Name = "loginbutton";
-            this.loginbutton.Size = new System.Drawing.Size(84, 40);
+            this.loginbutton.Size = new System.Drawing.Size(96, 53);
             this.loginbutton.TabIndex = 5;
             this.loginbutton.Text = "Enter";
             this.loginbutton.UseVisualStyleBackColor = true;
@@ -96,18 +99,19 @@ namespace School_Project
             // 
             // forgotbutton
             // 
-            this.forgotbutton.Location = new System.Drawing.Point(269, 205);
+            this.forgotbutton.Location = new System.Drawing.Point(307, 273);
+            this.forgotbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.forgotbutton.Name = "forgotbutton";
-            this.forgotbutton.Size = new System.Drawing.Size(88, 40);
+            this.forgotbutton.Size = new System.Drawing.Size(101, 53);
             this.forgotbutton.TabIndex = 6;
             this.forgotbutton.Text = "Quên mật khẩu";
             this.forgotbutton.UseVisualStyleBackColor = true;
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 327);
+            this.ClientSize = new System.Drawing.Size(550, 436);
             this.Controls.Add(this.forgotbutton);
             this.Controls.Add(this.loginbutton);
             this.Controls.Add(this.passwordbox);
@@ -117,11 +121,13 @@ namespace School_Project
             this.Controls.Add(this.loginlabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm quản lý tiểu học";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Login_FormClosed);
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

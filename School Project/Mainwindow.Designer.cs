@@ -62,8 +62,8 @@ namespace School_Project
             this.Manage_Students.Image = ((System.Drawing.Image)(resources.GetObject("Manage_Students.Image")));
             this.Manage_Students.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Manage_Students.Name = "Manage_Students";
-            this.Manage_Students.Size = new System.Drawing.Size(142, 32);
-            this.Manage_Students.Text = "Manage Students";
+            this.Manage_Students.Size = new System.Drawing.Size(136, 32);
+            this.Manage_Students.Text = "Quản lý học sinh";
             this.Manage_Students.Click += new System.EventHandler(this.Manage_Students_Click);
             // 
             // Manage_Staff
@@ -115,7 +115,7 @@ namespace School_Project
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Mainwindow";
-            this.Text = "Homepage";
+            this.Text = "Trang chủ";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Mainwindow_FormClosed);
             this.Load += new System.EventHandler(this.Mainwindow_Load);
             this.toolStrip1.ResumeLayout(false);

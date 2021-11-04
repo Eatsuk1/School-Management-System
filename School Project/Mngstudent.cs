@@ -106,12 +106,14 @@ namespace School_Project
             }
         }
 
+        
         //hàm filter cho search
         public void LoadSearch(string searchWord)
         {
+            
             dataGridView1.Rows.Clear();
             cn.Open();
-            SqlCommand cm = new SqlCommand("select name, class, age, gender, dob from student_info where " + filterbox.Text + " = '" + searchWord + "'", cn);
+            SqlCommand cm = new SqlCommand("select name, class, age, gender, dob from student_info where " + age.Name + " = '" + searchWord + "'", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -125,17 +127,17 @@ namespace School_Project
             LoadSearch(searchbox.Text);
         }
 
-        //lock / unlock thanh search
-        private void filterbox_SelectedIndexChanged(object sender, EventArgs e)
+        private void age_CheckedChanged(object sender, EventArgs e)
         {
-            if (filterbox.Text == "Họ tên" || filterbox.Text == "Lớp" || filterbox.Text == "Tuổi" || filterbox.Text == "Giới tính" || filterbox.Text == "Dân tộc")
-            {
-                searchbox.Enabled = true;
-            }
-            else
-            {
-                searchbox.Enabled = false;
-            }
+
         }
+
+        private void gender_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //lock / unlock thanh search
+
     }
 }

@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+
 namespace School_Project
 {
     public partial class Login : Form
@@ -72,5 +73,12 @@ namespace School_Project
         {
             Application.Exit();
         }
+
+        private void forgotbutton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Liên hệ Admin để được cấp lại mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        
     }
 }

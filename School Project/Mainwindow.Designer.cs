@@ -62,8 +62,8 @@ namespace School_Project
             this.Manage_Students.Image = ((System.Drawing.Image)(resources.GetObject("Manage_Students.Image")));
             this.Manage_Students.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Manage_Students.Name = "Manage_Students";
-            this.Manage_Students.Size = new System.Drawing.Size(175, 32);
-            this.Manage_Students.Text = "Manage Students";
+            this.Manage_Students.Size = new System.Drawing.Size(136, 32);
+            this.Manage_Students.Text = "Quản lý học sinh";
             this.Manage_Students.Click += new System.EventHandler(this.Manage_Students_Click);
             // 
             // Manage_Staff
@@ -72,8 +72,8 @@ namespace School_Project
             this.Manage_Staff.Image = ((System.Drawing.Image)(resources.GetObject("Manage_Staff.Image")));
             this.Manage_Staff.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Manage_Staff.Name = "Manage_Staff";
-            this.Manage_Staff.Size = new System.Drawing.Size(142, 32);
-            this.Manage_Staff.Text = "Manage Staff";
+            this.Manage_Staff.Size = new System.Drawing.Size(141, 32);
+            this.Manage_Staff.Text = "Quản lý giáo viên";
             this.Manage_Staff.Click += new System.EventHandler(this.Manage_Staff_Click);
             // 
             // Manage_Marks
@@ -82,7 +82,7 @@ namespace School_Project
             this.Manage_Marks.Image = ((System.Drawing.Image)(resources.GetObject("Manage_Marks.Image")));
             this.Manage_Marks.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Manage_Marks.Name = "Manage_Marks";
-            this.Manage_Marks.Size = new System.Drawing.Size(154, 32);
+            this.Manage_Marks.Size = new System.Drawing.Size(128, 32);
             this.Manage_Marks.Text = "Manage Marks";
             this.Manage_Marks.Click += new System.EventHandler(this.Manage_Marks_Click);
             // 
@@ -92,9 +92,8 @@ namespace School_Project
             this.Manage_Users.Image = ((System.Drawing.Image)(resources.GetObject("Manage_Users.Image")));
             this.Manage_Users.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Manage_Users.Name = "Manage_Users";
-            this.Manage_Users.Size = new System.Drawing.Size(150, 32);
+            this.Manage_Users.Size = new System.Drawing.Size(125, 32);
             this.Manage_Users.Text = "Manage Users";
-            this.Manage_Users.Click += new System.EventHandler(this.Manage_Users_Click);
             // 
             // Log_out
             // 
@@ -102,13 +101,13 @@ namespace School_Project
             this.Log_out.Image = ((System.Drawing.Image)(resources.GetObject("Log_out.Image")));
             this.Log_out.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Log_out.Name = "Log_out";
-            this.Log_out.Size = new System.Drawing.Size(101, 32);
+            this.Log_out.Size = new System.Drawing.Size(85, 32);
             this.Log_out.Text = "Log out";
             this.Log_out.Click += new System.EventHandler(this.Log_out_Click);
             // 
             // Mainwindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(876, 609);
@@ -116,7 +115,8 @@ namespace School_Project
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Mainwindow";
-            this.Text = "Homepage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Trang chủ";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Mainwindow_FormClosed);
             this.Load += new System.EventHandler(this.Mainwindow_Load);
             this.toolStrip1.ResumeLayout(false);

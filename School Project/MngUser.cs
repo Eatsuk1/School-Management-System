@@ -95,8 +95,6 @@ namespace School_Project
             string sqlSearch = "SELECT *FROM user_info WHERE username = @username ";
             SqlCommand cmd = new SqlCommand(sqlSearch, cn);
             cmd.Parameters.AddWithValue("username", txtSearch.Text);
-            cmd.Parameters.AddWithValue("password", txtPassword.Text);
-            cmd.Parameters.AddWithValue("role", comboBox1.Text.ToString());
             cmd.ExecuteNonQuery();
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();

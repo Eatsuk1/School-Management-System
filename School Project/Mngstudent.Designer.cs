@@ -29,7 +29,7 @@ namespace School_Project
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mngstudent));
             this.searchbox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -109,9 +109,9 @@ namespace School_Project
             // 
             // dateofbirthcol
             // 
-            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dateofbirthcol.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dateofbirthcol.DefaultCellStyle = dataGridViewCellStyle2;
             this.dateofbirthcol.HeaderText = "Ngày sinh";
             this.dateofbirthcol.Name = "dateofbirthcol";
             this.dateofbirthcol.ReadOnly = true;

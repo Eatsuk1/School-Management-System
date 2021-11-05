@@ -66,5 +66,11 @@ namespace School_Project
                 }
             }
         }
+
+        private void Manage_Users_Click(object sender, EventArgs e)
+        {
+            MngUser f = new MngUser();
+            f.Show();
+        }
     }
 }

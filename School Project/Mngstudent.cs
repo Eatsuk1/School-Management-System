@@ -80,7 +80,6 @@ namespace School_Project
             dr.Close();
             cn.Close();
             f.Show();
-
         }
 
         private void deletebutton_Click(object sender, EventArgs e)

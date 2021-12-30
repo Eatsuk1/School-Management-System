@@ -53,24 +53,46 @@ namespace School_Project
                 Login f = new Login();
                 f.Show();
             }
-        }
-
-        //đóng ứng dụng
-        private void Mainwindow_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (isExit)
-            {
-                if (MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                {
-                    Application.Exit();
-                }
-            }
-        }
+        }      
 
         private void Manage_Users_Click(object sender, EventArgs e)
         {
             MngUser f = new MngUser();
             f.Show();
+        }
+        //đóng ứng dụng
+        
+
+        //private void Mainwindow_FormClosed(object sender, FormClosedEventArgs e)
+        //{
+        //    if (isExit)
+        //    {
+        //        if (MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.Cancel)
+        //        {
+        //            e.cancel = true;
+        //        }
+
+        //    }
+        //}
+
+        private void Mainwindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (isExit)
+            {
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    DialogResult result = MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.OKCancel);
+                    if (result == System.Windows.Forms.DialogResult.OK)
+                    {
+                        Application.Exit();
+                    }
+
+                    else
+                    {
+                        e.Cancel = true;
+                    }
+                }
+            }
         }
     }
 }

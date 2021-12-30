@@ -22,11 +22,11 @@ namespace School_Project
         {
             dataGridView1.Rows.Clear();
             cn.Open();
-            SqlCommand cm = new SqlCommand("select * from staff_info", cn);
+            SqlCommand cm = new SqlCommand("select * from teacher_info", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
-                dataGridView1.Rows.Add(dr["name"].ToString(), DateTime.Parse(dr["dob"].ToString()).ToShortDateString(), dr["gender"].ToString(), dr["designation"].ToString());
+                dataGridView1.Rows.Add(dr["id"].ToString(), dr["name"].ToString(), DateTime.Parse(dr["dob"].ToString()).ToShortDateString(), dr["subject"].ToString(), dr["class"].ToString());
             }
             dr.Close();
             cn.Close();

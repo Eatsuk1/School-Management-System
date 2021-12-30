@@ -62,7 +62,7 @@ namespace School_Project
             this.Manage_Students.Image = ((System.Drawing.Image)(resources.GetObject("Manage_Students.Image")));
             this.Manage_Students.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Manage_Students.Name = "Manage_Students";
-            this.Manage_Students.Size = new System.Drawing.Size(136, 32);
+            this.Manage_Students.Size = new System.Drawing.Size(170, 32);
             this.Manage_Students.Text = "Quản lý học sinh";
             this.Manage_Students.Click += new System.EventHandler(this.Manage_Students_Click);
             // 
@@ -72,7 +72,7 @@ namespace School_Project
             this.Manage_Staff.Image = ((System.Drawing.Image)(resources.GetObject("Manage_Staff.Image")));
             this.Manage_Staff.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Manage_Staff.Name = "Manage_Staff";
-            this.Manage_Staff.Size = new System.Drawing.Size(141, 32);
+            this.Manage_Staff.Size = new System.Drawing.Size(175, 32);
             this.Manage_Staff.Text = "Quản lý giáo viên";
             this.Manage_Staff.Click += new System.EventHandler(this.Manage_Staff_Click);
             // 
@@ -92,8 +92,8 @@ namespace School_Project
             this.Manage_Users.Image = ((System.Drawing.Image)(resources.GetObject("Manage_Users.Image")));
             this.Manage_Users.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Manage_Users.Name = "Manage_Users";
-            this.Manage_Users.Size = new System.Drawing.Size(150, 32);
-            this.Manage_Users.Text = "Manage Users";
+            this.Manage_Users.Size = new System.Drawing.Size(195, 32);
+            this.Manage_Users.Text = "Quản lý người dùng";
             this.Manage_Users.Click += new System.EventHandler(this.Manage_Users_Click);
             // 
             // Log_out
@@ -102,8 +102,8 @@ namespace School_Project
             this.Log_out.Image = ((System.Drawing.Image)(resources.GetObject("Log_out.Image")));
             this.Log_out.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Log_out.Name = "Log_out";
-            this.Log_out.Size = new System.Drawing.Size(101, 32);
-            this.Log_out.Text = "Log out";
+            this.Log_out.Size = new System.Drawing.Size(121, 32);
+            this.Log_out.Text = "Đăng xuất";
             this.Log_out.Click += new System.EventHandler(this.Log_out_Click);
             // 
             // Mainwindow
@@ -118,7 +118,7 @@ namespace School_Project
             this.Name = "Mainwindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trang chủ";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Mainwindow_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Mainwindow_FormClosing);
             this.Load += new System.EventHandler(this.Mainwindow_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

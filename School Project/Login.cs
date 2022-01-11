@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 
 namespace School_Project
@@ -35,11 +30,12 @@ namespace School_Project
         private void loginbutton_Click(object sender, EventArgs e)
         {
             Mainwindow s = new Mainwindow();
-            if(compare() == "admin")
+            if (compare() == "admin")
             {
                 this.Hide();
                 s.Show();
-            }else if(compare() == "teacher")
+            }
+            else if (compare() == "teacher")
             {
                 this.Hide();
                 s.Manage_Staff.Enabled = false;
@@ -51,17 +47,17 @@ namespace School_Project
             }
         }
 
-        public string compare ()
+        public string compare()
         {
             string a = "";
             cn.Open();
-            SqlCommand cm = new SqlCommand("Select username, password, role from user_info", cn);
+            SqlCommand cm = new SqlCommand("Select Tendangnhap, Matkhau, Quyenhan from R8", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
-                if (usernamebox.Text == dr["username"].ToString() && passwordbox.Text == dr["password"].ToString())
+                if (usernamebox.Text == dr["Tendangnhap"].ToString() && passwordbox.Text == dr["Matkhau"].ToString())
                 {
-                    a = dr["role"].ToString();
+                    a = dr["Quyenhan"].ToString();
                 }
             }
             dr.Close();
@@ -79,6 +75,6 @@ namespace School_Project
             MessageBox.Show("Liên hệ Admin để được cấp lại mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
-        
+
     }
 }

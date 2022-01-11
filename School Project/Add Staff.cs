@@ -30,8 +30,8 @@ namespace School_Project
         {
             //tạo list các textbox để kiểm tra đã điền đủ hay chưa
             List<string> textbox = new List<string>();
-            textbox.Add(namebox.Text); textbox.Add(genderbox.Text); textbox.Add(ethnicbox.Text); textbox.Add(nationalitybox.Text);
-            textbox.Add(hometownbox.Text); textbox.Add(addressbox.Text); textbox.Add(phonenumbox.Text); textbox.Add(designationbox.Text);
+           // textbox.Add(namebox.Text); textbox.Add(genderbox.Text); textbox.Add(ethnicbox.Text); textbox.Add(nationalitybox.Text);
+           // textbox.Add(hometownbox.Text); textbox.Add(addressbox.Text); textbox.Add(phonenumbox.Text); textbox.Add(designationbox.Text);
             textbox.Add(qualificationbox.Text);
 
             try
@@ -51,12 +51,12 @@ namespace School_Project
                     cm.Parameters.AddWithValue("@name", namebox.Text);
                     cm.Parameters.AddWithValue("@dob", dateofbirthbox.Text);
                     cm.Parameters.AddWithValue("@gender", genderbox.Text);
-                    cm.Parameters.AddWithValue("@ethnic", ethnicbox.Text);
+                   /* cm.Parameters.AddWithValue("@ethnic", ethnicbox.Text);
                     cm.Parameters.AddWithValue("@nationality", nationalitybox.Text);
                     cm.Parameters.AddWithValue("@hometown", hometownbox.Text);
                     cm.Parameters.AddWithValue("@current_resident", addressbox.Text);
                     cm.Parameters.AddWithValue("@phone_number", phonenumbox.Text);
-                    cm.Parameters.AddWithValue("@designation", designationbox.Text);
+                    cm.Parameters.AddWithValue("@designation", designationbox.Text);*/
                     cm.Parameters.AddWithValue("@qualification", qualificationbox.Text);
                     cm.ExecuteNonQuery();
                     cn.Close();
@@ -78,13 +78,13 @@ namespace School_Project
         {
             namebox.Clear();
             genderbox.Text = "";
-            designationbox.Text = "";
+            /*designationbox.Text = "";
             qualificationbox.Clear();
             dateofbirthbox.Value = DateTime.Now;
             ethnicbox.Clear();
             nationalitybox.Clear();
             hometownbox.Clear();
-            addressbox.Clear();
+            addressbox.Clear();*/
             phonenumbox.Clear();
         }
 

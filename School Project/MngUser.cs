@@ -38,7 +38,7 @@ namespace School_Project
 
         public void display()
         {
-            string sqlSELECT = "SELECT *FROM user_info";
+            string sqlSELECT = "SELECT *FROM R8";
             SqlCommand cmd = new SqlCommand(sqlSELECT, cn);
             dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();

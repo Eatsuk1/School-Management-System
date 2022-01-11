@@ -40,7 +40,7 @@ namespace School_Project
 
         private void Manage_Marks_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         //đăng xuất
@@ -53,7 +53,7 @@ namespace School_Project
                 Login f = new Login();
                 f.Show();
             }
-        }      
+        }
 
         private void Manage_Users_Click(object sender, EventArgs e)
         {
@@ -61,7 +61,7 @@ namespace School_Project
             f.Show();
         }
         //đóng ứng dụng
-        
+
 
         //private void Mainwindow_FormClosed(object sender, FormClosedEventArgs e)
         //{

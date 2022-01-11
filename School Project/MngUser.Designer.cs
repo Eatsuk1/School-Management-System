@@ -194,7 +194,7 @@ namespace School_Project
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnAdd);
             this.Name = "MngUser";
-            this.Text = "MngUser";
+            this.Text = "Quản lý tài khoản";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MngUser_FormClosing);
             this.Load += new System.EventHandler(this.MngUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UserList)).EndInit();

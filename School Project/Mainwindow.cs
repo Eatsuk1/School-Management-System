@@ -25,10 +25,10 @@ namespace School_Project
             s.Show();
         }
 
-        //quản lý nhân sự
+        //quản lý giáo viên
         private void Manage_Staff_Click(object sender, EventArgs e)
         {
-            MngStaff s = new MngStaff();
+            Mngteacher s = new Mngteacher();
             s.LoadRecords();
             s.Show();
         }

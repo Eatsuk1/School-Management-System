@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace School_Project
 {
@@ -42,7 +38,7 @@ namespace School_Project
 
         public void display()
         {
-            string sqlSELECT = "SELECT *FROM user_info";
+            string sqlSELECT = "SELECT *FROM R8";
             SqlCommand cmd = new SqlCommand(sqlSELECT, cn);
             dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
@@ -92,10 +88,8 @@ namespace School_Project
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string sqlSearch = "SELECT *FROM user_info WHERE username = @username ";
+            string sqlSearch = "SELECT *FROM user_info WHERE username = " + txtSearch.Text;
             SqlCommand cmd = new SqlCommand(sqlSearch, cn);
-            cmd.Parameters.AddWithValue("username", txtSearch.Text);
-            cmd.ExecuteNonQuery();
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(dr);

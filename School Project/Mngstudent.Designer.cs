@@ -29,7 +29,7 @@ namespace School_Project
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mngstudent));
             this.searchbox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -53,9 +53,10 @@ namespace School_Project
             this.searchbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchbox.Location = new System.Drawing.Point(332, 22);
+            this.searchbox.Location = new System.Drawing.Point(379, 29);
+            this.searchbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchbox.Name = "searchbox";
-            this.searchbox.Size = new System.Drawing.Size(211, 23);
+            this.searchbox.Size = new System.Drawing.Size(241, 27);
             this.searchbox.TabIndex = 1;
             this.searchbox.TextChanged += new System.EventHandler(this.searchbox_TextChanged);
             // 
@@ -70,11 +71,13 @@ namespace School_Project
             this.agecol,
             this.gendercol,
             this.dateofbirthcol});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 72);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 96);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 290);
+            this.dataGridView1.Size = new System.Drawing.Size(887, 387);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -82,12 +85,14 @@ namespace School_Project
             // 
             this.namecol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.namecol.HeaderText = "Họ và tên";
+            this.namecol.MinimumWidth = 6;
             this.namecol.Name = "namecol";
             this.namecol.ReadOnly = true;
             // 
             // classcol
             // 
             this.classcol.HeaderText = "Lớp";
+            this.classcol.MinimumWidth = 6;
             this.classcol.Name = "classcol";
             this.classcol.ReadOnly = true;
             this.classcol.Width = 77;
@@ -96,23 +101,26 @@ namespace School_Project
             // 
             this.agecol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.agecol.HeaderText = "Tuổi";
+            this.agecol.MinimumWidth = 6;
             this.agecol.Name = "agecol";
             this.agecol.ReadOnly = true;
-            this.agecol.Width = 55;
+            this.agecol.Width = 67;
             // 
             // gendercol
             // 
             this.gendercol.HeaderText = "Giới tính";
+            this.gendercol.MinimumWidth = 6;
             this.gendercol.Name = "gendercol";
             this.gendercol.ReadOnly = true;
             this.gendercol.Width = 80;
             // 
             // dateofbirthcol
             // 
-            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dateofbirthcol.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dateofbirthcol.DefaultCellStyle = dataGridViewCellStyle1;
             this.dateofbirthcol.HeaderText = "Ngày sinh";
+            this.dateofbirthcol.MinimumWidth = 6;
             this.dateofbirthcol.Name = "dateofbirthcol";
             this.dateofbirthcol.ReadOnly = true;
             this.dateofbirthcol.Width = 120;
@@ -124,9 +132,10 @@ namespace School_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.addnewbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addnewbutton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.addnewbutton.Location = new System.Drawing.Point(95, 383);
+            this.addnewbutton.Location = new System.Drawing.Point(109, 511);
+            this.addnewbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.addnewbutton.Name = "addnewbutton";
-            this.addnewbutton.Size = new System.Drawing.Size(141, 43);
+            this.addnewbutton.Size = new System.Drawing.Size(161, 57);
             this.addnewbutton.TabIndex = 3;
             this.addnewbutton.Text = "Thêm học sinh mới";
             this.addnewbutton.UseVisualStyleBackColor = true;
@@ -139,9 +148,10 @@ namespace School_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.deletebutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deletebutton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.deletebutton.Location = new System.Drawing.Point(575, 383);
+            this.deletebutton.Location = new System.Drawing.Point(657, 511);
+            this.deletebutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.deletebutton.Name = "deletebutton";
-            this.deletebutton.Size = new System.Drawing.Size(103, 43);
+            this.deletebutton.Size = new System.Drawing.Size(118, 57);
             this.deletebutton.TabIndex = 4;
             this.deletebutton.Text = "Xóa học sinh";
             this.deletebutton.UseVisualStyleBackColor = true;
@@ -154,9 +164,10 @@ namespace School_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.editbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editbutton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.editbutton.Location = new System.Drawing.Point(352, 383);
+            this.editbutton.Location = new System.Drawing.Point(402, 511);
+            this.editbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.editbutton.Name = "editbutton";
-            this.editbutton.Size = new System.Drawing.Size(98, 43);
+            this.editbutton.Size = new System.Drawing.Size(112, 57);
             this.editbutton.TabIndex = 5;
             this.editbutton.Text = "Cập nhật thông tin";
             this.editbutton.UseVisualStyleBackColor = true;
@@ -169,17 +180,18 @@ namespace School_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.searchfilter.AutoSize = true;
             this.searchfilter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.searchfilter.Location = new System.Drawing.Point(69, 27);
+            this.searchfilter.Location = new System.Drawing.Point(66, 33);
             this.searchfilter.Name = "searchfilter";
-            this.searchfilter.Size = new System.Drawing.Size(115, 15);
+            this.searchfilter.Size = new System.Drawing.Size(145, 20);
             this.searchfilter.TabIndex = 6;
             this.searchfilter.Text = "Tìm kiếm qua bộ lọc";
             // 
             // searchbutton
             // 
-            this.searchbutton.Location = new System.Drawing.Point(575, 22);
+            this.searchbutton.Location = new System.Drawing.Point(657, 29);
+            this.searchbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchbutton.Name = "searchbutton";
-            this.searchbutton.Size = new System.Drawing.Size(57, 25);
+            this.searchbutton.Size = new System.Drawing.Size(65, 33);
             this.searchbutton.TabIndex = 8;
             this.searchbutton.Text = "Enter";
             this.searchbutton.UseVisualStyleBackColor = true;
@@ -188,9 +200,10 @@ namespace School_Project
             // age
             // 
             this.age.AutoSize = true;
-            this.age.Location = new System.Drawing.Point(190, 24);
+            this.age.Location = new System.Drawing.Point(217, 32);
+            this.age.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.age.Name = "age";
-            this.age.Size = new System.Drawing.Size(47, 19);
+            this.age.Size = new System.Drawing.Size(57, 24);
             this.age.TabIndex = 9;
             this.age.Text = "tuổi";
             this.age.UseVisualStyleBackColor = true;
@@ -199,9 +212,10 @@ namespace School_Project
             // gender
             // 
             this.gender.AutoSize = true;
-            this.gender.Location = new System.Drawing.Point(243, 23);
+            this.gender.Location = new System.Drawing.Point(278, 31);
+            this.gender.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gender.Name = "gender";
-            this.gender.Size = new System.Drawing.Size(70, 19);
+            this.gender.Size = new System.Drawing.Size(86, 24);
             this.gender.TabIndex = 10;
             this.gender.Text = "giới tính";
             this.gender.UseVisualStyleBackColor = true;
@@ -210,9 +224,9 @@ namespace School_Project
             // Mngstudent
             // 
             this.AcceptButton = this.searchbutton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(914, 600);
             this.Controls.Add(this.gender);
             this.Controls.Add(this.age);
             this.Controls.Add(this.searchbutton);
@@ -224,6 +238,7 @@ namespace School_Project
             this.Controls.Add(this.searchbox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Mngstudent";

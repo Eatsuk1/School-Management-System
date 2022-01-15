@@ -9,10 +9,10 @@ namespace School_Project
     {
         SqlConnection cn;
         ClassDB db = new ClassDB();
-        MngStaff f;
+        Mngteacher f;
         string _title = "Hệ thống quản lý";
 
-        public Edit_Staff(MngStaff f)
+        public Edit_Staff(Mngteacher f)
         {
             InitializeComponent();
             cn = new SqlConnection();

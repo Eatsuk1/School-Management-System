@@ -23,11 +23,11 @@ namespace School_Project
         {
             dataGridView1.Rows.Clear();
             cn.Open();
-            SqlCommand cm = new SqlCommand("select name, class, age, gender, dob from student_info", cn);
+            var cm = new SqlCommand("select R2.tenHocSinh, R3.tenLop, R2.Tuoi, R2.Gioitinh, R2.NgaySinh from R2,R3 where R2.maLop = R3.maLop", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
-                dataGridView1.Rows.Add(dr["name"].ToString(), dr["class"].ToString(), dr["age"].ToString(), dr["gender"].ToString(), DateTime.Parse(dr["dob"].ToString()).ToShortDateString());
+                dataGridView1.Rows.Add(dr["tenHocSinh"].ToString(), dr["tenLop"].ToString(), dr["Tuoi"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString());
             }
             dr.Close();
             cn.Close();
@@ -56,26 +56,27 @@ namespace School_Project
         {
             Edit_Student f = new Edit_Student(this);
             cn.Open();
-            SqlCommand cm = new SqlCommand("select * from student_info where name = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
+            SqlCommand cm = new SqlCommand("select * from R2 where tenHocSinh = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
             dr = cm.ExecuteReader();
             dr.Read();
             if (dr.HasRows)
             {
-                f.namebox.Text = dr["name"].ToString();
-                f.classbox.Text = dr["class"].ToString();
-                f.agebox.Text = dr["age"].ToString();
-                f.genderbox.Text = dr["gender"].ToString();
-                f.dateofbirthbox.Text = dr["dob"].ToString();
-                f.placeofbirthbox.Text = dr["pob"].ToString();
-                f.ethnicbox.Text = dr["ethnic"].ToString();
-                f.nationalitybox.Text = dr["nationality"].ToString();
-                f.hometownbox.Text = dr["hometown"].ToString();
-                f.addressbox.Text = dr["home_address"].ToString();
-                f.momnamebox.Text = dr["mom_name"].ToString();
-                f.dadnamebox.Text = dr["dad_name"].ToString();
-                f.guardiannamebox.Text = dr["guardian_name"].ToString();
-                f.heightbox.Text = dr["height"].ToString();
-                f.weightbox.Text = dr["weight"].ToString();
+                f.idstudentbox.Text = dr["maHocSinh"].ToString();
+                f.namebox.Text = dr["tenHocSinh"].ToString();
+                f.classbox.Text = dr["maLop"].ToString();
+                f.agebox.Text = dr["Tuoi"].ToString();
+                f.genderbox.Text = dr["Gioitinh"].ToString();
+                f.dateofbirthbox.Text = dr["NgaySinh"].ToString();
+                f.placeofbirthbox.Text = dr["NoiSinh"].ToString();
+                f.ethnicbox.Text = dr["Dantoc"].ToString();
+                f.nationalitybox.Text = dr["Quoctich"].ToString();
+                f.addressbox.Text = dr["Diachi"].ToString();
+                f.hometownbox.Text = dr["Quequan"].ToString();
+                f.momnamebox.Text = dr["Tenme"].ToString();
+                f.dadnamebox.Text = dr["Tenbo"].ToString();
+                f.phonenumbox.Text = dr["Sodienthoai"].ToString();
+                f.heightbox.Text = dr["Chieucao"].ToString();
+                f.weightbox.Text = dr["Cannang"].ToString();
             }
             dr.Close();
             cn.Close();
@@ -87,7 +88,7 @@ namespace School_Project
             if (MessageBox.Show("Bạn chắc chắn muốn xóa học sinh này? Nhấn Yes để xóa", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
-                SqlCommand cm = new SqlCommand("delete from student_info where name = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
+                SqlCommand cm = new SqlCommand("delete from R2 where tenHocSinh = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 cn.Close();

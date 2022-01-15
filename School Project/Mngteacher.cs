@@ -4,13 +4,13 @@ using System.Windows.Forms;
 
 namespace School_Project
 {
-    public partial class MngStaff : Form
+    public partial class Mngteacher : Form
     {
         SqlConnection cn;
         SqlDataReader dr;
         ClassDB db = new ClassDB();
         string _title = "Hệ thống quản lý";
-        public MngStaff()
+        public Mngteacher()
         {
             InitializeComponent();
             cn = new SqlConnection();
@@ -35,7 +35,7 @@ namespace School_Project
         //thêm giáo viên mới
         private void addnewbutton_Click(object sender, EventArgs e)
         {
-            Add_Staff s = new Add_Staff(this);
+            Add_Teacher s = new Add_Teacher(this);
             s.ShowDialog();
         }
 

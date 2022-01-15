@@ -1,7 +1,7 @@
 ﻿
 namespace School_Project
 {
-    partial class MngStaff
+    partial class Mngteacher
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace School_Project
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MngStaff));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mngteacher));
             this.searchbox = new System.Windows.Forms.TextBox();
             this.searchbutton = new System.Windows.Forms.Button();
             this.searchfilter = new System.Windows.Forms.Label();

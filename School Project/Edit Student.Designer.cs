@@ -39,7 +39,6 @@ namespace School_Project
             this.dateofbirthbox = new System.Windows.Forms.DateTimePicker();
             this.savebutton = new System.Windows.Forms.Button();
             this.clearbutton = new System.Windows.Forms.Button();
-            this.classbox = new System.Windows.Forms.TextBox();
             this.age = new System.Windows.Forms.Label();
             this.agebox = new System.Windows.Forms.TextBox();
             this.ethnic = new System.Windows.Forms.Label();
@@ -64,6 +63,7 @@ namespace School_Project
             this.phonenumbox = new System.Windows.Forms.TextBox();
             this.address = new System.Windows.Forms.Label();
             this.addressbox = new System.Windows.Forms.TextBox();
+            this.classbox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // namebox
@@ -161,14 +161,6 @@ namespace School_Project
             this.clearbutton.Text = "Xóa thay đổi";
             this.clearbutton.UseVisualStyleBackColor = true;
             this.clearbutton.Click += new System.EventHandler(this.clearbutton_Click);
-            // 
-            // classbox
-            // 
-            this.classbox.Location = new System.Drawing.Point(1198, 64);
-            this.classbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.classbox.Name = "classbox";
-            this.classbox.Size = new System.Drawing.Size(76, 27);
-            this.classbox.TabIndex = 10;
             // 
             // age
             // 
@@ -391,11 +383,24 @@ namespace School_Project
             this.addressbox.Size = new System.Drawing.Size(255, 60);
             this.addressbox.TabIndex = 36;
             // 
+            // classbox
+            // 
+            this.classbox.AccessibleRole = System.Windows.Forms.AccessibleRole.ComboBox;
+            this.classbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.classbox.FormattingEnabled = true;
+            this.classbox.Items.AddRange(new object[] {
+            "3A"});
+            this.classbox.Location = new System.Drawing.Point(1198, 65);
+            this.classbox.Name = "classbox";
+            this.classbox.Size = new System.Drawing.Size(76, 28);
+            this.classbox.TabIndex = 38;
+            // 
             // Edit_Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1310, 599);
+            this.Controls.Add(this.classbox);
             this.Controls.Add(this.addressbox);
             this.Controls.Add(this.address);
             this.Controls.Add(this.phonenumbox);
@@ -420,7 +425,6 @@ namespace School_Project
             this.Controls.Add(this.ethnic);
             this.Controls.Add(this.agebox);
             this.Controls.Add(this.age);
-            this.Controls.Add(this.classbox);
             this.Controls.Add(this.clearbutton);
             this.Controls.Add(this.savebutton);
             this.Controls.Add(this.dateofbirthbox);
@@ -463,7 +467,6 @@ namespace School_Project
         private System.Windows.Forms.Label address;
         internal System.Windows.Forms.TextBox namebox;
         internal System.Windows.Forms.DateTimePicker dateofbirthbox;
-        internal System.Windows.Forms.TextBox classbox;
         internal System.Windows.Forms.TextBox agebox;
         internal System.Windows.Forms.TextBox ethnicbox;
         internal System.Windows.Forms.TextBox nationalitybox;
@@ -477,5 +480,6 @@ namespace School_Project
         internal System.Windows.Forms.TextBox phonenumbox;
         internal System.Windows.Forms.TextBox addressbox;
         internal System.Windows.Forms.ComboBox genderbox;
+        internal System.Windows.Forms.ComboBox classbox;
     }
 }

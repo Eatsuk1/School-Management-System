@@ -8,6 +8,7 @@ namespace School_Project
     public partial class Edit_Student : Form
     {
         SqlConnection cn;
+        SqlDataReader dr;
         ClassDB db = new ClassDB();
         Mngstudent f;
         string _title = "Hệ thống quản lý";
@@ -27,6 +28,15 @@ namespace School_Project
         //lưu thông tin
         private void savebutton_Click(object sender, EventArgs e)
         {
+            //tra ve ma so lop
+            cn.Open();
+            var a = new SqlCommand("select maLop from R3 where tenLop = '" + classbox.Text + "'", cn);
+            dr = a.ExecuteReader();
+            dr.Read();
+            string b = dr["maLop"].ToString();
+            dr.Close();
+            cn.Close();
+
             try
             {
                 if (MessageBox.Show("Tất cả thông tin đã được nhập đúng?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -47,7 +57,7 @@ namespace School_Project
                     cm.Parameters.AddWithValue("@Sodienthoai", phonenumbox.Text);
                     cm.Parameters.AddWithValue("@Chieucao", heightbox.Text);
                     cm.Parameters.AddWithValue("@Cannang", weightbox.Text);
-                    cm.Parameters.AddWithValue("@maLop", classbox.Text);
+                    cm.Parameters.AddWithValue("@maLop", b);
                     cm.Parameters.AddWithValue("@maHocSinh", idstudentbox.Text);
                     cm.ExecuteNonQuery();
                     cn.Close();
@@ -79,16 +89,16 @@ namespace School_Project
         private void clearbutton_Click(object sender, EventArgs e)
         {
             namebox.Clear();
-            genderbox.Text = "";
-            classbox.Clear();
-            agebox.Text = "";
+            genderbox.Items.Clear();
+            classbox.Items.Clear();
+            
             ethnicbox.Clear();
             nationalitybox.Clear();
             placeofbirthbox.Clear();
             hometownbox.Clear();
             addressbox.Clear();
             momnamebox.Clear(); dadnamebox.Clear(); idstudentbox.Clear();
-            dateofbirthbox.Value = DateTime.Now;
+            dateofbirthbox.Value = DateTime.Now; agebox.Clear();
             phonenumbox.Clear();
         }
     }

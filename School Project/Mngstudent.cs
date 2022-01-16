@@ -2,21 +2,23 @@
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
-
 namespace School_Project
 {
     public partial class Mngstudent : Form
     {
-        SqlConnection cn;
-        SqlDataReader dr;
-        ClassDB db = new ClassDB();
-        string _title = "Hệ thống quản lý";
+        #region khởi tạo tham số ban đầu cần thiết
+        private SqlConnection cn;
+        private SqlDataReader dr;
+        private ClassDB db = new ClassDB();
+        private string _title = "Hệ thống quản lý";
+
         public Mngstudent()
         {
             InitializeComponent();
             cn = new SqlConnection();
             cn.ConnectionString = db.GetConnection();
         }
+        #endregion
 
         //đưa các dữ liệu vào bảng
         public void LoadRecords()
@@ -33,22 +35,13 @@ namespace School_Project
             cn.Close();
         }
 
-        private void Mngstudent_Load(object sender, EventArgs e)
-        {
-
-        }
+        #region chức năng của quản lý học sinh
 
         //thêm học sinh mới
         private void addnewbutton_Click(object sender, EventArgs e)
         {
             Add_Student s = new Add_Student(this);
             s.Show();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-
         }
 
         //chỉnh sửa thông tin học sinh
@@ -83,11 +76,11 @@ namespace School_Project
             f.Show();
         }
 
+        //xóa học sinh khỏi cơ sở dữ liệu
         private void deletebutton_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn chắc chắn muốn xóa học sinh này? Nhấn Yes để xóa", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-
                 SqlCommand cm = new SqlCommand("delete from R2 where tenHocSinh = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
                 cn.Open();
                 cm.ExecuteNonQuery();
@@ -98,46 +91,107 @@ namespace School_Project
             }
         }
 
-        private void searchbox_TextChanged(object sender, EventArgs e)
+        #endregion
+
+        #region chức năng tìm kiếm
+
+        //hàm filter cho search
+        public void LoadSearch()
         {
-            if (searchbox.Text == "")
+            dataGridView1.Rows.Clear();
+            cn.Open();
+            SqlCommand cm;
+            if (age.Checked == true && gender.Checked == false && name.Checked == false)
             {
+                cm = new SqlCommand("select R2.tenHocSinh, R3.tenLop, R2.Tuoi, R2.Gioitinh, R2.NgaySinh from R2,R3 where R2.maLop = R3.maLop and R2.Tuoi = " + agenumeric.Value, cn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    dataGridView1.Rows.Add(dr["tenHocSinh"].ToString(), dr["tenLop"].ToString(), dr["Tuoi"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString());
+                }
+                dr.Close();
+                cn.Close();
+            }
+            else if (gender.Checked == true && age.Checked == false && name.Checked == false)
+            {
+                cm = new SqlCommand("select R2.tenHocSinh, R3.tenLop, R2.Tuoi, R2.Gioitinh, R2.NgaySinh from R2,R3 where R2.maLop = R3.maLop and R2.Gioitinh = '" + genderbox.Text + "'", cn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    dataGridView1.Rows.Add(dr["tenHocSinh"].ToString(), dr["tenLop"].ToString(), dr["Tuoi"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString());
+                }
+                dr.Close();
+                cn.Close();
+            }
+            else if (age.Checked == true && gender.Checked == true && name.Checked == false)
+            {
+                cm = new SqlCommand("select R2.tenHocSinh, R3.tenLop, R2.Tuoi, R2.Gioitinh, R2.NgaySinh from R2,R3 where R2.maLop = R3.maLop and R2.Tuoi = " + agenumeric.Value + " and R2.Gioitinh = '" + genderbox.Text + "'", cn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    dataGridView1.Rows.Add(dr["tenHocSinh"].ToString(), dr["tenLop"].ToString(), dr["Tuoi"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString());
+                }
+                dr.Close();
+                cn.Close();
+            }
+            else if (name.Checked == true && age.Checked == false && gender.Checked == false)
+            {
+                cm = new SqlCommand("select R2.tenHocSinh, R3.tenLop, R2.Tuoi, R2.Gioitinh, R2.NgaySinh from R2,R3 where R2.maLop = R3.maLop and R2.tenHocSinh = '" + namebox.Text + "'", cn);
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    dataGridView1.Rows.Add(dr["tenHocSinh"].ToString(), dr["tenLop"].ToString(), dr["Tuoi"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString());
+                }
+                dr.Close();
+                cn.Close();
+            }
+            else if (name.Checked == true && age.Checked == true || name.Checked == true && gender.Checked == true)
+            {
+                cn.Close();
+                MessageBox.Show("Bộ lọc không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 LoadRecords();
             }
         }
 
-        
-        //hàm filter cho search
-        public void LoadSearch(string searchWord)
-        {
-            
-            dataGridView1.Rows.Clear();
-            cn.Open();
-            SqlCommand cm = new SqlCommand("select name, class, age, gender, dob from student_info where " + age.Name + " = '" + searchWord + "'", cn);
-            dr = cm.ExecuteReader();
-            while (dr.Read())
-            {
-                dataGridView1.Rows.Add(dr["name"].ToString(), dr["class"].ToString(), dr["age"].ToString(), dr["gender"].ToString(), DateTime.Parse(dr["dob"].ToString()).ToShortDateString());
-            }
-            dr.Close();
-            cn.Close();
-        }
+        //kích hoạt tìm kiếm
         private void searchbutton_Click(object sender, EventArgs e)
         {
-            LoadSearch(searchbox.Text);
+            LoadSearch();
         }
 
-        private void age_CheckedChanged(object sender, EventArgs e)
+        //làm mới lại bảng
+        private void resetbutton_Click(object sender, EventArgs e)
         {
-
+            LoadRecords();
+            age.Checked = gender.Checked = name.Checked = false;
         }
 
-        private void gender_CheckedChanged(object sender, EventArgs e)
+        #region mở khóa filter bằng cách kiểm tra xem đã được tích hay chưa
+
+        private void age_CheckStateChanged(object sender, EventArgs e)
         {
-
+            if (age.Checked) agenumeric.Enabled = true;
+            else { agenumeric.ResetText(); agenumeric.Enabled = false; }
         }
 
-        //lock / unlock thanh search
+        private void gender_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (gender.Checked) genderbox.Enabled = true;
+            else { genderbox.SelectedIndex = -1; genderbox.Enabled = false; }
+        }
 
+        private void name_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (name.Checked) namebox.Enabled = true;
+            else namebox.Enabled = false;
+        }
+
+        private void genderbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        #endregion mở khóa filter bằng cách kiểm tra xem đã được tích hay chưa
+
+        #endregion
     }
 }

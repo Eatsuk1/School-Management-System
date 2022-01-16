@@ -7,11 +7,11 @@ namespace School_Project
 {
     public partial class Add_Student : Form
     {
-        SqlConnection cn;
-        SqlDataReader dr;
-        ClassDB db = new ClassDB();
-        Mngstudent f;
-        string _title = "Hệ thống quản lý";
+        private SqlConnection cn;
+        private SqlDataReader dr;
+        private ClassDB db = new ClassDB();
+        private Mngstudent f;
+        private string _title = "Hệ thống quản lý";
 
         public Add_Student(Mngstudent f)
         {
@@ -27,7 +27,7 @@ namespace School_Project
             agebox.Text = years(dateofbirthbox.Value.Date, DateTime.Now.Date).ToString();
         }
 
-        int years(DateTime start, DateTime end)
+        private int years(DateTime start, DateTime end)
         {
             return (end.Year - start.Year - 1) + (((end.Month > start.Month) || (end.Month == start.Month) && (end.Day >= start.Day)) ? 1 : 0);
         }
@@ -87,7 +87,6 @@ namespace School_Project
                     f.LoadRecords();
                     Close();
                 }
-
             }
             catch (Exception ex)
             {
@@ -100,8 +99,8 @@ namespace School_Project
         private void clearbutton_Click(object sender, EventArgs e)
         {
             namebox.Clear();
-            genderbox.Items.Clear();
-            classbox.Items.Clear();
+            genderbox.SelectedIndex = -1;
+            classbox.SelectedIndex = -1;
             ethnicbox.Clear();
             nationalitybox.Clear();
             placeofbirthbox.Clear();

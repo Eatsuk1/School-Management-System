@@ -5,7 +5,7 @@ namespace School_Project
 {
     public partial class Mainwindow : Form
     {
-        bool isExit = true; //sử đụng dể phân biệt log out và thoát chương trình
+        private bool isExit = true; //sử đụng dể phân biệt log out và thoát chương trình
 
         public Mainwindow()
         {
@@ -14,7 +14,6 @@ namespace School_Project
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-
         }
 
         //quản lý học sinh
@@ -35,12 +34,10 @@ namespace School_Project
 
         private void Mainwindow_Load(object sender, EventArgs e)
         {
-
         }
 
         private void Manage_Marks_Click(object sender, EventArgs e)
         {
-
         }
 
         //đăng xuất
@@ -60,8 +57,8 @@ namespace School_Project
             MngUser f = new MngUser();
             f.Show();
         }
-        //đóng ứng dụng
 
+        //đóng ứng dụng
 
         //private void Mainwindow_FormClosed(object sender, FormClosedEventArgs e)
         //{
@@ -86,7 +83,6 @@ namespace School_Project
                     {
                         Application.Exit();
                     }
-
                     else
                     {
                         e.Cancel = true;

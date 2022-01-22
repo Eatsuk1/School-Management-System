@@ -122,7 +122,7 @@ namespace School_Project
             this.genderbox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.genderbox.Items.AddRange(new object[] {
             "Nam",
-            "Nữ"});
+            "Nu"});
             this.genderbox.Location = new System.Drawing.Point(421, 155);
             this.genderbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.genderbox.Name = "genderbox";

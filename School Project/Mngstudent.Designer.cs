@@ -31,7 +31,7 @@ namespace School_Project
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mngstudent));
-            this.searchbox = new System.Windows.Forms.TextBox();
+            this.namebox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.namecol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.classcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,20 +45,25 @@ namespace School_Project
             this.searchbutton = new System.Windows.Forms.Button();
             this.age = new System.Windows.Forms.CheckBox();
             this.gender = new System.Windows.Forms.CheckBox();
+            this.name = new System.Windows.Forms.CheckBox();
+            this.genderbox = new System.Windows.Forms.ComboBox();
+            this.agenumeric = new System.Windows.Forms.NumericUpDown();
+            this.resetbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agenumeric)).BeginInit();
             this.SuspendLayout();
             // 
-            // searchbox
+            // namebox
             // 
-            this.searchbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.namebox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchbox.Location = new System.Drawing.Point(379, 29);
-            this.searchbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.searchbox.Name = "searchbox";
-            this.searchbox.Size = new System.Drawing.Size(241, 27);
-            this.searchbox.TabIndex = 1;
-            this.searchbox.TextChanged += new System.EventHandler(this.searchbox_TextChanged);
+            this.namebox.Enabled = false;
+            this.namebox.Location = new System.Drawing.Point(579, 15);
+            this.namebox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.namebox.Name = "namebox";
+            this.namebox.Size = new System.Drawing.Size(241, 27);
+            this.namebox.TabIndex = 1;
             // 
             // dataGridView1
             // 
@@ -79,7 +84,6 @@ namespace School_Project
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(887, 387);
             this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // namecol
             // 
@@ -180,15 +184,15 @@ namespace School_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.searchfilter.AutoSize = true;
             this.searchfilter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.searchfilter.Location = new System.Drawing.Point(66, 33);
+            this.searchfilter.Location = new System.Drawing.Point(14, 18);
             this.searchfilter.Name = "searchfilter";
-            this.searchfilter.Size = new System.Drawing.Size(145, 20);
+            this.searchfilter.Size = new System.Drawing.Size(148, 20);
             this.searchfilter.TabIndex = 6;
-            this.searchfilter.Text = "Tìm kiếm qua bộ lọc";
+            this.searchfilter.Text = "Tìm kiếm qua bộ lọc:";
             // 
             // searchbutton
             // 
-            this.searchbutton.Location = new System.Drawing.Point(657, 29);
+            this.searchbutton.Location = new System.Drawing.Point(836, 12);
             this.searchbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.searchbutton.Name = "searchbutton";
             this.searchbutton.Size = new System.Drawing.Size(65, 33);
@@ -200,26 +204,69 @@ namespace School_Project
             // age
             // 
             this.age.AutoSize = true;
-            this.age.Location = new System.Drawing.Point(217, 32);
+            this.age.Location = new System.Drawing.Point(172, 17);
             this.age.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.age.Name = "age";
             this.age.Size = new System.Drawing.Size(57, 24);
             this.age.TabIndex = 9;
             this.age.Text = "tuổi";
             this.age.UseVisualStyleBackColor = true;
-            this.age.CheckedChanged += new System.EventHandler(this.age_CheckedChanged);
+            this.age.CheckStateChanged += new System.EventHandler(this.age_CheckStateChanged);
             // 
             // gender
             // 
             this.gender.AutoSize = true;
-            this.gender.Location = new System.Drawing.Point(278, 31);
+            this.gender.Location = new System.Drawing.Point(310, 17);
             this.gender.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gender.Name = "gender";
             this.gender.Size = new System.Drawing.Size(86, 24);
             this.gender.TabIndex = 10;
             this.gender.Text = "giới tính";
             this.gender.UseVisualStyleBackColor = true;
-            this.gender.CheckedChanged += new System.EventHandler(this.gender_CheckedChanged);
+            this.gender.CheckStateChanged += new System.EventHandler(this.gender_CheckStateChanged);
+            // 
+            // name
+            // 
+            this.name.AutoSize = true;
+            this.name.Location = new System.Drawing.Point(500, 18);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(73, 24);
+            this.name.TabIndex = 12;
+            this.name.Text = "họ tên";
+            this.name.UseVisualStyleBackColor = true;
+            this.name.CheckStateChanged += new System.EventHandler(this.name_CheckStateChanged);
+            // 
+            // genderbox
+            // 
+            this.genderbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genderbox.Enabled = false;
+            this.genderbox.FormattingEnabled = true;
+            this.genderbox.Items.AddRange(new object[] {
+            "Nam",
+            "Nu"});
+            this.genderbox.Location = new System.Drawing.Point(402, 15);
+            this.genderbox.Name = "genderbox";
+            this.genderbox.Size = new System.Drawing.Size(72, 28);
+            this.genderbox.TabIndex = 13;
+            this.genderbox.SelectedIndexChanged += new System.EventHandler(this.genderbox_SelectedIndexChanged);
+            // 
+            // agenumeric
+            // 
+            this.agenumeric.Enabled = false;
+            this.agenumeric.Location = new System.Drawing.Point(235, 16);
+            this.agenumeric.Name = "agenumeric";
+            this.agenumeric.Size = new System.Drawing.Size(44, 27);
+            this.agenumeric.TabIndex = 14;
+            // 
+            // resetbutton
+            // 
+            this.resetbutton.Location = new System.Drawing.Point(14, 60);
+            this.resetbutton.Name = "resetbutton";
+            this.resetbutton.Size = new System.Drawing.Size(94, 29);
+            this.resetbutton.TabIndex = 15;
+            this.resetbutton.Text = "Làm mới";
+            this.resetbutton.UseVisualStyleBackColor = true;
+            this.resetbutton.Click += new System.EventHandler(this.resetbutton_Click);
             // 
             // Mngstudent
             // 
@@ -227,6 +274,10 @@ namespace School_Project
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 600);
+            this.Controls.Add(this.resetbutton);
+            this.Controls.Add(this.agenumeric);
+            this.Controls.Add(this.genderbox);
+            this.Controls.Add(this.name);
             this.Controls.Add(this.gender);
             this.Controls.Add(this.age);
             this.Controls.Add(this.searchbutton);
@@ -235,7 +286,7 @@ namespace School_Project
             this.Controls.Add(this.deletebutton);
             this.Controls.Add(this.addnewbutton);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.searchbox);
+            this.Controls.Add(this.namebox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -244,15 +295,15 @@ namespace School_Project
             this.Name = "Mngstudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý học sinh";
-            this.Load += new System.EventHandler(this.Mngstudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agenumeric)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox searchbox;
+        private System.Windows.Forms.TextBox namebox;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button addnewbutton;
         private System.Windows.Forms.Button deletebutton;
@@ -266,5 +317,9 @@ namespace School_Project
         private System.Windows.Forms.DataGridViewTextBoxColumn dateofbirthcol;
         private System.Windows.Forms.CheckBox age;
         private System.Windows.Forms.CheckBox gender;
+        private System.Windows.Forms.CheckBox name;
+        private System.Windows.Forms.ComboBox genderbox;
+        private System.Windows.Forms.NumericUpDown agenumeric;
+        private System.Windows.Forms.Button resetbutton;
     }
 }

@@ -248,7 +248,6 @@ namespace School_Project
             this.genderbox.Name = "genderbox";
             this.genderbox.Size = new System.Drawing.Size(72, 28);
             this.genderbox.TabIndex = 13;
-            this.genderbox.SelectedIndexChanged += new System.EventHandler(this.genderbox_SelectedIndexChanged);
             // 
             // agenumeric
             // 

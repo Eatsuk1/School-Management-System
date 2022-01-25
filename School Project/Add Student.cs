@@ -7,6 +7,7 @@ namespace School_Project
 {
     public partial class Add_Student : Form
     {
+        #region khởi tạo tham số ban đầu cần thiết
         private SqlConnection cn;
         private SqlDataReader dr;
         private ClassDB db = new ClassDB();
@@ -20,6 +21,7 @@ namespace School_Project
             cn.ConnectionString = db.GetConnection();
             this.f = f;
         }
+        #endregion
 
         //tự động tinh tuổi khi nhập ngày sinh (thông qua hàm years)
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -64,8 +66,7 @@ namespace School_Project
                 if (MessageBox.Show("Tất cả thông tin đã được nhập đúng?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    SqlCommand cm = new SqlCommand("INSERT INTO R2(maHocSinh,tenHocSinh,Tuoi,Gioitinh,NgaySinh,Noisinh,Dantoc,Quoctich,Quequan,Diachi,Tenme,Tenbo,Sodienthoai,Chieucao,Cannang,maLop) VALUES(@maHocSinh,@tenHocSinh,@Tuoi,@Gioitinh,@NgaySinh,@Noisinh,@Dantoc,@Quoctich,@Quequan,@Diachi,@Tenme,@Tenbo,@Sodienthoai,@Chieucao,@Cannang,@maLop)", cn);
-                    cm.Parameters.AddWithValue("@maHocSinh", idstudentbox.Text);
+                    SqlCommand cm = new SqlCommand("INSERT INTO R2(tenHocSinh,Tuoi,Gioitinh,NgaySinh,Noisinh,Dantoc,Quoctich,Quequan,Diachi,Tenme,Tenbo,Sodienthoai,Chieucao,Cannang,maLop) VALUES(@tenHocSinh,@Tuoi,@Gioitinh,@NgaySinh,@Noisinh,@Dantoc,@Quoctich,@Quequan,@Diachi,@Tenme,@Tenbo,@Sodienthoai,@Chieucao,@Cannang,@maLop)", cn);
                     cm.Parameters.AddWithValue("@tenHocSinh", namebox.Text);
                     cm.Parameters.AddWithValue("@Tuoi", agebox.Text);
                     cm.Parameters.AddWithValue("@Gioitinh", genderbox.SelectedItem.ToString());
@@ -106,7 +107,7 @@ namespace School_Project
             placeofbirthbox.Clear();
             hometownbox.Clear();
             addressbox.Clear();
-            momnamebox.Clear(); dadnamebox.Clear(); idstudentbox.Clear();
+            momnamebox.Clear(); dadnamebox.Clear();
             dateofbirthbox.Value = DateTime.Now; agebox.Clear();
             phonenumbox.Clear();
         }

@@ -9,7 +9,7 @@ namespace School_Project
 
         public Mainwindow()
         {
-            InitializeComponent();
+            InitializeComponent(); //phương thức quản lý mọi thứ hiện diện trên forms, được quản lý bởi windows forms designer
         }
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -59,19 +59,6 @@ namespace School_Project
         }
 
         //đóng ứng dụng
-
-        //private void Mainwindow_FormClosed(object sender, FormClosedEventArgs e)
-        //{
-        //    if (isExit)
-        //    {
-        //        if (MessageBox.Show("Bạn có muốn thoát không?", "Thông báo", MessageBoxButtons.OKCancel) == System.Windows.Forms.DialogResult.Cancel)
-        //        {
-        //            e.cancel = true;
-        //        }
-
-        //    }
-        //}
-
         private void Mainwindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (isExit)

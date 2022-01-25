@@ -7,8 +7,10 @@ namespace School_Project
     public partial class Mngstudent : Form
     {
         #region khởi tạo tham số ban đầu cần thiết
+
         private SqlConnection cn;
         private SqlDataReader dr;
+        private SqlDataReader _dr;
         private ClassDB db = new ClassDB();
         private string _title = "Hệ thống quản lý";
 
@@ -18,7 +20,8 @@ namespace School_Project
             cn = new SqlConnection();
             cn.ConnectionString = db.GetConnection();
         }
-        #endregion
+
+        #endregion khởi tạo tham số ban đầu cần thiết
 
         //đưa các dữ liệu vào bảng
         public void LoadRecords()
@@ -54,9 +57,13 @@ namespace School_Project
             dr.Read();
             if (dr.HasRows)
             {
-                f.idstudentbox.Text = dr["maHocSinh"].ToString();
+                //trả về tên lớp
+                var a = new SqlCommand("select tenLop from R3 where maLop = '" + dr["maLop"].ToString() + "'", cn);
+                _dr = a.ExecuteReader(); _dr.Read();
+
+                f.idstudent = dr["maHocSinh"].ToString();
                 f.namebox.Text = dr["tenHocSinh"].ToString();
-                f.classbox.Text = dr["maLop"].ToString();
+                f.classbox.Text = _dr["tenLop"].ToString();
                 f.agebox.Text = dr["Tuoi"].ToString();
                 f.genderbox.Text = dr["Gioitinh"].ToString();
                 f.dateofbirthbox.Text = dr["NgaySinh"].ToString();
@@ -70,6 +77,7 @@ namespace School_Project
                 f.phonenumbox.Text = dr["Sodienthoai"].ToString();
                 f.heightbox.Text = dr["Chieucao"].ToString();
                 f.weightbox.Text = dr["Cannang"].ToString();
+                _dr.Close();
             }
             dr.Close();
             cn.Close();
@@ -91,7 +99,7 @@ namespace School_Project
             }
         }
 
-        #endregion
+        #endregion chức năng của quản lý học sinh
 
         #region chức năng tìm kiếm
 
@@ -183,15 +191,11 @@ namespace School_Project
         private void name_CheckStateChanged(object sender, EventArgs e)
         {
             if (name.Checked) namebox.Enabled = true;
-            else namebox.Enabled = false;
-        }
-
-        private void genderbox_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            else { namebox.Clear(); namebox.Enabled = false; }
         }
 
         #endregion mở khóa filter bằng cách kiểm tra xem đã được tích hay chưa
 
-        #endregion
+        #endregion chức năng tìm kiếm
     }
 }

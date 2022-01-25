@@ -47,14 +47,12 @@ namespace School_Project
             this.hometown = new System.Windows.Forms.Label();
             this.dadname = new System.Windows.Forms.Label();
             this.momname = new System.Windows.Forms.Label();
-            this.mahocsinh = new System.Windows.Forms.Label();
             this.ethnicbox = new System.Windows.Forms.TextBox();
             this.nationalitybox = new System.Windows.Forms.TextBox();
             this.placeofbirthbox = new System.Windows.Forms.TextBox();
             this.hometownbox = new System.Windows.Forms.TextBox();
             this.momnamebox = new System.Windows.Forms.TextBox();
             this.dadnamebox = new System.Windows.Forms.TextBox();
-            this.idstudentbox = new System.Windows.Forms.TextBox();
             this.height = new System.Windows.Forms.Label();
             this.heightbox = new System.Windows.Forms.TextBox();
             this.weight = new System.Windows.Forms.Label();
@@ -68,7 +66,7 @@ namespace School_Project
             // 
             // namebox
             // 
-            this.namebox.Location = new System.Drawing.Point(421, 61);
+            this.namebox.Location = new System.Drawing.Point(153, 61);
             this.namebox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.namebox.Name = "namebox";
             this.namebox.Size = new System.Drawing.Size(213, 27);
@@ -78,7 +76,7 @@ namespace School_Project
             // 
             this.name.AutoSize = true;
             this.name.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.name.Location = new System.Drawing.Point(323, 60);
+            this.name.Location = new System.Drawing.Point(55, 60);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(92, 25);
             this.name.TabIndex = 1;
@@ -88,7 +86,7 @@ namespace School_Project
             // 
             this.malop.AutoSize = true;
             this.malop.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.malop.Location = new System.Drawing.Point(1117, 64);
+            this.malop.Location = new System.Drawing.Point(906, 60);
             this.malop.Name = "malop";
             this.malop.Size = new System.Drawing.Size(75, 25);
             this.malop.TabIndex = 2;
@@ -109,7 +107,7 @@ namespace School_Project
             // 
             this.dateofbirth.AutoSize = true;
             this.dateofbirth.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateofbirth.Location = new System.Drawing.Point(700, 63);
+            this.dateofbirth.Location = new System.Drawing.Point(420, 60);
             this.dateofbirth.Name = "dateofbirth";
             this.dateofbirth.Size = new System.Drawing.Size(96, 25);
             this.dateofbirth.TabIndex = 4;
@@ -132,11 +130,12 @@ namespace School_Project
             // dateofbirthbox
             // 
             this.dateofbirthbox.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateofbirthbox.Location = new System.Drawing.Point(802, 62);
+            this.dateofbirthbox.Location = new System.Drawing.Point(522, 59);
             this.dateofbirthbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateofbirthbox.Name = "dateofbirthbox";
             this.dateofbirthbox.Size = new System.Drawing.Size(116, 27);
             this.dateofbirthbox.TabIndex = 7;
+            this.dateofbirthbox.ValueChanged += new System.EventHandler(this.dateofbirthbox_ValueChanged);
             // 
             // savebutton
             // 
@@ -166,16 +165,15 @@ namespace School_Project
             // 
             this.age.AutoSize = true;
             this.age.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.age.Location = new System.Drawing.Point(962, 64);
+            this.age.Location = new System.Drawing.Point(715, 60);
             this.age.Name = "age";
             this.age.Size = new System.Drawing.Size(49, 25);
             this.age.TabIndex = 11;
             this.age.Text = "Tuổi";
-            this.age.Click += new System.EventHandler(this.age_Click);
             // 
             // agebox
             // 
-            this.agebox.Location = new System.Drawing.Point(1017, 61);
+            this.agebox.Location = new System.Drawing.Point(770, 61);
             this.agebox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.agebox.Name = "agebox";
             this.agebox.Size = new System.Drawing.Size(51, 27);
@@ -241,16 +239,6 @@ namespace School_Project
             this.momname.TabIndex = 19;
             this.momname.Text = "Họ và tên mẹ";
             // 
-            // mahocsinh
-            // 
-            this.mahocsinh.AutoSize = true;
-            this.mahocsinh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.mahocsinh.Location = new System.Drawing.Point(55, 63);
-            this.mahocsinh.Name = "mahocsinh";
-            this.mahocsinh.Size = new System.Drawing.Size(115, 25);
-            this.mahocsinh.TabIndex = 20;
-            this.mahocsinh.Text = "Mã học sinh";
-            // 
             // ethnicbox
             // 
             this.ethnicbox.Location = new System.Drawing.Point(138, 153);
@@ -300,15 +288,6 @@ namespace School_Project
             this.dadnamebox.Name = "dadnamebox";
             this.dadnamebox.Size = new System.Drawing.Size(190, 27);
             this.dadnamebox.TabIndex = 27;
-            // 
-            // idstudentbox
-            // 
-            this.idstudentbox.Enabled = false;
-            this.idstudentbox.Location = new System.Drawing.Point(176, 61);
-            this.idstudentbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.idstudentbox.Name = "idstudentbox";
-            this.idstudentbox.Size = new System.Drawing.Size(104, 27);
-            this.idstudentbox.TabIndex = 28;
             // 
             // height
             // 
@@ -390,7 +369,7 @@ namespace School_Project
             this.classbox.FormattingEnabled = true;
             this.classbox.Items.AddRange(new object[] {
             "3A"});
-            this.classbox.Location = new System.Drawing.Point(1198, 65);
+            this.classbox.Location = new System.Drawing.Point(987, 61);
             this.classbox.Name = "classbox";
             this.classbox.Size = new System.Drawing.Size(76, 28);
             this.classbox.TabIndex = 38;
@@ -409,14 +388,12 @@ namespace School_Project
             this.Controls.Add(this.weight);
             this.Controls.Add(this.heightbox);
             this.Controls.Add(this.height);
-            this.Controls.Add(this.idstudentbox);
             this.Controls.Add(this.dadnamebox);
             this.Controls.Add(this.momnamebox);
             this.Controls.Add(this.hometownbox);
             this.Controls.Add(this.placeofbirthbox);
             this.Controls.Add(this.nationalitybox);
             this.Controls.Add(this.ethnicbox);
-            this.Controls.Add(this.mahocsinh);
             this.Controls.Add(this.momname);
             this.Controls.Add(this.dadname);
             this.Controls.Add(this.hometown);
@@ -460,7 +437,6 @@ namespace School_Project
         private System.Windows.Forms.Label hometown;
         private System.Windows.Forms.Label dadname;
         private System.Windows.Forms.Label momname;
-        private System.Windows.Forms.Label mahocsinh;
         private System.Windows.Forms.Label height;
         private System.Windows.Forms.Label weight;
         private System.Windows.Forms.Label phonenum;
@@ -474,7 +450,6 @@ namespace School_Project
         internal System.Windows.Forms.TextBox hometownbox;
         internal System.Windows.Forms.TextBox momnamebox;
         internal System.Windows.Forms.TextBox dadnamebox;
-        internal System.Windows.Forms.TextBox idstudentbox;
         internal System.Windows.Forms.TextBox heightbox;
         internal System.Windows.Forms.TextBox weightbox;
         internal System.Windows.Forms.TextBox phonenumbox;

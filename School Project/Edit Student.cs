@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Data.SqlClient;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace School_Project
 {
     public partial class Edit_Student : Form
     {
-        SqlConnection cn;
-        SqlDataReader dr;
-        ClassDB db = new ClassDB();
-        Mngstudent f;
-        string _title = "Hệ thống quản lý";
+        #region khởi tạo tham số ban đầu cần thiết
+
+        private SqlConnection cn;
+        private SqlDataReader dr;
+        private ClassDB db = new ClassDB();
+        private Mngstudent f;
+        private string _title = "Hệ thống quản lý";
+        internal string idstudent;
+
         public Edit_Student(Mngstudent f)
         {
             InitializeComponent();
@@ -20,9 +23,17 @@ namespace School_Project
             this.f = f;
         }
 
-        private void age_Click(object sender, EventArgs e)
-        {
+        #endregion khởi tạo tham số ban đầu cần thiết
 
+        //tự động tinh tuổi khi nhập ngày sinh (thông qua hàm years)
+        private void dateofbirthbox_ValueChanged(object sender, EventArgs e)
+        {
+            agebox.Text = years(dateofbirthbox.Value.Date, DateTime.Now.Date).ToString();
+        }
+
+        private int years(DateTime start, DateTime end)
+        {
+            return (end.Year - start.Year - 1) + (((end.Month > start.Month) || (end.Month == start.Month) && (end.Day >= start.Day)) ? 1 : 0);
         }
 
         //lưu thông tin
@@ -42,7 +53,7 @@ namespace School_Project
                 if (MessageBox.Show("Tất cả thông tin đã được nhập đúng?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    SqlCommand cm = new SqlCommand("UPDATE R2 SET tenHocSinh = @tenHocSinh, Tuoi = @Tuoi, Gioitinh = @Gioitinh, NgaySinh = @NgaySinh, Noisinh = @Noisinh, Dantoc = @Dantoc, Quoctich = @Quoctich, Quequan = @Quequan, Diachi = @Diachi, Tenme = @Tenme, Tenbo = @Tenbo, Sodienthoai = @Sodienthoai, Chieucao = @Chieucao, Cannang = @Cannang, maLop = @maLop where maHocSinh = @maHocSinh", cn);
+                    SqlCommand cm = new SqlCommand("UPDATE R2 SET tenHocSinh = @tenHocSinh, Tuoi = @Tuoi, Gioitinh = @Gioitinh, NgaySinh = @NgaySinh, Noisinh = @Noisinh, Dantoc = @Dantoc, Quoctich = @Quoctich, Quequan = @Quequan, Diachi = @Diachi, Tenme = @Tenme, Tenbo = @Tenbo, Sodienthoai = @Sodienthoai, Chieucao = @Chieucao, Cannang = @Cannang, maLop = @maLop where maHocSinh = '" + idstudent + "'", cn);
                     cm.Parameters.AddWithValue("@tenHocSinh", namebox.Text);
                     cm.Parameters.AddWithValue("@Tuoi", agebox.Text);
                     cm.Parameters.AddWithValue("@Gioitinh", genderbox.SelectedItem.ToString());
@@ -58,14 +69,12 @@ namespace School_Project
                     cm.Parameters.AddWithValue("@Chieucao", heightbox.Text);
                     cm.Parameters.AddWithValue("@Cannang", weightbox.Text);
                     cm.Parameters.AddWithValue("@maLop", b);
-                    cm.Parameters.AddWithValue("@maHocSinh", idstudentbox.Text);
                     cm.ExecuteNonQuery();
                     cn.Close();
                     MessageBox.Show("Cập nhật thông tin thành công", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     f.LoadRecords();
                     this.Dispose();
                 }
-
             }
             catch (Exception ex)
             {
@@ -74,30 +83,18 @@ namespace School_Project
             }
         }
 
-        //tự động tinh tuổi khi nhập ngày sinh (thông qua hàm years)
-        private void dateofbirthbox_ValueChanged(object sender, EventArgs e)
-        {
-            agebox.Text = years(dateofbirthbox.Value.Date, DateTime.Now.Date).ToString();
-        }
-
-        int years(DateTime start, DateTime end)
-        {
-            return (end.Year - start.Year - 1) + (((end.Month > start.Month) || (end.Month == start.Month) && (end.Day >= start.Day)) ? 1 : 0);
-        }
-
         //xóa thông tin vừa nhập
         private void clearbutton_Click(object sender, EventArgs e)
         {
             namebox.Clear();
             genderbox.Items.Clear();
             classbox.Items.Clear();
-            
             ethnicbox.Clear();
             nationalitybox.Clear();
             placeofbirthbox.Clear();
             hometownbox.Clear();
             addressbox.Clear();
-            momnamebox.Clear(); dadnamebox.Clear(); idstudentbox.Clear();
+            momnamebox.Clear(); dadnamebox.Clear();
             dateofbirthbox.Value = DateTime.Now; agebox.Clear();
             phonenumbox.Clear();
         }

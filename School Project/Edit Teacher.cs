@@ -34,48 +34,14 @@ namespace School_Project
                 if (MessageBox.Show("Tất cả thông tin đã được nhập đúng?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    SqlCommand cm = new SqlCommand("UPDATE R1 SET tenGiaoVien = @tenGiaoVien,ngaysinhGiaoVien = @ngaysinhGiaoVien,Gioitinh = @Gioitinh,Diachi = @Diachi,Sodienthoai = @Sodienthoai where maGiaoVien = '" + idteacher + "'", cn);
+                    SqlCommand cm = new SqlCommand("UPDATE R1 SET tenGiaoVien = @tenGiaoVien,ngaysinhGiaoVien = @ngaysinhGiaoVien,Gioitinh = @Gioitinh,Diachi = @Diachi,Sodienthoai = @Sodienthoai, Chuyenmon = @Chuyenmon where maGiaoVien = '" + idteacher + "'", cn);
                     cm.Parameters.AddWithValue("tenGiaoVien", namebox.Text);
                     cm.Parameters.AddWithValue("ngaysinhGiaoVien", dateofbirthbox.Text);
                     cm.Parameters.AddWithValue("Gioitinh", genderbox.Text);
                     cm.Parameters.AddWithValue("Diachi", addressbox.Text);
                     cm.Parameters.AddWithValue("Sodienthoai", phonenumbox.Text);
+                    cm.Parameters.AddWithValue("Chuyenmon", subjectbox.SelectedItem.ToString());
                     cm.ExecuteNonQuery();
-
-                    //lưu lớp giáo viên phụ trách
-                    for (int i = 0; i < classbox.Items.Count; i++)
-                    {
-                        var a = new SqlCommand("select maLop from R3 where tenLop = '" + classbox.Items[i].ToString() + "'", cn);
-                        _dr = a.ExecuteReader();
-                        _dr.Read();
-                        var c = new SqlCommand("select maLop from R9 where maGiaoVien = '" + idteacher + "'", cn);
-                        dr = c.ExecuteReader();
-                        int tmp = 0;
-                        while (dr.Read())
-                        {
-                            if (_dr["maLop"].ToString() == dr["maLop"].ToString())
-                            {
-                                if (classbox.GetItemChecked(i) == false)
-                                {
-                                    var dltclass = new SqlCommand("delete from R9 where maLop = '" + _dr["maLop"].ToString() + "' and maGiaoVien = '" + idteacher + "'", cn);
-                                    dltclass.ExecuteNonQuery();
-                                }
-                                tmp++;
-                            }
-                        }
-                        if (tmp == 0)
-                        {
-                            if (classbox.GetItemChecked(i) == true)
-                            {
-                                var addclass = new SqlCommand("insert into R9 (maGiaoVien, maLop) values(@maGiaoVien, @maLop)", cn);
-                                addclass.Parameters.AddWithValue("maGiaoVien", idteacher);
-                                addclass.Parameters.AddWithValue("maLop", _dr["maLop"].ToString());
-                                addclass.ExecuteNonQuery();
-                            }
-                        }
-                        _dr.Close();
-                    }
-
                     MessageBox.Show("Cập nhật thông tin thành công", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cn.Close();
                 }
@@ -98,7 +64,19 @@ namespace School_Project
             genderbox.SelectedIndex = -1;
             addressbox.Clear();
             phonenumbox.Clear();
-            classbox.SelectedIndex = -1;
+        }
+
+        private void subjectbox_Click(object sender, EventArgs e)
+        {
+            subjectbox.Items.Clear();
+            cn.Open();
+            var a = new SqlCommand("select tenMonHoc from R16", cn);
+            dr = a.ExecuteReader();
+            while (dr.Read())
+            {
+                subjectbox.Items.Add(dr["tenMonHoc"].ToString());
+            }
+            dr.Close(); cn.Close();
         }
     }
 }

@@ -28,11 +28,11 @@ namespace School_Project
         {
             dataGridView1.Rows.Clear();
             cn.Open();
-            var cm = new SqlCommand("select R2.tenHocSinh, R3.tenLop, R2.Tuoi, R2.Gioitinh, R2.NgaySinh from R2,R3 where R2.maLop = R3.maLop", cn);
+            var cm = new SqlCommand("select * from R2", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
-                dataGridView1.Rows.Add(dr["tenHocSinh"].ToString(), dr["tenLop"].ToString(), dr["Tuoi"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString());
+                dataGridView1.Rows.Add(dr["maHocSinh"].ToString(), dr["tenHocSinh"].ToString(), dr["Tuoi"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString());
             }
             dr.Close();
             cn.Close();
@@ -52,18 +52,13 @@ namespace School_Project
         {
             Edit_Student f = new Edit_Student(this);
             cn.Open();
-            SqlCommand cm = new SqlCommand("select * from R2 where tenHocSinh = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
+            SqlCommand cm = new SqlCommand("select * from R2 where maHocSinh = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
             dr = cm.ExecuteReader();
             dr.Read();
             if (dr.HasRows)
             {
-                //trả về tên lớp
-                var a = new SqlCommand("select tenLop from R3 where maLop = '" + dr["maLop"].ToString() + "'", cn);
-                _dr = a.ExecuteReader(); _dr.Read();
-
                 f.idstudent = dr["maHocSinh"].ToString();
                 f.namebox.Text = dr["tenHocSinh"].ToString();
-                f.classbox.Text = _dr["tenLop"].ToString();
                 f.agebox.Text = dr["Tuoi"].ToString();
                 f.genderbox.Text = dr["Gioitinh"].ToString();
                 f.dateofbirthbox.Text = dr["NgaySinh"].ToString();
@@ -77,7 +72,6 @@ namespace School_Project
                 f.phonenumbox.Text = dr["Sodienthoai"].ToString();
                 f.heightbox.Text = dr["Chieucao"].ToString();
                 f.weightbox.Text = dr["Cannang"].ToString();
-                _dr.Close();
             }
             dr.Close();
             cn.Close();

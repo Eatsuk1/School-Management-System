@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -8,6 +7,7 @@ namespace School_Project
     public partial class Mngteacher : Form
     {
         #region khởi tạo biến ban đầu cần thiết
+
         private SqlConnection cn;
         private SqlDataReader dr;
         private SqlDataReader _dr;
@@ -21,6 +21,7 @@ namespace School_Project
             cn = new SqlConnection();
             cn.ConnectionString = db.GetConnection();
         }
+
         #endregion khởi tạo biến ban đầu cần thiết
 
         //đưa các dữ liệu vào bảng
@@ -32,13 +33,14 @@ namespace School_Project
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
-                dataGridView1.Rows.Add(dr["tenGiaoVien"].ToString(), DateTime.Parse(dr["ngaysinhGiaoVien"].ToString()).ToShortDateString(), dr["Gioitinh"].ToString(), dr["Sodienthoai"].ToString());
+                dataGridView1.Rows.Add(dr["maGiaoVien"].ToString(), dr["tenGiaoVien"].ToString(), DateTime.Parse(dr["ngaysinhGiaoVien"].ToString()).ToShortDateString(), dr["Gioitinh"].ToString(), dr["Sodienthoai"].ToString(), dr["Chuyenmon"].ToString());
             }
             dr.Close();
             cn.Close();
         }
 
         #region chức năng của mngteacher
+
         //thêm giáo viên mới
         private void addnewbutton_Click(object sender, EventArgs e)
         {
@@ -51,22 +53,12 @@ namespace School_Project
         {
             Edit_Teacher f = new Edit_Teacher(this);
             cn.Open();
-            
+
             //xác định giáo viên cần chỉnh sửa và lấy dữ liệu từ giáo viên đó
-            SqlCommand cm = new SqlCommand("select * from R1 where Sodienthoai = '" + dataGridView1.CurrentRow.Cells[3].Value.ToString() + "'", cn);
+            SqlCommand cm = new SqlCommand("select * from R1 where maGiaoVien = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
             dr = cm.ExecuteReader();
             dr.Read();
 
-            //tạo list mã lớp
-            List<string> listidclass = new List<string>();
-            var idcls = new SqlCommand("select maLop from R9 where maGiaoVien = '" + dr["maGiaoVien"].ToString() + "'", cn);
-            _idcls = idcls.ExecuteReader();
-            while (_idcls.Read())
-            {
-                listidclass.Add(_idcls["maLop"].ToString());
-            }
-            _idcls.Close();
-            
             //đưa dữ liệu từ database lên phần mềm để cập nhật
             if (dr.HasRows)
             {
@@ -76,22 +68,9 @@ namespace School_Project
                 f.addressbox.Text = dr["Diachi"].ToString();
                 f.phonenumbox.Text = dr["Sodienthoai"].ToString();
                 f.idteacher = dr["maGiaoVien"].ToString();
+                f.subjectbox.Text = dr["Chuyenmon"].ToString();
             }
 
-            //trả về lớp giáo viên đảm nhiệm
-            foreach (string idclass in listidclass)
-            {
-                var a = new SqlCommand("select tenLop from R3 where maLop = '" + idclass + "'", cn);
-                _dr = a.ExecuteReader(); _dr.Read();
-                for (int i = 0; i < f.classbox.Items.Count; i++)
-                {
-                    if (f.classbox.Items[i].ToString() == _dr["tenLop"].ToString())
-                    {
-                        f.classbox.SetItemChecked(i, true);
-                    }
-                }
-                _dr.Close();
-            }
             dr.Close();
             cn.Close();
             f.ShowDialog();
@@ -110,6 +89,7 @@ namespace School_Project
                 LoadRecords();
             }
         }
+
         #endregion chức năng của mngteacher
 
         #region chức năng tìm kiếm

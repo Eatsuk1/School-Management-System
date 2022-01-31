@@ -77,5 +77,17 @@ namespace School_Project
                 }
             }
         }
+
+        private void Mngclass_Click(object sender, EventArgs e)
+        {
+            Mngclass s = new Mngclass();
+            s.Show();
+        }
+
+        private void Mngsubject_Click(object sender, EventArgs e)
+        {
+            Mngsubject s = new Mngsubject();
+            s.LoadSubject(); s.Show();
+        }
     }
 }

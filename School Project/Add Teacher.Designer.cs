@@ -36,14 +36,14 @@ namespace School_Project
             this.genderbox = new System.Windows.Forms.ComboBox();
             this.dateofbirth = new System.Windows.Forms.Label();
             this.dateofbirthbox = new System.Windows.Forms.DateTimePicker();
-            this.Class = new System.Windows.Forms.Label();
             this.savebutton = new System.Windows.Forms.Button();
             this.clearbutton = new System.Windows.Forms.Button();
             this.phonenum = new System.Windows.Forms.Label();
             this.phonenumbox = new System.Windows.Forms.TextBox();
             this.addressbox = new System.Windows.Forms.TextBox();
             this.address = new System.Windows.Forms.Label();
-            this.classbox = new System.Windows.Forms.CheckedListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.subjectbox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // name
@@ -52,7 +52,7 @@ namespace School_Project
             this.name.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.name.Location = new System.Drawing.Point(87, 100);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(92, 25);
+            this.name.Size = new System.Drawing.Size(73, 20);
             this.name.TabIndex = 16;
             this.name.Text = "Họ và tên";
             // 
@@ -61,7 +61,7 @@ namespace School_Project
             this.namebox.Location = new System.Drawing.Point(197, 97);
             this.namebox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.namebox.Name = "namebox";
-            this.namebox.Size = new System.Drawing.Size(229, 32);
+            this.namebox.Size = new System.Drawing.Size(229, 27);
             this.namebox.TabIndex = 17;
             // 
             // gender
@@ -71,7 +71,7 @@ namespace School_Project
             this.gender.Location = new System.Drawing.Point(95, 209);
             this.gender.Name = "gender";
             this.gender.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gender.Size = new System.Drawing.Size(84, 25);
+            this.gender.Size = new System.Drawing.Size(65, 20);
             this.gender.TabIndex = 18;
             this.gender.Text = "Giới tính";
             // 
@@ -85,7 +85,7 @@ namespace School_Project
             this.genderbox.Location = new System.Drawing.Point(197, 206);
             this.genderbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.genderbox.Name = "genderbox";
-            this.genderbox.Size = new System.Drawing.Size(90, 33);
+            this.genderbox.Size = new System.Drawing.Size(90, 28);
             this.genderbox.TabIndex = 19;
             // 
             // dateofbirth
@@ -94,7 +94,7 @@ namespace School_Project
             this.dateofbirth.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateofbirth.Location = new System.Drawing.Point(83, 161);
             this.dateofbirth.Name = "dateofbirth";
-            this.dateofbirth.Size = new System.Drawing.Size(96, 25);
+            this.dateofbirth.Size = new System.Drawing.Size(74, 20);
             this.dateofbirth.TabIndex = 20;
             this.dateofbirth.Text = "Ngày sinh";
             // 
@@ -104,22 +104,12 @@ namespace School_Project
             this.dateofbirthbox.Location = new System.Drawing.Point(197, 155);
             this.dateofbirthbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateofbirthbox.Name = "dateofbirthbox";
-            this.dateofbirthbox.Size = new System.Drawing.Size(130, 32);
+            this.dateofbirthbox.Size = new System.Drawing.Size(130, 27);
             this.dateofbirthbox.TabIndex = 21;
-            // 
-            // Class
-            // 
-            this.Class.AutoSize = true;
-            this.Class.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Class.Location = new System.Drawing.Point(136, 417);
-            this.Class.Name = "Class";
-            this.Class.Size = new System.Drawing.Size(43, 25);
-            this.Class.TabIndex = 23;
-            this.Class.Text = "Lớp";
             // 
             // savebutton
             // 
-            this.savebutton.Location = new System.Drawing.Point(517, 133);
+            this.savebutton.Location = new System.Drawing.Point(517, 97);
             this.savebutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.savebutton.Name = "savebutton";
             this.savebutton.Size = new System.Drawing.Size(142, 81);
@@ -130,7 +120,7 @@ namespace School_Project
             // 
             // clearbutton
             // 
-            this.clearbutton.Location = new System.Drawing.Point(517, 349);
+            this.clearbutton.Location = new System.Drawing.Point(517, 295);
             this.clearbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.clearbutton.Name = "clearbutton";
             this.clearbutton.Size = new System.Drawing.Size(142, 81);
@@ -145,7 +135,7 @@ namespace School_Project
             this.phonenum.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.phonenum.Location = new System.Drawing.Point(56, 352);
             this.phonenum.Name = "phonenum";
-            this.phonenum.Size = new System.Drawing.Size(123, 25);
+            this.phonenum.Size = new System.Drawing.Size(97, 20);
             this.phonenum.TabIndex = 31;
             this.phonenum.Text = "Số điện thoại";
             // 
@@ -153,7 +143,7 @@ namespace School_Project
             // 
             this.phonenumbox.Location = new System.Drawing.Point(197, 349);
             this.phonenumbox.Name = "phonenumbox";
-            this.phonenumbox.Size = new System.Drawing.Size(130, 32);
+            this.phonenumbox.Size = new System.Drawing.Size(130, 27);
             this.phonenumbox.TabIndex = 34;
             // 
             // addressbox
@@ -169,35 +159,42 @@ namespace School_Project
             this.address.AutoSize = true;
             this.address.Location = new System.Drawing.Point(109, 260);
             this.address.Name = "address";
-            this.address.Size = new System.Drawing.Size(70, 25);
+            this.address.Size = new System.Drawing.Size(55, 20);
             this.address.TabIndex = 36;
             this.address.Text = "Địa chỉ";
             // 
-            // classbox
+            // label1
             // 
-            this.classbox.FormattingEnabled = true;
-            this.classbox.Items.AddRange(new object[] {
-            "3A",
-            "3B",
-            "3C"});
-            this.classbox.Location = new System.Drawing.Point(197, 417);
-            this.classbox.Name = "classbox";
-            this.classbox.Size = new System.Drawing.Size(90, 58);
-            this.classbox.TabIndex = 41;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(69, 401);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 20);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Chuyên môn";
+            // 
+            // subjectbox
+            // 
+            this.subjectbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.subjectbox.FormattingEnabled = true;
+            this.subjectbox.Location = new System.Drawing.Point(197, 398);
+            this.subjectbox.Name = "subjectbox";
+            this.subjectbox.Size = new System.Drawing.Size(130, 28);
+            this.subjectbox.TabIndex = 38;
+            this.subjectbox.Click += new System.EventHandler(this.subjectbox_Click);
             // 
             // Add_Teacher
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(727, 561);
-            this.Controls.Add(this.classbox);
+            this.ClientSize = new System.Drawing.Size(709, 479);
+            this.Controls.Add(this.subjectbox);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.address);
             this.Controls.Add(this.addressbox);
             this.Controls.Add(this.phonenumbox);
             this.Controls.Add(this.phonenum);
             this.Controls.Add(this.clearbutton);
             this.Controls.Add(this.savebutton);
-            this.Controls.Add(this.Class);
             this.Controls.Add(this.dateofbirthbox);
             this.Controls.Add(this.dateofbirth);
             this.Controls.Add(this.genderbox);
@@ -223,13 +220,13 @@ namespace School_Project
         private System.Windows.Forms.ComboBox genderbox;
         private System.Windows.Forms.Label dateofbirth;
         private System.Windows.Forms.DateTimePicker dateofbirthbox;
-        private System.Windows.Forms.Label Class;
         private System.Windows.Forms.Button savebutton;
         private System.Windows.Forms.Button clearbutton;
         private System.Windows.Forms.Label phonenum;
         private System.Windows.Forms.TextBox phonenumbox;
         private System.Windows.Forms.TextBox addressbox;
         private System.Windows.Forms.Label address;
-        private System.Windows.Forms.CheckedListBox classbox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox subjectbox;
     }
 }

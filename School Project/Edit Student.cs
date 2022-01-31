@@ -39,21 +39,13 @@ namespace School_Project
         //lưu thông tin
         private void savebutton_Click(object sender, EventArgs e)
         {
-            //tra ve ma so lop
-            cn.Open();
-            var a = new SqlCommand("select maLop from R3 where tenLop = '" + classbox.Text + "'", cn);
-            dr = a.ExecuteReader();
-            dr.Read();
-            string b = dr["maLop"].ToString();
-            dr.Close();
-            cn.Close();
 
             try
             {
                 if (MessageBox.Show("Tất cả thông tin đã được nhập đúng?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    SqlCommand cm = new SqlCommand("UPDATE R2 SET tenHocSinh = @tenHocSinh, Tuoi = @Tuoi, Gioitinh = @Gioitinh, NgaySinh = @NgaySinh, Noisinh = @Noisinh, Dantoc = @Dantoc, Quoctich = @Quoctich, Quequan = @Quequan, Diachi = @Diachi, Tenme = @Tenme, Tenbo = @Tenbo, Sodienthoai = @Sodienthoai, Chieucao = @Chieucao, Cannang = @Cannang, maLop = @maLop where maHocSinh = '" + idstudent + "'", cn);
+                    SqlCommand cm = new SqlCommand("UPDATE R2 SET tenHocSinh = @tenHocSinh, Tuoi = @Tuoi, Gioitinh = @Gioitinh, NgaySinh = @NgaySinh, Noisinh = @Noisinh, Dantoc = @Dantoc, Quoctich = @Quoctich, Quequan = @Quequan, Diachi = @Diachi, Tenme = @Tenme, Tenbo = @Tenbo, Sodienthoai = @Sodienthoai, Chieucao = @Chieucao, Cannang = @Cannang where maHocSinh = '" + idstudent + "'", cn);
                     cm.Parameters.AddWithValue("@tenHocSinh", namebox.Text);
                     cm.Parameters.AddWithValue("@Tuoi", agebox.Text);
                     cm.Parameters.AddWithValue("@Gioitinh", genderbox.SelectedItem.ToString());
@@ -68,7 +60,6 @@ namespace School_Project
                     cm.Parameters.AddWithValue("@Sodienthoai", phonenumbox.Text);
                     cm.Parameters.AddWithValue("@Chieucao", heightbox.Text);
                     cm.Parameters.AddWithValue("@Cannang", weightbox.Text);
-                    cm.Parameters.AddWithValue("@maLop", b);
                     cm.ExecuteNonQuery();
                     cn.Close();
                     MessageBox.Show("Cập nhật thông tin thành công", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -88,7 +79,6 @@ namespace School_Project
         {
             namebox.Clear();
             genderbox.Items.Clear();
-            classbox.Items.Clear();
             ethnicbox.Clear();
             nationalitybox.Clear();
             placeofbirthbox.Clear();

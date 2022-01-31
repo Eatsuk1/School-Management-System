@@ -30,20 +30,12 @@ namespace School_Project
         //lưu thông tin
         private void savebutton_Click(object sender, EventArgs e)
         {
-            //tạo list tên lớp
-            List<string> listclass = new List<string>();
-            if (classbox.CheckedItems.Count != 0)
-            {
-                for (int i = 0; i < classbox.CheckedItems.Count; i++)
-                {
-                    listclass.Add(classbox.CheckedItems[i].ToString());
-                }
-            }
+            
 
             //tạo list các textbox để kiểm tra đã điền đủ hay chưa
             List<string> textbox = new List<string>();
             textbox.Add(namebox.Text); textbox.Add(genderbox.Text);
-            textbox.Add(addressbox.Text); textbox.Add(phonenumbox.Text); textbox.Add(classbox.Text);
+            textbox.Add(addressbox.Text); textbox.Add(phonenumbox.Text);
 
             try
             {
@@ -58,38 +50,14 @@ namespace School_Project
                 if (MessageBox.Show("Tất cả thông tin đã được nhập đúng?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    SqlCommand cm = new SqlCommand("INSERT INTO R1(tenGiaoVien,ngaysinhGiaoVien,Gioitinh,Diachi,Sodienthoai) VALUES(@tenGiaoVien,@ngaysinhGiaoVien,@Gioitinh,@Diachi,@Sodienthoai)", cn);
+                    SqlCommand cm = new SqlCommand("INSERT INTO R1(tenGiaoVien,ngaysinhGiaoVien,Gioitinh,Diachi,Sodienthoai,Chuyenmon) VALUES(@tenGiaoVien,@ngaysinhGiaoVien,@Gioitinh,@Diachi,@Sodienthoai,@Chuyenmon)", cn);
                     cm.Parameters.AddWithValue("tenGiaoVien", namebox.Text);
                     cm.Parameters.AddWithValue("ngaysinhGiaoVien", dateofbirthbox.Text);
                     cm.Parameters.AddWithValue("Gioitinh", genderbox.Text);
                     cm.Parameters.AddWithValue("Diachi", addressbox.Text);
                     cm.Parameters.AddWithValue("Sodienthoai", phonenumbox.Text);
+                    cm.Parameters.AddWithValue("Chuyenmon", subjectbox.SelectedItem.ToString());
                     cm.ExecuteNonQuery();
-
-                    #region đưa lớp vào database
-
-                    //trả về mã giáo viên
-                    var gv = new SqlCommand("select maGiaoVien from R1 where Sodienthoai = '" + phonenumbox.Text + "'", cn);
-                    dr = gv.ExecuteReader();
-                    dr.Read();
-                    b = dr["maGiaoVien"].ToString();
-                    dr.Close();
-
-                    //trả về mã số lớp
-                    foreach (string strclass in listclass)
-                    {
-                        var a = new SqlCommand("select maLop from R3 where tenLop = '" + strclass + "'", cn);
-                        _dr = a.ExecuteReader();
-                        _dr.Read();
-                        var c = new SqlCommand("insert into R9(maGiaoVien, maLop) values(@maGiaoVien, @maLop)", cn);
-                        c.Parameters.AddWithValue("maGiaoVien", b);
-                        c.Parameters.AddWithValue("maLop", _dr["maLop"].ToString());
-                        c.ExecuteNonQuery();
-                        _dr.Close();
-                    }
-
-                    #endregion đưa lớp vào database
-
                     MessageBox.Show("Lưu thông tin thành công", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cn.Close();
                 }
@@ -112,7 +80,19 @@ namespace School_Project
             genderbox.SelectedIndex = -1;
             addressbox.Clear();
             phonenumbox.Clear();
-            classbox.SelectedIndex = -1;
+        }
+
+        private void subjectbox_Click(object sender, EventArgs e)
+        {
+            subjectbox.Items.Clear();
+            cn.Open();
+            var a = new SqlCommand("select tenMonHoc from R16", cn);
+            dr = a.ExecuteReader();
+            while (dr.Read())
+            {
+                subjectbox.Items.Add(dr["tenMonHoc"].ToString());
+            }
+            dr.Close(); cn.Close();
         }
     }
 }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,15 +50,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(417, 266);
             this.dataGridView1.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(193, 297);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 51);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Lưu thay đổi";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Column1
             // 
             this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -69,6 +60,16 @@
             // 
             this.Column2.HeaderText = "Điểm số";
             this.Column2.Name = "Column2";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(193, 297);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 51);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Lưu thay đổi";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form5
             // 

@@ -70,7 +70,8 @@ namespace School_Project
                 monhoc.Add(dr["tenMonHoc"].ToString());
             }
             dr.Close(); cn.Close();
-
+            
+            Form5 s = new Form5();
 
             cn.Open();
             var b = new SqlCommand("select * from R4 where maHocSinh = '" + dataGridView1.CurrentRow.Cells[0].ToString() + "' and Kyhoc = '" + comboBox2.Text + "' and Namhoc = '" + comboBox3.Text + "'", cn);
@@ -104,8 +105,9 @@ namespace School_Project
 
                     foreach (var item in monhoc)
                     {
-                        var c = new SqlCommand("insert into R4(maHocSinh, tenMonHoc, maNangLuc, maPhamchat, Kyhoc, Namhoc, tenLop) values(@maHocSinh, @tenMonHoc, @Diemso, @maNangLuc, @maPhamchat, @Kyhoc, @Namhoc, @tenLop)", cn);
+                        var c = new SqlCommand("insert into R4(maHocSinh, tenMonHoc, Diemso, maNangLuc, maPhamchat, Kyhoc, Namhoc, tenLop) values(@maHocSinh, @tenMonHoc, @Diemso, @maNangLuc, @maPhamchat, @Kyhoc, @Namhoc, @tenLop)", cn);
                         c.Parameters.AddWithValue("maHocSinh", dataGridView1.CurrentRow.Cells[0].ToString());
+                        c.Parameters.AddWithValue("Diemso", none);
                         c.Parameters.AddWithValue("tenMonHoc", item);
                         c.Parameters.AddWithValue("maNangLuc", none);
                         c.Parameters.AddWithValue("maPhamchat", none);
@@ -115,6 +117,7 @@ namespace School_Project
                         c.ExecuteNonQuery();
                     }
                     cn.Close();
+                    s.LoadRecords(); s.ShowDialog();
                 }
                 catch (Exception ex)
                 {
@@ -125,6 +128,7 @@ namespace School_Project
             else
             {
                 dr.Close();
+                List<string> vs = new List<string>();
                 /*for (int i = 0; i < monhoc.Count; i++)
                 {
                     int k = 0; dr = b.ExecuteReader();
@@ -147,9 +151,10 @@ namespace School_Project
                 }
                 if (i == 0)
                 {
-                    var c = new SqlCommand("insert into R4(maHocSinh, tenMonHoc, maNangLuc, maPhamchat, Kyhoc, Namhoc, tenLop) values(@maHocSinh, @tenMonHoc, @Diemso, @maNangLuc, @maPhamchat, @Kyhoc, @Namhoc, @tenLop)", cn);
+                    var c = new SqlCommand("insert into R4(maHocSinh, tenMonHoc, Diemso, maNangLuc, maPhamchat, Kyhoc, Namhoc, tenLop) values(@maHocSinh, @tenMonHoc, @Diemso, @maNangLuc, @maPhamchat, @Kyhoc, @Namhoc, @tenLop)", cn);
                     c.Parameters.AddWithValue("maHocSinh", dataGridView1.CurrentRow.Cells[0].ToString());
-                    //c.Parameters.AddWithValue("tenMonHoc", item);
+                    c.Parameters.AddWithValue("tenMonHoc", item);
+                    c.Parameters.AddWithValue("Diemso", none);
                     c.Parameters.AddWithValue("maNangLuc", none);
                     c.Parameters.AddWithValue("maPhamchat", none);
                     c.Parameters.AddWithValue("Kyhoc", comboBox2.Text);
@@ -158,7 +163,7 @@ namespace School_Project
                     c.ExecuteNonQuery();
                 }*/
             }
-            Form5 s = new Form5();
+            
 
         }
     }

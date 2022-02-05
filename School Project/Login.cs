@@ -7,6 +7,7 @@ namespace School_Project
 {
     public partial class Login : Form
     {
+        #region khởi tạo tham số ban đầu cần thiết
         SqlConnection cn;
         SqlDataReader dr;
         ClassDB db = new ClassDB();
@@ -16,17 +17,9 @@ namespace School_Project
             cn = new SqlConnection();
             cn.ConnectionString = db.GetConnection();
         }
+        #endregion
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usernamebox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        //đăng nhập
         private void loginbutton_Click(object sender, EventArgs e)
         {
             Mainwindow s = new Mainwindow();
@@ -35,7 +28,7 @@ namespace School_Project
                 this.Hide();
                 s.Show();
             }
-            else if (compare() == "teacher")
+            else if (compare() == "giáo viên")
             {
                 this.Hide();
                 s.Manage_Staff.Enabled = false;
@@ -47,6 +40,7 @@ namespace School_Project
             }
         }
 
+        //đối chiếu tài khoản để cấp quyền truy cập
         public string compare()
         {
             string a = "";
@@ -65,16 +59,16 @@ namespace School_Project
             return a;
         }
 
+        //tắt ứng dụng
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
+        //quên mật khẩu
         private void forgotbutton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Liên hệ Admin để được cấp lại mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
-
-
     }
 }

@@ -7,8 +7,10 @@ namespace School_Project
     public partial class Mngstudent : Form
     {
         #region khởi tạo tham số ban đầu cần thiết
+
         private SqlConnection cn;
         private SqlDataReader dr;
+        private SqlDataReader _dr;
         private ClassDB db = new ClassDB();
         private string _title = "Hệ thống quản lý";
 
@@ -18,18 +20,19 @@ namespace School_Project
             cn = new SqlConnection();
             cn.ConnectionString = db.GetConnection();
         }
-        #endregion
+
+        #endregion khởi tạo tham số ban đầu cần thiết
 
         //đưa các dữ liệu vào bảng
         public void LoadRecords()
         {
             dataGridView1.Rows.Clear();
             cn.Open();
-            var cm = new SqlCommand("select R2.tenHocSinh, R3.tenLop, R2.Tuoi, R2.Gioitinh, R2.NgaySinh from R2,R3 where R2.maLop = R3.maLop", cn);
+            var cm = new SqlCommand("select * from R2", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
-                dataGridView1.Rows.Add(dr["tenHocSinh"].ToString(), dr["tenLop"].ToString(), dr["Tuoi"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString());
+                dataGridView1.Rows.Add(dr["maHocSinh"].ToString(), dr["tenHocSinh"].ToString(), dr["Tuoi"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString());
             }
             dr.Close();
             cn.Close();
@@ -49,14 +52,13 @@ namespace School_Project
         {
             Edit_Student f = new Edit_Student(this);
             cn.Open();
-            SqlCommand cm = new SqlCommand("select * from R2 where tenHocSinh = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
+            SqlCommand cm = new SqlCommand("select * from R2 where maHocSinh = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
             dr = cm.ExecuteReader();
             dr.Read();
             if (dr.HasRows)
             {
-                f.idstudentbox.Text = dr["maHocSinh"].ToString();
+                f.idstudent = dr["maHocSinh"].ToString();
                 f.namebox.Text = dr["tenHocSinh"].ToString();
-                f.classbox.Text = dr["maLop"].ToString();
                 f.agebox.Text = dr["Tuoi"].ToString();
                 f.genderbox.Text = dr["Gioitinh"].ToString();
                 f.dateofbirthbox.Text = dr["NgaySinh"].ToString();
@@ -91,7 +93,7 @@ namespace School_Project
             }
         }
 
-        #endregion
+        #endregion chức năng của quản lý học sinh
 
         #region chức năng tìm kiếm
 
@@ -183,15 +185,11 @@ namespace School_Project
         private void name_CheckStateChanged(object sender, EventArgs e)
         {
             if (name.Checked) namebox.Enabled = true;
-            else namebox.Enabled = false;
-        }
-
-        private void genderbox_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            else { namebox.Clear(); namebox.Enabled = false; }
         }
 
         #endregion mở khóa filter bằng cách kiểm tra xem đã được tích hay chưa
 
-        #endregion
+        #endregion chức năng tìm kiếm
     }
 }

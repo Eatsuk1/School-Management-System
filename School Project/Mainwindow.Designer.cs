@@ -36,6 +36,9 @@ namespace School_Project
             this.Manage_Marks = new System.Windows.Forms.ToolStripButton();
             this.Manage_Users = new System.Windows.Forms.ToolStripButton();
             this.Log_out = new System.Windows.Forms.ToolStripButton();
+            this.Mngclass = new System.Windows.Forms.Button();
+            this.Mngsubject = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,12 +109,45 @@ namespace School_Project
             this.Log_out.Text = "Đăng xuất";
             this.Log_out.Click += new System.EventHandler(this.Log_out_Click);
             // 
+            // Mngclass
+            // 
+            this.Mngclass.Location = new System.Drawing.Point(156, 217);
+            this.Mngclass.Name = "Mngclass";
+            this.Mngclass.Size = new System.Drawing.Size(142, 78);
+            this.Mngclass.TabIndex = 7;
+            this.Mngclass.Text = "Quản lý lớp học";
+            this.Mngclass.UseVisualStyleBackColor = true;
+            this.Mngclass.Click += new System.EventHandler(this.Mngclass_Click);
+            // 
+            // Mngsubject
+            // 
+            this.Mngsubject.Location = new System.Drawing.Point(353, 217);
+            this.Mngsubject.Name = "Mngsubject";
+            this.Mngsubject.Size = new System.Drawing.Size(142, 78);
+            this.Mngsubject.TabIndex = 8;
+            this.Mngsubject.Text = "Quản lý môn học";
+            this.Mngsubject.UseVisualStyleBackColor = true;
+            this.Mngsubject.Click += new System.EventHandler(this.Mngsubject_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(568, 229);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 54);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Quản lý kết quả học tập";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Mainwindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(876, 609);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Mngsubject);
+            this.Controls.Add(this.Mngclass);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -134,5 +170,8 @@ namespace School_Project
         private System.Windows.Forms.ToolStripButton Manage_Users;
         private System.Windows.Forms.ToolStripButton Log_out;
         protected internal System.Windows.Forms.ToolStripButton Manage_Staff;
+        private System.Windows.Forms.Button Mngclass;
+        private System.Windows.Forms.Button Mngsubject;
+        private System.Windows.Forms.Button button1;
     }
 }

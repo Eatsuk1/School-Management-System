@@ -1,16 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using System.Collections.Generic;
 
 namespace School_Project
 {
     public partial class Add_Teacher : Form
     {
-        SqlConnection cn;
-        ClassDB db = new ClassDB();
-        Mngteacher f;
-        string _title = "Hệ thống quản lý";
+        #region khởi tạo tham số ban đầu cần thiết
+
+        private SqlConnection cn;
+        private SqlDataReader dr;
+        private SqlDataReader _dr;
+        private ClassDB db = new ClassDB();
+        private Mngteacher f;
+        private string _title = "Hệ thống quản lý";
+        private string b;
 
         public Add_Teacher(Mngteacher f)
         {
@@ -20,19 +25,17 @@ namespace School_Project
             this.f = f;
         }
 
-        private void Add_Teacher_Load(object sender, EventArgs e)
-        {
-
-        }
+        #endregion khởi tạo tham số ban đầu cần thiết
 
         //lưu thông tin
         private void savebutton_Click(object sender, EventArgs e)
         {
+            
+
             //tạo list các textbox để kiểm tra đã điền đủ hay chưa
             List<string> textbox = new List<string>();
-           // textbox.Add(namebox.Text); textbox.Add(genderbox.Text); textbox.Add(ethnicbox.Text); textbox.Add(nationalitybox.Text);
-           // textbox.Add(hometownbox.Text); textbox.Add(addressbox.Text); textbox.Add(phonenumbox.Text); textbox.Add(designationbox.Text);
-            textbox.Add(classbox.Text);
+            textbox.Add(namebox.Text); textbox.Add(genderbox.Text);
+            textbox.Add(addressbox.Text); textbox.Add(phonenumbox.Text);
 
             try
             {
@@ -47,46 +50,49 @@ namespace School_Project
                 if (MessageBox.Show("Tất cả thông tin đã được nhập đúng?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    SqlCommand cm = new SqlCommand("INSERT INTO staff_info(name, dob, gender, ethnic, nationality, hometown, current_resident, phone_number, designation, qualification)VALUES( @name, @dob, @gender, @ethnic, @nationality, @hometown, @current_resident, @phone_number, @designation, @qualification)", cn);
-                    cm.Parameters.AddWithValue("@name", namebox.Text);
-                    cm.Parameters.AddWithValue("@dob", dateofbirthbox.Text);
-                    cm.Parameters.AddWithValue("@gender", genderbox.Text);
-                   /* cm.Parameters.AddWithValue("@ethnic", ethnicbox.Text);
-                    cm.Parameters.AddWithValue("@nationality", nationalitybox.Text);
-                    cm.Parameters.AddWithValue("@hometown", hometownbox.Text);
-                    cm.Parameters.AddWithValue("@current_resident", addressbox.Text);
-                    cm.Parameters.AddWithValue("@phone_number", phonenumbox.Text);
-                    cm.Parameters.AddWithValue("@designation", designationbox.Text);*/
-                    cm.Parameters.AddWithValue("@qualification", classbox.Text);
+                    SqlCommand cm = new SqlCommand("INSERT INTO R1(tenGiaoVien,ngaysinhGiaoVien,Gioitinh,Diachi,Sodienthoai,Chuyenmon) VALUES(@tenGiaoVien,@ngaysinhGiaoVien,@Gioitinh,@Diachi,@Sodienthoai,@Chuyenmon)", cn);
+                    cm.Parameters.AddWithValue("tenGiaoVien", namebox.Text);
+                    cm.Parameters.AddWithValue("ngaysinhGiaoVien", dateofbirthbox.Text);
+                    cm.Parameters.AddWithValue("Gioitinh", genderbox.Text);
+                    cm.Parameters.AddWithValue("Diachi", addressbox.Text);
+                    cm.Parameters.AddWithValue("Sodienthoai", phonenumbox.Text);
+                    cm.Parameters.AddWithValue("Chuyenmon", subjectbox.SelectedItem.ToString());
                     cm.ExecuteNonQuery();
-                    cn.Close();
                     MessageBox.Show("Lưu thông tin thành công", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    f.LoadRecords();
-                    Close();
+                    cn.Close();
                 }
-
             }
             catch (Exception ex)
             {
                 cn.Close();
                 MessageBox.Show(ex.Message, _title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+            f.LoadRecords();
+            Close();
         }
 
         //xóa thông tin vừa nhập
         private void clearbutton_Click(object sender, EventArgs e)
         {
             namebox.Clear();
-            genderbox.Text = "";
-            /*designationbox.Text = "";
-            qualificationbox.Clear();
             dateofbirthbox.Value = DateTime.Now;
-            ethnicbox.Clear();
-            nationalitybox.Clear();
-            hometownbox.Clear();
-            addressbox.Clear();*/
+            genderbox.SelectedIndex = -1;
+            addressbox.Clear();
             phonenumbox.Clear();
         }
 
+        private void subjectbox_Click(object sender, EventArgs e)
+        {
+            subjectbox.Items.Clear();
+            cn.Open();
+            var a = new SqlCommand("select tenMonHoc from R16", cn);
+            dr = a.ExecuteReader();
+            while (dr.Read())
+            {
+                subjectbox.Items.Add(dr["tenMonHoc"].ToString());
+            }
+            dr.Close(); cn.Close();
+        }
     }
 }

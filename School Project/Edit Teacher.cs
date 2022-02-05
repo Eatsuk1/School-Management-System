@@ -1,24 +1,30 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using System.Collections.Generic;
 
 namespace School_Project
 {
-    public partial class Edit_Staff : Form
+    public partial class Edit_Teacher : Form
     {
-        SqlConnection cn;
-        ClassDB db = new ClassDB();
-        Mngteacher f;
-        string _title = "Hệ thống quản lý";
+        #region khởi tạo tham số ban đầu cần thiết
 
-        public Edit_Staff(Mngteacher f)
+        private SqlConnection cn;
+        private SqlDataReader dr;
+        private SqlDataReader _dr;
+        private ClassDB db = new ClassDB();
+        private Mngteacher f;
+        private string _title = "Hệ thống quản lý";
+        internal string idteacher;
+
+        public Edit_Teacher(Mngteacher f)
         {
             InitializeComponent();
             cn = new SqlConnection();
             cn.ConnectionString = db.GetConnection();
             this.f = f;
         }
+
+        #endregion khởi tạo tham số ban đầu cần thiết
 
         //lưu thông tin
         private void savebutton_Click(object sender, EventArgs e)
@@ -28,45 +34,49 @@ namespace School_Project
                 if (MessageBox.Show("Tất cả thông tin đã được nhập đúng?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    SqlCommand cm = new SqlCommand("UPDATE staff_info SET dob = @dob, gender = @gender, ethnic = @ethnic, nationality = @nationality, hometown = @hometown, current_resident = @current_resident, phone_number = @phone_number, designation = @designation, qualification = @qualification where name = @name", cn);
-                    cm.Parameters.AddWithValue("@dob", dateofbirthbox.Text);
-                    cm.Parameters.AddWithValue("@gender", genderbox.Text);
-                    cm.Parameters.AddWithValue("@ethnic", ethnicbox.Text);
-                    cm.Parameters.AddWithValue("@nationality", nationalitybox.Text);
-                    cm.Parameters.AddWithValue("@hometown", hometownbox.Text);
-                    cm.Parameters.AddWithValue("@current_resident", addressbox.Text);
-                    cm.Parameters.AddWithValue("@phone_number", phonenumbox.Text);
-                    cm.Parameters.AddWithValue("@designation", designationbox.Text);
-                    cm.Parameters.AddWithValue("@qualification", qualificationbox.Text);
-                    cm.Parameters.AddWithValue("@name", namebox.Text);
+                    SqlCommand cm = new SqlCommand("UPDATE R1 SET tenGiaoVien = @tenGiaoVien,ngaysinhGiaoVien = @ngaysinhGiaoVien,Gioitinh = @Gioitinh,Diachi = @Diachi,Sodienthoai = @Sodienthoai, Chuyenmon = @Chuyenmon where maGiaoVien = '" + idteacher + "'", cn);
+                    cm.Parameters.AddWithValue("tenGiaoVien", namebox.Text);
+                    cm.Parameters.AddWithValue("ngaysinhGiaoVien", dateofbirthbox.Text);
+                    cm.Parameters.AddWithValue("Gioitinh", genderbox.Text);
+                    cm.Parameters.AddWithValue("Diachi", addressbox.Text);
+                    cm.Parameters.AddWithValue("Sodienthoai", phonenumbox.Text);
+                    cm.Parameters.AddWithValue("Chuyenmon", subjectbox.SelectedItem.ToString());
                     cm.ExecuteNonQuery();
-                    cn.Close();
                     MessageBox.Show("Cập nhật thông tin thành công", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    f.LoadRecords();
-                    Close();
+                    cn.Close();
                 }
-
             }
             catch (Exception ex)
             {
                 cn.Close();
                 MessageBox.Show(ex.Message, _title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+            f.LoadRecords();
+            Close();
         }
 
         //xóa thông tin vừa nhập
         private void clearbutton_Click(object sender, EventArgs e)
         {
             namebox.Clear();
-            genderbox.Text = "";
-            designationbox.Text = "";
-            qualificationbox.Clear();
             dateofbirthbox.Value = DateTime.Now;
-            ethnicbox.Clear();
-            nationalitybox.Clear();
-            hometownbox.Clear();
+            genderbox.SelectedIndex = -1;
             addressbox.Clear();
             phonenumbox.Clear();
+        }
+
+        private void subjectbox_Click(object sender, EventArgs e)
+        {
+            subjectbox.Items.Clear();
+            cn.Open();
+            var a = new SqlCommand("select tenMonHoc from R16", cn);
+            dr = a.ExecuteReader();
+            while (dr.Read())
+            {
+                subjectbox.Items.Add(dr["tenMonHoc"].ToString());
+            }
+            dr.Close(); cn.Close();
         }
     }
 }

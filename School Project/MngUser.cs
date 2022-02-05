@@ -48,11 +48,11 @@ namespace School_Project
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string sqlINSERT = "INSERT INTO user_info VALUES (@username, @password, @role) ";
+            string sqlINSERT = "INSERT INTO R8 VALUES (@Tendangnhap, @Matkhau, @Quyenhan) ";
             SqlCommand cmd = new SqlCommand(sqlINSERT, cn);
-            cmd.Parameters.AddWithValue("username", txtUsername.Text);
-            cmd.Parameters.AddWithValue("password", txtPassword.Text);
-            cmd.Parameters.AddWithValue("role", comboBox1.Text.ToString());
+            cmd.Parameters.AddWithValue("Tendangnhap", txtUsername.Text);
+            cmd.Parameters.AddWithValue("Matkhau", txtPassword.Text);
+            cmd.Parameters.AddWithValue("Quyenhan", comboBox1.Text.ToString());
             cmd.ExecuteNonQuery();
             display();
 
@@ -62,11 +62,11 @@ namespace School_Project
         private void btnEdit_Click(object sender, EventArgs e)
         {
 
-            string sqlEDIT = "UPDATE user_info SET username = @username, password = @password, role = @role where username = '" + UserList.CurrentRow.Cells[0].Value.ToString() + "'";
+            string sqlEDIT = "UPDATE R8 SET Tendangnhap = @Tendangnhap, Matkhau = @Matkhau, Quyenhan = @Quyenhan where ID = '" + UserList.CurrentRow.Cells[0].Value.ToString() + "'";
             SqlCommand cmd = new SqlCommand(sqlEDIT, cn);
-            cmd.Parameters.AddWithValue("username", txtUsername.Text);
-            cmd.Parameters.AddWithValue("password", txtPassword.Text);
-            cmd.Parameters.AddWithValue("role", comboBox1.Text.ToString());
+            cmd.Parameters.AddWithValue("Tendangnhap", txtUsername.Text);
+            cmd.Parameters.AddWithValue("Matkhau", txtPassword.Text);
+            cmd.Parameters.AddWithValue("Quyenhan", comboBox1.Text);
             cmd.ExecuteNonQuery();
             display();
 
@@ -77,18 +77,18 @@ namespace School_Project
         {
             if (MessageBox.Show("Bạn chắc chắn muốn xóa tài khoản này? Nhấn Yes để xóa", str, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                SqlCommand cm = new SqlCommand("delete from user_info where username = '" + UserList.CurrentRow.Cells[0].Value.ToString() + "'", cn);
+                SqlCommand cm = new SqlCommand("delete from R8 where Tendangnhap = '" + UserList.CurrentRow.Cells[0].Value.ToString() + "'", cn);
                 cm.ExecuteNonQuery();
                 inputreset();
 
-                MessageBox.Show("Đã xóa hoc sinh vừa chọn", str, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đã xóa tài khoản vừa chọn", str, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 display();
             }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string sqlSearch = "SELECT *FROM user_info WHERE username = " + txtSearch.Text;
+            string sqlSearch = "SELECT *FROM R8 WHERE Tendangnhap = '" + txtSearch.Text + "'";
             SqlCommand cmd = new SqlCommand(sqlSearch, cn);
             SqlDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();

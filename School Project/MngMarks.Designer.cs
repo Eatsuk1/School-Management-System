@@ -56,7 +56,7 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(63, 25);
+            this.comboBox1.Location = new System.Drawing.Point(87, 25);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(60, 23);
             this.comboBox1.TabIndex = 1;
@@ -66,7 +66,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(188, 28);
+            this.label2.Location = new System.Drawing.Point(221, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 15);
             this.label2.TabIndex = 2;
@@ -79,7 +79,7 @@
             this.comboBox2.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.comboBox2.Location = new System.Drawing.Point(238, 25);
+            this.comboBox2.Location = new System.Drawing.Point(304, 25);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(44, 23);
             this.comboBox2.TabIndex = 3;
@@ -87,7 +87,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(343, 28);
+            this.label3.Location = new System.Drawing.Point(416, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 15);
             this.label3.TabIndex = 4;
@@ -97,7 +97,7 @@
             // 
             this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(405, 25);
+            this.comboBox3.Location = new System.Drawing.Point(514, 28);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(121, 23);
             this.comboBox3.TabIndex = 5;
@@ -144,7 +144,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 62);
             this.button1.TabIndex = 16;
-            this.button1.Text = "Thêm hoặc sửa kết quả học tập";
+            this.button1.Text = "Xem, sửa kết quả học tập của học sinh";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -154,7 +154,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 61);
             this.button2.TabIndex = 17;
-            this.button2.Text = "Xóa kết quả học tập";
+            this.button2.Text = "Xóa kết quả học tập của học sinh";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // MngMarks

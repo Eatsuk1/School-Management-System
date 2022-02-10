@@ -50,7 +50,7 @@ namespace School_Project
             // 
             this.name.AutoSize = true;
             this.name.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.name.Location = new System.Drawing.Point(87, 100);
+            this.name.Location = new System.Drawing.Point(91, 100);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(73, 20);
             this.name.TabIndex = 16;
@@ -92,7 +92,7 @@ namespace School_Project
             // 
             this.dateofbirth.AutoSize = true;
             this.dateofbirth.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateofbirth.Location = new System.Drawing.Point(83, 161);
+            this.dateofbirth.Location = new System.Drawing.Point(90, 160);
             this.dateofbirth.Name = "dateofbirth";
             this.dateofbirth.Size = new System.Drawing.Size(74, 20);
             this.dateofbirth.TabIndex = 20;
@@ -109,7 +109,7 @@ namespace School_Project
             // 
             // savebutton
             // 
-            this.savebutton.Location = new System.Drawing.Point(517, 97);
+            this.savebutton.Location = new System.Drawing.Point(517, 101);
             this.savebutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.savebutton.Name = "savebutton";
             this.savebutton.Size = new System.Drawing.Size(142, 81);
@@ -133,7 +133,7 @@ namespace School_Project
             // 
             this.phonenum.AutoSize = true;
             this.phonenum.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.phonenum.Location = new System.Drawing.Point(56, 352);
+            this.phonenum.Location = new System.Drawing.Point(67, 349);
             this.phonenum.Name = "phonenum";
             this.phonenum.Size = new System.Drawing.Size(97, 20);
             this.phonenum.TabIndex = 31;
@@ -166,7 +166,7 @@ namespace School_Project
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 401);
+            this.label1.Location = new System.Drawing.Point(73, 401);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 20);
             this.label1.TabIndex = 37;

@@ -29,6 +29,7 @@ namespace School_Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,41 +39,43 @@ namespace School_Project
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 69);
+            this.label1.Location = new System.Drawing.Point(39, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 20);
+            this.label1.Size = new System.Drawing.Size(152, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nhập năm học muốn thêm";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(248, 66);
+            this.textBox1.Location = new System.Drawing.Point(215, 65);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(71, 27);
+            this.textBox1.Size = new System.Drawing.Size(63, 23);
             this.textBox1.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(325, 69);
+            this.label2.Location = new System.Drawing.Point(284, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(15, 20);
+            this.label2.Size = new System.Drawing.Size(12, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "-";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(346, 66);
+            this.textBox2.Location = new System.Drawing.Point(302, 65);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(64, 27);
+            this.textBox2.Size = new System.Drawing.Size(63, 23);
             this.textBox2.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(149, 131);
+            this.button1.Location = new System.Drawing.Point(147, 125);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 57);
+            this.button1.Size = new System.Drawing.Size(122, 43);
             this.button1.TabIndex = 4;
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = true;
@@ -80,14 +83,17 @@ namespace School_Project
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 209);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(413, 211);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form2";
             this.Text = "Form2";
             this.ResumeLayout(false);

@@ -34,6 +34,12 @@ namespace School_Project
             this.searchbutton = new System.Windows.Forms.Button();
             this.searchfilter = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namecol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateofbirthcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gendercol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phonenumbercol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chuyenmoncol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addnewbutton = new System.Windows.Forms.Button();
             this.editbutton = new System.Windows.Forms.Button();
             this.deletebutton = new System.Windows.Forms.Button();
@@ -42,12 +48,6 @@ namespace School_Project
             this.genderbox = new System.Windows.Forms.ComboBox();
             this.name = new System.Windows.Forms.CheckBox();
             this.namebox = new System.Windows.Forms.TextBox();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namecol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateofbirthcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gendercol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phonenumbercol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chuyenmoncol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,6 +96,56 @@ namespace School_Project
             this.dataGridView1.Size = new System.Drawing.Size(776, 290);
             this.dataGridView1.TabIndex = 12;
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.Width = 70;
+            // 
+            // namecol
+            // 
+            this.namecol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.namecol.HeaderText = "Họ tên";
+            this.namecol.MinimumWidth = 6;
+            this.namecol.Name = "namecol";
+            this.namecol.ReadOnly = true;
+            // 
+            // dateofbirthcol
+            // 
+            this.dateofbirthcol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dateofbirthcol.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dateofbirthcol.HeaderText = "Ngày sinh";
+            this.dateofbirthcol.MinimumWidth = 6;
+            this.dateofbirthcol.Name = "dateofbirthcol";
+            this.dateofbirthcol.ReadOnly = true;
+            this.dateofbirthcol.Width = 85;
+            // 
+            // gendercol
+            // 
+            this.gendercol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.gendercol.HeaderText = "Giới tính";
+            this.gendercol.MinimumWidth = 6;
+            this.gendercol.Name = "gendercol";
+            this.gendercol.ReadOnly = true;
+            this.gendercol.Width = 77;
+            // 
+            // phonenumbercol
+            // 
+            this.phonenumbercol.HeaderText = "Số điện thoại";
+            this.phonenumbercol.MinimumWidth = 6;
+            this.phonenumbercol.Name = "phonenumbercol";
+            this.phonenumbercol.ReadOnly = true;
+            this.phonenumbercol.Width = 120;
+            // 
+            // chuyenmoncol
+            // 
+            this.chuyenmoncol.HeaderText = "Chuyên môn";
+            this.chuyenmoncol.Name = "chuyenmoncol";
+            this.chuyenmoncol.Width = 120;
+            // 
             // addnewbutton
             // 
             this.addnewbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -103,9 +153,9 @@ namespace School_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.addnewbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addnewbutton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.addnewbutton.Location = new System.Drawing.Point(85, 386);
+            this.addnewbutton.Location = new System.Drawing.Point(74, 386);
             this.addnewbutton.Name = "addnewbutton";
-            this.addnewbutton.Size = new System.Drawing.Size(113, 43);
+            this.addnewbutton.Size = new System.Drawing.Size(141, 43);
             this.addnewbutton.TabIndex = 13;
             this.addnewbutton.Text = "Thêm giáo viên mới";
             this.addnewbutton.UseVisualStyleBackColor = true;
@@ -118,9 +168,9 @@ namespace School_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.editbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editbutton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.editbutton.Location = new System.Drawing.Point(345, 386);
+            this.editbutton.Location = new System.Drawing.Point(327, 386);
             this.editbutton.Name = "editbutton";
-            this.editbutton.Size = new System.Drawing.Size(98, 43);
+            this.editbutton.Size = new System.Drawing.Size(141, 43);
             this.editbutton.TabIndex = 14;
             this.editbutton.Text = "Cập nhật thông tin";
             this.editbutton.UseVisualStyleBackColor = true;
@@ -133,9 +183,9 @@ namespace School_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.deletebutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deletebutton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.deletebutton.Location = new System.Drawing.Point(604, 386);
+            this.deletebutton.Location = new System.Drawing.Point(592, 386);
             this.deletebutton.Name = "deletebutton";
-            this.deletebutton.Size = new System.Drawing.Size(103, 43);
+            this.deletebutton.Size = new System.Drawing.Size(141, 43);
             this.deletebutton.TabIndex = 15;
             this.deletebutton.Text = "Xóa giáo viên";
             this.deletebutton.UseVisualStyleBackColor = true;
@@ -199,56 +249,6 @@ namespace School_Project
             this.namebox.Name = "namebox";
             this.namebox.Size = new System.Drawing.Size(211, 23);
             this.namebox.TabIndex = 20;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.Width = 70;
-            // 
-            // namecol
-            // 
-            this.namecol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.namecol.HeaderText = "Họ tên";
-            this.namecol.MinimumWidth = 6;
-            this.namecol.Name = "namecol";
-            this.namecol.ReadOnly = true;
-            // 
-            // dateofbirthcol
-            // 
-            this.dateofbirthcol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dateofbirthcol.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dateofbirthcol.HeaderText = "Ngày sinh";
-            this.dateofbirthcol.MinimumWidth = 6;
-            this.dateofbirthcol.Name = "dateofbirthcol";
-            this.dateofbirthcol.ReadOnly = true;
-            this.dateofbirthcol.Width = 85;
-            // 
-            // gendercol
-            // 
-            this.gendercol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.gendercol.HeaderText = "Giới tính";
-            this.gendercol.MinimumWidth = 6;
-            this.gendercol.Name = "gendercol";
-            this.gendercol.ReadOnly = true;
-            this.gendercol.Width = 77;
-            // 
-            // phonenumbercol
-            // 
-            this.phonenumbercol.HeaderText = "Số điện thoại";
-            this.phonenumbercol.MinimumWidth = 6;
-            this.phonenumbercol.Name = "phonenumbercol";
-            this.phonenumbercol.ReadOnly = true;
-            this.phonenumbercol.Width = 120;
-            // 
-            // chuyenmoncol
-            // 
-            this.chuyenmoncol.HeaderText = "Chuyên môn";
-            this.chuyenmoncol.Name = "chuyenmoncol";
-            this.chuyenmoncol.Width = 120;
             // 
             // Mngteacher
             // 

@@ -42,20 +42,22 @@ namespace School_Project
             // loginlabel
             // 
             this.loginlabel.AutoSize = true;
+            this.loginlabel.BackColor = System.Drawing.SystemColors.Control;
             this.loginlabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.loginlabel.Location = new System.Drawing.Point(163, 41);
+            this.loginlabel.Location = new System.Drawing.Point(12, 36);
             this.loginlabel.Name = "loginlabel";
-            this.loginlabel.Size = new System.Drawing.Size(184, 46);
+            this.loginlabel.Size = new System.Drawing.Size(433, 37);
             this.loginlabel.TabIndex = 0;
-            this.loginlabel.Text = "Đăng nhập";
+            this.loginlabel.Text = "Trường Tiểu Học Bách Khoa Hà Nội";
+            this.loginlabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // usernamelabel
             // 
             this.usernamelabel.AutoSize = true;
             this.usernamelabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.usernamelabel.Location = new System.Drawing.Point(78, 135);
+            this.usernamelabel.Location = new System.Drawing.Point(68, 122);
             this.usernamelabel.Name = "usernamelabel";
-            this.usernamelabel.Size = new System.Drawing.Size(137, 25);
+            this.usernamelabel.Size = new System.Drawing.Size(107, 20);
             this.usernamelabel.TabIndex = 1;
             this.usernamelabel.Text = "Tên đăng nhập";
             // 
@@ -63,46 +65,42 @@ namespace School_Project
             // 
             this.passwordlabel.AutoSize = true;
             this.passwordlabel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.passwordlabel.Location = new System.Drawing.Point(78, 198);
+            this.passwordlabel.Location = new System.Drawing.Point(68, 174);
             this.passwordlabel.Name = "passwordlabel";
-            this.passwordlabel.Size = new System.Drawing.Size(91, 25);
+            this.passwordlabel.Size = new System.Drawing.Size(70, 20);
             this.passwordlabel.TabIndex = 2;
             this.passwordlabel.Text = "Mật khẩu";
             // 
             // usernamebox
             // 
-            this.usernamebox.Location = new System.Drawing.Point(221, 136);
-            this.usernamebox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.usernamebox.Location = new System.Drawing.Point(193, 119);
             this.usernamebox.Name = "usernamebox";
-            this.usernamebox.Size = new System.Drawing.Size(186, 27);
+            this.usernamebox.Size = new System.Drawing.Size(200, 23);
             this.usernamebox.TabIndex = 3;
             // 
             // passwordbox
             // 
-            this.passwordbox.Location = new System.Drawing.Point(221, 199);
-            this.passwordbox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.passwordbox.Location = new System.Drawing.Point(193, 171);
             this.passwordbox.Name = "passwordbox";
-            this.passwordbox.Size = new System.Drawing.Size(186, 27);
+            this.passwordbox.Size = new System.Drawing.Size(200, 23);
             this.passwordbox.TabIndex = 4;
             this.passwordbox.UseSystemPasswordChar = true;
             // 
             // loginbutton
             // 
-            this.loginbutton.Location = new System.Drawing.Point(120, 273);
-            this.loginbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.loginbutton.Location = new System.Drawing.Point(91, 231);
             this.loginbutton.Name = "loginbutton";
-            this.loginbutton.Size = new System.Drawing.Size(96, 53);
+            this.loginbutton.Size = new System.Drawing.Size(84, 40);
             this.loginbutton.TabIndex = 5;
-            this.loginbutton.Text = "Enter";
+            this.loginbutton.Text = "Đăng nhập";
             this.loginbutton.UseVisualStyleBackColor = true;
             this.loginbutton.Click += new System.EventHandler(this.loginbutton_Click);
             // 
             // forgotbutton
             // 
-            this.forgotbutton.Location = new System.Drawing.Point(307, 273);
-            this.forgotbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.forgotbutton.Location = new System.Drawing.Point(272, 231);
             this.forgotbutton.Name = "forgotbutton";
-            this.forgotbutton.Size = new System.Drawing.Size(101, 53);
+            this.forgotbutton.Size = new System.Drawing.Size(84, 40);
             this.forgotbutton.TabIndex = 6;
             this.forgotbutton.Text = "Quên mật khẩu";
             this.forgotbutton.UseVisualStyleBackColor = true;
@@ -111,9 +109,11 @@ namespace School_Project
             // Login
             // 
             this.AcceptButton = this.loginbutton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 429);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(460, 308);
             this.Controls.Add(this.forgotbutton);
             this.Controls.Add(this.loginbutton);
             this.Controls.Add(this.passwordbox);
@@ -123,7 +123,6 @@ namespace School_Project
             this.Controls.Add(this.loginlabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";

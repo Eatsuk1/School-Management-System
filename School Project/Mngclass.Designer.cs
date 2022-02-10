@@ -67,13 +67,13 @@ namespace School_Project
             this.dataGridViewtch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dataGridViewtch.Location = new System.Drawing.Point(40, 147);
+            this.dataGridViewtch.Location = new System.Drawing.Point(40, 150);
             this.dataGridViewtch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewtch.Name = "dataGridViewtch";
             this.dataGridViewtch.ReadOnly = true;
             this.dataGridViewtch.RowHeadersWidth = 51;
             this.dataGridViewtch.RowTemplate.Height = 29;
-            this.dataGridViewtch.Size = new System.Drawing.Size(295, 213);
+            this.dataGridViewtch.Size = new System.Drawing.Size(310, 256);
             this.dataGridViewtch.TabIndex = 0;
             // 
             // Column1
@@ -102,13 +102,13 @@ namespace School_Project
             this.dataGridViewstd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column3,
             this.Column4});
-            this.dataGridViewstd.Location = new System.Drawing.Point(402, 146);
+            this.dataGridViewstd.Location = new System.Drawing.Point(412, 150);
             this.dataGridViewstd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewstd.Name = "dataGridViewstd";
             this.dataGridViewstd.ReadOnly = true;
             this.dataGridViewstd.RowHeadersWidth = 51;
             this.dataGridViewstd.RowTemplate.Height = 29;
-            this.dataGridViewstd.Size = new System.Drawing.Size(335, 213);
+            this.dataGridViewstd.Size = new System.Drawing.Size(310, 256);
             this.dataGridViewstd.TabIndex = 1;
             // 
             // Column3
@@ -141,7 +141,7 @@ namespace School_Project
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(172, 40);
+            this.label2.Location = new System.Drawing.Point(268, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 15);
             this.label2.TabIndex = 3;
@@ -159,17 +159,18 @@ namespace School_Project
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(402, 124);
+            this.label4.Location = new System.Drawing.Point(412, 124);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 15);
             this.label4.TabIndex = 5;
             this.label4.Text = "Học sinh";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // classbox
             // 
             this.classbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.classbox.FormattingEnabled = true;
-            this.classbox.Location = new System.Drawing.Point(75, 38);
+            this.classbox.Location = new System.Drawing.Point(87, 37);
             this.classbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.classbox.Name = "classbox";
             this.classbox.Size = new System.Drawing.Size(57, 23);
@@ -181,7 +182,7 @@ namespace School_Project
             // 
             this.schoolyearbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.schoolyearbox.FormattingEnabled = true;
-            this.schoolyearbox.Location = new System.Drawing.Point(237, 38);
+            this.schoolyearbox.Location = new System.Drawing.Point(337, 37);
             this.schoolyearbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.schoolyearbox.Name = "schoolyearbox";
             this.schoolyearbox.Size = new System.Drawing.Size(98, 23);
@@ -191,7 +192,7 @@ namespace School_Project
             // 
             // addbutton
             // 
-            this.addbutton.Location = new System.Drawing.Point(402, 34);
+            this.addbutton.Location = new System.Drawing.Point(528, 34);
             this.addbutton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addbutton.Name = "addbutton";
             this.addbutton.Size = new System.Drawing.Size(194, 28);
@@ -202,7 +203,7 @@ namespace School_Project
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(40, 365);
+            this.button1.Location = new System.Drawing.Point(300, 124);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(50, 21);
             this.button1.TabIndex = 9;
@@ -212,9 +213,9 @@ namespace School_Project
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(293, 365);
+            this.button2.Location = new System.Drawing.Point(308, 420);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(42, 20);
+            this.button2.Size = new System.Drawing.Size(42, 23);
             this.button2.TabIndex = 10;
             this.button2.Text = "Xóa";
             this.button2.UseVisualStyleBackColor = true;
@@ -222,7 +223,7 @@ namespace School_Project
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(402, 364);
+            this.button3.Location = new System.Drawing.Point(672, 124);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(50, 21);
             this.button3.TabIndex = 11;
@@ -232,7 +233,7 @@ namespace School_Project
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(695, 364);
+            this.button4.Location = new System.Drawing.Point(680, 423);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(42, 20);
             this.button4.TabIndex = 12;
@@ -254,13 +255,13 @@ namespace School_Project
             this.textBox1.Location = new System.Drawing.Point(162, 84);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(131, 23);
+            this.textBox1.Size = new System.Drawing.Size(140, 23);
             this.textBox1.TabIndex = 14;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(318, 87);
+            this.label6.Location = new System.Drawing.Point(337, 87);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 15);
             this.label6.TabIndex = 15;
@@ -268,26 +269,26 @@ namespace School_Project
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(390, 84);
+            this.textBox2.Location = new System.Drawing.Point(422, 84);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(131, 23);
+            this.textBox2.Size = new System.Drawing.Size(140, 23);
             this.textBox2.TabIndex = 16;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(40, 409);
+            this.button5.Location = new System.Drawing.Point(40, 420);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(253, 43);
+            this.button5.Size = new System.Drawing.Size(237, 22);
             this.button5.TabIndex = 17;
-            this.button5.Text = "Thêm giáo viên chủ nhiệm và lớp trưởng";
+            this.button5.Text = "Thêm gíáo viên chủ nhiệm và lớp trưởng";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(565, 87);
+            this.label7.Location = new System.Drawing.Point(588, 87);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 15);
             this.label7.TabIndex = 19;
@@ -295,7 +296,7 @@ namespace School_Project
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(602, 84);
+            this.textBox3.Location = new System.Drawing.Point(655, 84);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(45, 23);
@@ -303,9 +304,9 @@ namespace School_Project
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(402, 409);
+            this.button6.Location = new System.Drawing.Point(412, 420);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(253, 43);
+            this.button6.Size = new System.Drawing.Size(237, 23);
             this.button6.TabIndex = 21;
             this.button6.Text = "Đổi giáo viên chủ nhiệm và lớp trưởng";
             this.button6.UseVisualStyleBackColor = true;

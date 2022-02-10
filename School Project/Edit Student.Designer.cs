@@ -83,7 +83,7 @@ namespace School_Project
             // 
             this.gender.AutoSize = true;
             this.gender.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.gender.Location = new System.Drawing.Point(283, 114);
+            this.gender.Location = new System.Drawing.Point(844, 49);
             this.gender.Name = "gender";
             this.gender.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.gender.Size = new System.Drawing.Size(65, 20);
@@ -94,7 +94,7 @@ namespace School_Project
             // 
             this.dateofbirth.AutoSize = true;
             this.dateofbirth.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateofbirth.Location = new System.Drawing.Point(368, 45);
+            this.dateofbirth.Location = new System.Drawing.Point(367, 45);
             this.dateofbirth.Name = "dateofbirth";
             this.dateofbirth.Size = new System.Drawing.Size(74, 20);
             this.dateofbirth.TabIndex = 4;
@@ -108,7 +108,7 @@ namespace School_Project
             this.genderbox.Items.AddRange(new object[] {
             "Nam",
             "Nu"});
-            this.genderbox.Location = new System.Drawing.Point(368, 116);
+            this.genderbox.Location = new System.Drawing.Point(949, 49);
             this.genderbox.Name = "genderbox";
             this.genderbox.Size = new System.Drawing.Size(64, 23);
             this.genderbox.TabIndex = 6;
@@ -148,7 +148,7 @@ namespace School_Project
             // 
             this.age.AutoSize = true;
             this.age.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.age.Location = new System.Drawing.Point(626, 45);
+            this.age.Location = new System.Drawing.Point(662, 44);
             this.age.Name = "age";
             this.age.Size = new System.Drawing.Size(38, 20);
             this.age.TabIndex = 11;
@@ -156,7 +156,7 @@ namespace School_Project
             // 
             // agebox
             // 
-            this.agebox.Location = new System.Drawing.Point(674, 46);
+            this.agebox.Location = new System.Drawing.Point(733, 47);
             this.agebox.Name = "agebox";
             this.agebox.Size = new System.Drawing.Size(45, 23);
             this.agebox.TabIndex = 12;
@@ -165,7 +165,7 @@ namespace School_Project
             // 
             this.ethnic.AutoSize = true;
             this.ethnic.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ethnic.Location = new System.Drawing.Point(48, 116);
+            this.ethnic.Location = new System.Drawing.Point(60, 115);
             this.ethnic.Name = "ethnic";
             this.ethnic.Size = new System.Drawing.Size(61, 20);
             this.ethnic.TabIndex = 13;
@@ -175,7 +175,7 @@ namespace School_Project
             // 
             this.nationality.AutoSize = true;
             this.nationality.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nationality.Location = new System.Drawing.Point(478, 116);
+            this.nationality.Location = new System.Drawing.Point(369, 119);
             this.nationality.Name = "nationality";
             this.nationality.Size = new System.Drawing.Size(72, 20);
             this.nationality.TabIndex = 14;
@@ -185,7 +185,7 @@ namespace School_Project
             // 
             this.placeofbirth.AutoSize = true;
             this.placeofbirth.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.placeofbirth.Location = new System.Drawing.Point(50, 195);
+            this.placeofbirth.Location = new System.Drawing.Point(58, 195);
             this.placeofbirth.Name = "placeofbirth";
             this.placeofbirth.Size = new System.Drawing.Size(63, 20);
             this.placeofbirth.TabIndex = 15;
@@ -205,7 +205,7 @@ namespace School_Project
             // 
             this.dadname.AutoSize = true;
             this.dadname.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dadname.Location = new System.Drawing.Point(368, 282);
+            this.dadname.Location = new System.Drawing.Point(346, 283);
             this.dadname.Name = "dadname";
             this.dadname.Size = new System.Drawing.Size(95, 20);
             this.dadname.TabIndex = 18;
@@ -215,7 +215,7 @@ namespace School_Project
             // 
             this.momname.AutoSize = true;
             this.momname.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.momname.Location = new System.Drawing.Point(48, 282);
+            this.momname.Location = new System.Drawing.Point(23, 279);
             this.momname.Name = "momname";
             this.momname.Size = new System.Drawing.Size(98, 20);
             this.momname.TabIndex = 19;
@@ -223,21 +223,21 @@ namespace School_Project
             // 
             // ethnicbox
             // 
-            this.ethnicbox.Location = new System.Drawing.Point(121, 115);
+            this.ethnicbox.Location = new System.Drawing.Point(134, 116);
             this.ethnicbox.Name = "ethnicbox";
             this.ethnicbox.Size = new System.Drawing.Size(90, 23);
             this.ethnicbox.TabIndex = 21;
             // 
             // nationalitybox
             // 
-            this.nationalitybox.Location = new System.Drawing.Point(564, 116);
+            this.nationalitybox.Location = new System.Drawing.Point(457, 115);
             this.nationalitybox.Name = "nationalitybox";
             this.nationalitybox.Size = new System.Drawing.Size(119, 23);
             this.nationalitybox.TabIndex = 22;
             // 
             // placeofbirthbox
             // 
-            this.placeofbirthbox.Location = new System.Drawing.Point(127, 182);
+            this.placeofbirthbox.Location = new System.Drawing.Point(134, 182);
             this.placeofbirthbox.Multiline = true;
             this.placeofbirthbox.Name = "placeofbirthbox";
             this.placeofbirthbox.Size = new System.Drawing.Size(187, 46);
@@ -248,28 +248,28 @@ namespace School_Project
             this.hometownbox.Location = new System.Drawing.Point(457, 182);
             this.hometownbox.Multiline = true;
             this.hometownbox.Name = "hometownbox";
-            this.hometownbox.Size = new System.Drawing.Size(224, 46);
+            this.hometownbox.Size = new System.Drawing.Size(187, 46);
             this.hometownbox.TabIndex = 25;
             // 
             // momnamebox
             // 
-            this.momnamebox.Location = new System.Drawing.Point(161, 280);
+            this.momnamebox.Location = new System.Drawing.Point(134, 277);
             this.momnamebox.Name = "momnamebox";
-            this.momnamebox.Size = new System.Drawing.Size(161, 23);
+            this.momnamebox.Size = new System.Drawing.Size(187, 23);
             this.momnamebox.TabIndex = 26;
             // 
             // dadnamebox
             // 
-            this.dadnamebox.Location = new System.Drawing.Point(478, 280);
+            this.dadnamebox.Location = new System.Drawing.Point(457, 279);
             this.dadnamebox.Name = "dadnamebox";
-            this.dadnamebox.Size = new System.Drawing.Size(167, 23);
+            this.dadnamebox.Size = new System.Drawing.Size(187, 23);
             this.dadnamebox.TabIndex = 27;
             // 
             // height
             // 
             this.height.AutoSize = true;
             this.height.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.height.Location = new System.Drawing.Point(719, 116);
+            this.height.Location = new System.Drawing.Point(626, 115);
             this.height.Name = "height";
             this.height.Size = new System.Drawing.Size(74, 20);
             this.height.TabIndex = 29;
@@ -277,7 +277,7 @@ namespace School_Project
             // 
             // heightbox
             // 
-            this.heightbox.Location = new System.Drawing.Point(808, 116);
+            this.heightbox.Location = new System.Drawing.Point(733, 115);
             this.heightbox.Name = "heightbox";
             this.heightbox.Size = new System.Drawing.Size(76, 23);
             this.heightbox.TabIndex = 30;
@@ -286,7 +286,7 @@ namespace School_Project
             // 
             this.weight.AutoSize = true;
             this.weight.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.weight.Location = new System.Drawing.Point(922, 116);
+            this.weight.Location = new System.Drawing.Point(844, 114);
             this.weight.Name = "weight";
             this.weight.Size = new System.Drawing.Size(71, 20);
             this.weight.TabIndex = 31;
@@ -294,7 +294,7 @@ namespace School_Project
             // 
             // weightbox
             // 
-            this.weightbox.Location = new System.Drawing.Point(1009, 116);
+            this.weightbox.Location = new System.Drawing.Point(949, 116);
             this.weightbox.Name = "weightbox";
             this.weightbox.Size = new System.Drawing.Size(68, 23);
             this.weightbox.TabIndex = 32;
@@ -303,7 +303,7 @@ namespace School_Project
             // 
             this.phonenum.AutoSize = true;
             this.phonenum.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.phonenum.Location = new System.Drawing.Point(702, 280);
+            this.phonenum.Location = new System.Drawing.Point(684, 278);
             this.phonenum.Name = "phonenum";
             this.phonenum.Size = new System.Drawing.Size(97, 20);
             this.phonenum.TabIndex = 33;
@@ -311,9 +311,9 @@ namespace School_Project
             // 
             // phonenumbox
             // 
-            this.phonenumbox.Location = new System.Drawing.Point(815, 278);
+            this.phonenumbox.Location = new System.Drawing.Point(793, 278);
             this.phonenumbox.Name = "phonenumbox";
-            this.phonenumbox.Size = new System.Drawing.Size(167, 23);
+            this.phonenumbox.Size = new System.Drawing.Size(224, 23);
             this.phonenumbox.TabIndex = 34;
             // 
             // address

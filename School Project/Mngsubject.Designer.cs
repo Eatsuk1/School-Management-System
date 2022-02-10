@@ -64,9 +64,9 @@ namespace School_Project
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(154, 310);
+            this.button1.Location = new System.Drawing.Point(154, 303);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 40);
             this.button1.TabIndex = 1;
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = true;
@@ -92,6 +92,7 @@ namespace School_Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(412, 355);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);

@@ -83,5 +83,15 @@ namespace School_Project
             Mngclass s = new Mngclass();
             s.Show();
         }
+
+        private void Mainwindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

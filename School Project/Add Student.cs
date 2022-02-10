@@ -101,5 +101,10 @@ namespace School_Project
             dateofbirthbox.Value = DateTime.Now; agebox.Clear();
             phonenumbox.Clear();
         }
+
+        private void phonenumbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

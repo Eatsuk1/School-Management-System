@@ -81,7 +81,8 @@ namespace School_Project
         {
             if (MessageBox.Show("Bạn chắc chắn muốn xóa giáo viên này? Nhấn Yes để xóa", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                SqlCommand cm = new SqlCommand("delete from R1 where tenGiaoVien = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
+                
+                SqlCommand cm = new SqlCommand("delete from R9 where maGiaoVien = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'; update R3 set tenGVCN = NULL, maGiaoVien = NULL where maGiaoVien = '" +dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'; Delete from R1 where maGiaoVien = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 cn.Close();

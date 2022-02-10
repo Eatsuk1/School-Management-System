@@ -83,7 +83,7 @@ namespace School_Project
         {
             if (MessageBox.Show("Bạn chắc chắn muốn xóa học sinh này? Nhấn Yes để xóa", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                SqlCommand cm = new SqlCommand("delete from R2 where tenHocSinh = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
+                SqlCommand cm = new SqlCommand("delete from R2 where maHocSinh = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 cn.Close();

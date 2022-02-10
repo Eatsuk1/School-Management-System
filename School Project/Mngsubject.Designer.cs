@@ -29,6 +29,7 @@ namespace School_Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mngsubject));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.subjectcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
@@ -63,7 +64,7 @@ namespace School_Project
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(160, 317);
+            this.button1.Location = new System.Drawing.Point(154, 310);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -97,9 +98,10 @@ namespace School_Project
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Mngsubject";
-            this.Text = "Mngsubject";
+            this.Text = "Quản lý môn học";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

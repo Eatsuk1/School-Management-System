@@ -28,23 +28,23 @@ namespace School_Project
 
         public void LoadRecords()
         {
-            //dataGridView1.Rows.Clear();
-            //cn.Open();
-            //var a = new SqlCommand("select tenMonHoc, Diemso from R4 where maHocSinh = '" + s.dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Kyhoc = '" + s.comboBox2.Text + "' and Namhoc = '" + s.comboBox3.Text + "' and tenLop = '" + s.comboBox1.Text + "'", cn);
-            //dr = a.ExecuteReader();
-            //while (dr.Read())
-            //{
-            //    dataGridView1.Rows.Add(dr["tenMonHoc"].ToString(), dr["Diemso"].ToString());
-            //}
-            //dr.Close();
-            //cn.Close();
+            dataGridView1.Rows.Clear();
             cn.Open();
             var a = new SqlCommand("select tenMonHoc, Diemso from R4 where maHocSinh = '" + s.dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Kyhoc = '" + s.comboBox2.Text + "' and Namhoc = '" + s.comboBox3.Text + "' and tenLop = '" + s.comboBox1.Text + "'", cn);
-            DataTable dt = new DataTable();
-            da = new SqlDataAdapter(a);
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
+            dr = a.ExecuteReader();
+            while (dr.Read())
+            {
+                dataGridView1.Rows.Add(dr["tenMonHoc"].ToString(), dr["Diemso"].ToString());
+            }
+            dr.Close();
             cn.Close();
+            //cn.Open();
+            //var a = new SqlCommand("select tenMonHoc, Diemso from R4 where maHocSinh = '" + s.dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Kyhoc = '" + s.comboBox2.Text + "' and Namhoc = '" + s.comboBox3.Text + "' and tenLop = '" + s.comboBox1.Text + "'", cn);
+            //DataTable dt = new DataTable();
+            //da = new SqlDataAdapter(a);
+            //da.Fill(dt);
+            //dataGridView1.DataSource = dt;
+            //cn.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace School_Project
                 
                 cn.Open();
                 var a = new SqlCommand("update R4 set Diemso = @Diemso where maHocSinh = '" + s.dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and tenMonHoc = '" +  dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Kyhoc = '" + s.comboBox2.Text + "' and Namhoc = '" + s.comboBox3.Text + "' and tenLop = '" + s.comboBox1.Text + "' and maNangluc = '" + none + "' and maPhamchat = '" + none + "'", cn);
-                a.Parameters.AddWithValue("@Diemso", textBox1.Text);
+                a.Parameters.AddWithValue("@Diemso", dataGridView1.CurrentRow.Cells[1].Value.ToString());
                 a.ExecuteNonQuery();
                 cn.Close();
 

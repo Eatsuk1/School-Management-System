@@ -29,6 +29,7 @@ namespace School_Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MngUser));
             this.btnAdd = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.UserList = new System.Windows.Forms.DataGridView();
@@ -203,6 +204,7 @@ namespace School_Project
             this.Controls.Add(this.UserList);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnAdd);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MngUser";
             this.Text = "Quản lý tài khoản";

@@ -74,77 +74,81 @@ namespace School_Project
 
             Form5 s = new Form5(this);
             Form6 s1 = new Form6(this);
-
+            try {
             cn.Open();
             var b = new SqlCommand("select * from R4 where maHocSinh = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Kyhoc = '" + comboBox2.Text + "' and Namhoc = '" + comboBox3.Text + "'", cn);
             dr = b.ExecuteReader();
-            if (dr.HasRows)
-            {
-                
-                
+                if (dr.HasRows)
+                {
+
+
                     dr.Close();
                     cn.Close();
-                
+
                     s1.LoadRecords();
                     s1.ShowDialog();
-                
-            }
-            else
-            {
-                //try
-                //{
-                //    dr.Close();
 
-                //    #region bỏ đi
+                }
+                else
+                {
+                    //try
+                    //{
+                    //    dr.Close();
 
-                //    /*var cm = new SqlCommand("insert into R6(TuphucvuTuquan, Hoptac, Tuhocvagiaiquyetvande) values(@TuphucvuTuquan, @Hoptac, @Tuhocvagiaiquyetvande)", cn);
-                //    cm.Parameters.AddWithValue("TuphucvuTuquan", none);
-                //    cm.Parameters.AddWithValue("Hoptac", none);
-                //    cm.Parameters.AddWithValue("Tuhocvagiaiquyetvande", none);
-                //    cm.ExecuteNonQuery();
+                    //    #region bỏ đi
 
-                //    var cm2 = new SqlCommand("select maNangLuc from R6 where TuphucvuTuquan = '" + none + "' and Hoptac = '" + none + "' and Tuhocvagiaiquyetvande = '" + none + "'", cn);
-                //    dr = cm2.ExecuteReader(); dr.Read(); string temp = dr["maNangLuc"].ToString(); dr.Close();
+                    //    /*var cm = new SqlCommand("insert into R6(TuphucvuTuquan, Hoptac, Tuhocvagiaiquyetvande) values(@TuphucvuTuquan, @Hoptac, @Tuhocvagiaiquyetvande)", cn);
+                    //    cm.Parameters.AddWithValue("TuphucvuTuquan", none);
+                    //    cm.Parameters.AddWithValue("Hoptac", none);
+                    //    cm.Parameters.AddWithValue("Tuhocvagiaiquyetvande", none);
+                    //    cm.ExecuteNonQuery();
 
-                //    var cm1 = new SqlCommand("insert into R7(ChamhocChamlam, TutinTrachnhiem, TrungthucKyluat, DoanketYeuthuong) values(@ChamhocChamlam, @TutinTrachnhiem, @TrungthucKyluat, @DoanketYeuthuong)", cn);
-                //    cm1.Parameters.AddWithValue("ChamhocChamlam", none);
-                //    cm1.Parameters.AddWithValue("TutinTrachnhiem", none);
-                //    cm1.Parameters.AddWithValue("TrungthucKyluat", none);
-                //    cm1.Parameters.AddWithValue("DoanketYeuthuong", none);
-                //    cm1.ExecuteNonQuery();
+                    //    var cm2 = new SqlCommand("select maNangLuc from R6 where TuphucvuTuquan = '" + none + "' and Hoptac = '" + none + "' and Tuhocvagiaiquyetvande = '" + none + "'", cn);
+                    //    dr = cm2.ExecuteReader(); dr.Read(); string temp = dr["maNangLuc"].ToString(); dr.Close();
 
-                //    var cm3 = new SqlCommand("select maPhamchat from R7 where ChamhocChamlam = '" + none + "' and TutinTrachnhiem = '" + none + "' and TrungthucKyluat = '" + none + "' and DoanketYeuthuong = '" + none + "'", cn);
-                //    dr = cm3.ExecuteReader(); dr.Read(); string temp1 = dr["maPhamchat"].ToString(); dr.Close();*/
+                    //    var cm1 = new SqlCommand("insert into R7(ChamhocChamlam, TutinTrachnhiem, TrungthucKyluat, DoanketYeuthuong) values(@ChamhocChamlam, @TutinTrachnhiem, @TrungthucKyluat, @DoanketYeuthuong)", cn);
+                    //    cm1.Parameters.AddWithValue("ChamhocChamlam", none);
+                    //    cm1.Parameters.AddWithValue("TutinTrachnhiem", none);
+                    //    cm1.Parameters.AddWithValue("TrungthucKyluat", none);
+                    //    cm1.Parameters.AddWithValue("DoanketYeuthuong", none);
+                    //    cm1.ExecuteNonQuery();
 
-                //    #endregion bỏ đi
+                    //    var cm3 = new SqlCommand("select maPhamchat from R7 where ChamhocChamlam = '" + none + "' and TutinTrachnhiem = '" + none + "' and TrungthucKyluat = '" + none + "' and DoanketYeuthuong = '" + none + "'", cn);
+                    //    dr = cm3.ExecuteReader(); dr.Read(); string temp1 = dr["maPhamchat"].ToString(); dr.Close();*/
 
-                //    foreach (var item in monhoc)
-                //    {
-                //        var c = new SqlCommand("insert into R4(maHocSinh, tenMonHoc, Diemso, maNangLuc, maPhamchat, Kyhoc, Namhoc, tenLop) values(@maHocSinh, @tenMonHoc, @Diemso, @maNangLuc, @maPhamchat, @Kyhoc, @Namhoc, @tenLop)", cn);
-                //        c.Parameters.AddWithValue("maHocSinh", dataGridView1.CurrentRow.Cells[0].Value.ToString());
-                //        c.Parameters.AddWithValue("Diemso", none);
-                //        c.Parameters.AddWithValue("tenMonHoc", item);
-                //        c.Parameters.AddWithValue("maNangLuc", none);
-                //        c.Parameters.AddWithValue("maPhamchat", none);
-                //        c.Parameters.AddWithValue("Kyhoc", comboBox2.Text);
-                //        c.Parameters.AddWithValue("Namhoc", comboBox3.Text);
-                //        c.Parameters.AddWithValue("tenLop", comboBox1.Text);
-                //        c.ExecuteNonQuery();
-                //    }
-                //    cn.Close();
-                //    s.LoadRecords(); s.ShowDialog();
-                //}
-                //catch (Exception ex)
-                //{
-                //    cn.Close();
-                //    MessageBox.Show(ex.Message, _title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //}
-                dr.Close();
-                cn.Close();
-                
-                s.LoadRecords2();
-                s.ShowDialog();
+                    //    #endregion bỏ đi
+
+                    //    foreach (var item in monhoc)
+                    //    {
+                    //        var c = new SqlCommand("insert into R4(maHocSinh, tenMonHoc, Diemso, maNangLuc, maPhamchat, Kyhoc, Namhoc, tenLop) values(@maHocSinh, @tenMonHoc, @Diemso, @maNangLuc, @maPhamchat, @Kyhoc, @Namhoc, @tenLop)", cn);
+                    //        c.Parameters.AddWithValue("maHocSinh", dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                    //        c.Parameters.AddWithValue("Diemso", none);
+                    //        c.Parameters.AddWithValue("tenMonHoc", item);
+                    //        c.Parameters.AddWithValue("maNangLuc", none);
+                    //        c.Parameters.AddWithValue("maPhamchat", none);
+                    //        c.Parameters.AddWithValue("Kyhoc", comboBox2.Text);
+                    //        c.Parameters.AddWithValue("Namhoc", comboBox3.Text);
+                    //        c.Parameters.AddWithValue("tenLop", comboBox1.Text);
+                    //        c.ExecuteNonQuery();
+                    //    }
+                    //    cn.Close();
+                    //    s.LoadRecords(); s.ShowDialog();
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    cn.Close();
+                    //    MessageBox.Show(ex.Message, _title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //}
+                    dr.Close();
+                    cn.Close();
+
+                    s.LoadRecords2();
+                    s.ShowDialog();
+                }
             
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, _title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -156,11 +160,6 @@ namespace School_Project
         private void comboBox3_TextChanged(object sender, EventArgs e)
         {
             LoadRecords();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

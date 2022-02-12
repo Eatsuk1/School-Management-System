@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "School Project", "School Project\School Project.csproj", "{D35F30BB-07D0-4710-9684-D499D8AF5244}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "School Management", "School Management\School Management.vdproj", "{539E686D-620B-42B6-A19D-52557D82D73F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

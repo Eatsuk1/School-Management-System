@@ -23,7 +23,7 @@ namespace School_Project
         {
             dataGridView1.Rows.Clear();
             cn.Open();
-            SqlCommand cm = new SqlCommand("select maHocSinh, tenHocSinh from R10 where tenLop = '" + comboBox1.Text + "' and Namhoc = '" + comboBox3.Text + "'", cn);
+            SqlCommand cm = new SqlCommand("select R10.maHocSinh, R2.tenHocSinh from R10, R2 where tenLop = '" + comboBox1.Text + "' and Namhoc = '" + comboBox3.Text + "' and R10.maHocSinh = R2.maHocSinh", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {

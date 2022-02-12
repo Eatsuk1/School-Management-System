@@ -30,16 +30,11 @@ namespace School_Project
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mngteacher));
             this.searchbutton = new System.Windows.Forms.Button();
             this.searchfilter = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namecol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateofbirthcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gendercol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phonenumbercol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trangthaicol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addnewbutton = new System.Windows.Forms.Button();
             this.editbutton = new System.Windows.Forms.Button();
             this.deletebutton = new System.Windows.Forms.Button();
@@ -48,6 +43,12 @@ namespace School_Project
             this.genderbox = new System.Windows.Forms.ComboBox();
             this.name = new System.Windows.Forms.CheckBox();
             this.namebox = new System.Windows.Forms.TextBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namecol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateofbirthcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gendercol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phonenumbercol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trangthaicol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,56 +96,6 @@ namespace School_Project
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(776, 290);
             this.dataGridView1.TabIndex = 12;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.Width = 70;
-            // 
-            // namecol
-            // 
-            this.namecol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.namecol.HeaderText = "Họ tên";
-            this.namecol.MinimumWidth = 6;
-            this.namecol.Name = "namecol";
-            this.namecol.ReadOnly = true;
-            // 
-            // dateofbirthcol
-            // 
-            this.dateofbirthcol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dateofbirthcol.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dateofbirthcol.HeaderText = "Ngày sinh";
-            this.dateofbirthcol.MinimumWidth = 6;
-            this.dateofbirthcol.Name = "dateofbirthcol";
-            this.dateofbirthcol.ReadOnly = true;
-            this.dateofbirthcol.Width = 85;
-            // 
-            // gendercol
-            // 
-            this.gendercol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.gendercol.HeaderText = "Giới tính";
-            this.gendercol.MinimumWidth = 6;
-            this.gendercol.Name = "gendercol";
-            this.gendercol.ReadOnly = true;
-            this.gendercol.Width = 77;
-            // 
-            // phonenumbercol
-            // 
-            this.phonenumbercol.HeaderText = "Số điện thoại";
-            this.phonenumbercol.MinimumWidth = 6;
-            this.phonenumbercol.Name = "phonenumbercol";
-            this.phonenumbercol.ReadOnly = true;
-            this.phonenumbercol.Width = 120;
-            // 
-            // trangthaicol
-            // 
-            this.trangthaicol.HeaderText = "Trạng thái";
-            this.trangthaicol.Name = "trangthaicol";
-            this.trangthaicol.Width = 120;
             // 
             // addnewbutton
             // 
@@ -249,6 +200,59 @@ namespace School_Project
             this.namebox.Name = "namebox";
             this.namebox.Size = new System.Drawing.Size(211, 23);
             this.namebox.TabIndex = 20;
+            // 
+            // ID
+            // 
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.ID.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.Width = 70;
+            // 
+            // namecol
+            // 
+            this.namecol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.namecol.HeaderText = "Họ tên";
+            this.namecol.MinimumWidth = 6;
+            this.namecol.Name = "namecol";
+            this.namecol.ReadOnly = true;
+            // 
+            // dateofbirthcol
+            // 
+            this.dateofbirthcol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dateofbirthcol.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dateofbirthcol.HeaderText = "Ngày sinh";
+            this.dateofbirthcol.MinimumWidth = 6;
+            this.dateofbirthcol.Name = "dateofbirthcol";
+            this.dateofbirthcol.ReadOnly = true;
+            this.dateofbirthcol.Width = 85;
+            // 
+            // gendercol
+            // 
+            this.gendercol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.gendercol.HeaderText = "Giới tính";
+            this.gendercol.MinimumWidth = 6;
+            this.gendercol.Name = "gendercol";
+            this.gendercol.ReadOnly = true;
+            this.gendercol.Width = 77;
+            // 
+            // phonenumbercol
+            // 
+            this.phonenumbercol.HeaderText = "Số điện thoại";
+            this.phonenumbercol.MinimumWidth = 6;
+            this.phonenumbercol.Name = "phonenumbercol";
+            this.phonenumbercol.ReadOnly = true;
+            this.phonenumbercol.Width = 120;
+            // 
+            // trangthaicol
+            // 
+            this.trangthaicol.HeaderText = "Trạng thái";
+            this.trangthaicol.Name = "trangthaicol";
+            this.trangthaicol.Width = 120;
             // 
             // Mngteacher
             // 

@@ -50,13 +50,13 @@ namespace School_Project
                 if (MessageBox.Show("Tất cả thông tin đã được nhập đúng?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    SqlCommand cm = new SqlCommand("INSERT INTO R1(tenGiaoVien,ngaysinhGiaoVien,Gioitinh,Diachi,Sodienthoai,Chuyenmon) VALUES(@tenGiaoVien,@ngaysinhGiaoVien,@Gioitinh,@Diachi,@Sodienthoai,@Chuyenmon)", cn);
+                    SqlCommand cm = new SqlCommand("INSERT INTO R1(tenGiaoVien,ngaysinhGiaoVien,Gioitinh,Diachi,Sodienthoai,Trangthai) VALUES(@tenGiaoVien,@ngaysinhGiaoVien,@Gioitinh,@Diachi,@Sodienthoai,@Trangthai)", cn);
                     cm.Parameters.AddWithValue("tenGiaoVien", namebox.Text);
                     cm.Parameters.AddWithValue("ngaysinhGiaoVien", dateofbirthbox.Text);
                     cm.Parameters.AddWithValue("Gioitinh", genderbox.Text);
                     cm.Parameters.AddWithValue("Diachi", addressbox.Text);
                     cm.Parameters.AddWithValue("Sodienthoai", phonenumbox.Text);
-                    cm.Parameters.AddWithValue("Chuyenmon", subjectbox.SelectedItem.ToString());
+                    cm.Parameters.AddWithValue("Trangthai", statusbox.SelectedItem.ToString());
                     cm.ExecuteNonQuery();
                     MessageBox.Show("Lưu thông tin thành công", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cn.Close();
@@ -78,21 +78,10 @@ namespace School_Project
             namebox.Clear();
             dateofbirthbox.Value = DateTime.Now;
             genderbox.SelectedIndex = -1;
+            statusbox.SelectedIndex = -1;
             addressbox.Clear();
             phonenumbox.Clear();
         }
 
-        private void subjectbox_Click(object sender, EventArgs e)
-        {
-            subjectbox.Items.Clear();
-            cn.Open();
-            var a = new SqlCommand("select tenMonHoc from R16", cn);
-            dr = a.ExecuteReader();
-            while (dr.Read())
-            {
-                subjectbox.Items.Add(dr["tenMonHoc"].ToString());
-            }
-            dr.Close(); cn.Close();
-        }
     }
 }

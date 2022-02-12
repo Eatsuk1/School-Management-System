@@ -12,10 +12,6 @@ namespace School_Project
             InitializeComponent(); //phương thức quản lý mọi thứ hiện diện trên forms, được quản lý bởi windows forms designer
         }
 
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-        }
-
         //quản lý học sinh
         private void Manage_Students_Click(object sender, EventArgs e)
         {
@@ -24,20 +20,12 @@ namespace School_Project
             s.Show();
         }
 
-        //quản lý giáo viên
-        private void Manage_Staff_Click(object sender, EventArgs e)
-        {
-            Mngteacher s = new Mngteacher();
-            s.LoadRecords();
-            s.Show();
-        }
-
-        private void Mainwindow_Load(object sender, EventArgs e)
-        {
-        }
-
+        
+        //quản lý kết quả học tập
         private void Manage_Marks_Click(object sender, EventArgs e)
         {
+            MngMarks s = new MngMarks();
+            s.Show();
         }
 
         //đăng xuất
@@ -78,21 +66,25 @@ namespace School_Project
             }
         }
 
-        private void Mngclass_Click(object sender, EventArgs e)
-        {
-            Mngclass s = new Mngclass();
-            s.Show();
-        }
-
-        private void Mngsubject_Click(object sender, EventArgs e)
+        //quản lý môn học
+        private void toolStripLabel3_Click(object sender, EventArgs e)
         {
             Mngsubject s = new Mngsubject();
             s.LoadSubject(); s.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        //quản lý lớp học
+        private void toolStripLabel1_Click(object sender, EventArgs e)
         {
-            MngMarks s = new MngMarks();
+            Mngclass s = new Mngclass();
+            s.Show();
+        }
+
+        //quản lý giáo viên
+        private void Manage_Teacher_Click(object sender, EventArgs e)
+        {
+            Mngteacher s = new Mngteacher();
+            s.LoadRecords();
             s.Show();
         }
     }

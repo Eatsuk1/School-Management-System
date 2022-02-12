@@ -28,7 +28,7 @@ namespace School_Project
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
-                dataGridView1.Rows.Add(false, dr["maGiaoVien"].ToString(), dr["tenGiaoVien"].ToString(), dr["Chuyenmon"].ToString());
+                dataGridView1.Rows.Add(false, dr["maGiaoVien"].ToString(), dr["tenGiaoVien"].ToString(), dr["Trangthai"].ToString());
             }
             dr.Close();
             cn.Close();
@@ -43,11 +43,13 @@ namespace School_Project
         {
             try
             {
-                cn.Open();
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+                if (MessageBox.Show("Thêm giáo viên đã chọn?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                    cn.Open();
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
+                        if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                        {
                             var a = new SqlCommand("select maGiaoVien, tenGiaoVien from R1 where maGiaoVien = '" + row.Cells[1].Value.ToString() + "'", cn);
                             dr = a.ExecuteReader(); dr.Read();
                             var b = new SqlCommand("insert into R9(maGiaoVien, tenLop, Namhoc, tenGiaoVien) values(@maGiaoVien, @tenLop, @Namhoc, @tenGiaoVien)", cn);
@@ -58,13 +60,13 @@ namespace School_Project
                             b.ExecuteNonQuery();
                             dr.Close();
 
+                        }
                     }
-                }
-                if (MessageBox.Show("Thêm giáo viên đã chọn?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
+
                     MessageBox.Show("Lưu thông tin thành công", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    cn.Close();
                 }
-                cn.Close();
             }
             catch (Exception ex)
             {

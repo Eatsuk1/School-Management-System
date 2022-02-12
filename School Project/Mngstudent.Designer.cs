@@ -33,6 +33,11 @@ namespace School_Project
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mngstudent));
             this.namebox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namecol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gendercol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateofbirthcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statuscol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addnewbutton = new System.Windows.Forms.Button();
             this.deletebutton = new System.Windows.Forms.Button();
             this.editbutton = new System.Windows.Forms.Button();
@@ -44,11 +49,6 @@ namespace School_Project
             this.genderbox = new System.Windows.Forms.ComboBox();
             this.agenumeric = new System.Windows.Forms.NumericUpDown();
             this.resetbutton = new System.Windows.Forms.Button();
-            this.idcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namecol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agecol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gendercol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateofbirthcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.agenumeric)).BeginInit();
             this.SuspendLayout();
@@ -72,9 +72,9 @@ namespace School_Project
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idcol,
             this.namecol,
-            this.agecol,
             this.gendercol,
-            this.dateofbirthcol});
+            this.dateofbirthcol,
+            this.statuscol});
             this.dataGridView1.Location = new System.Drawing.Point(12, 72);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -83,6 +83,48 @@ namespace School_Project
             this.dataGridView1.Size = new System.Drawing.Size(776, 290);
             this.dataGridView1.TabIndex = 2;
             // 
+            // idcol
+            // 
+            this.idcol.HeaderText = "ID";
+            this.idcol.Name = "idcol";
+            this.idcol.ReadOnly = true;
+            this.idcol.Width = 70;
+            // 
+            // namecol
+            // 
+            this.namecol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.namecol.HeaderText = "Họ và tên";
+            this.namecol.MinimumWidth = 6;
+            this.namecol.Name = "namecol";
+            this.namecol.ReadOnly = true;
+            // 
+            // gendercol
+            // 
+            this.gendercol.HeaderText = "Giới tính";
+            this.gendercol.MinimumWidth = 6;
+            this.gendercol.Name = "gendercol";
+            this.gendercol.ReadOnly = true;
+            this.gendercol.Width = 80;
+            // 
+            // dateofbirthcol
+            // 
+            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dateofbirthcol.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dateofbirthcol.HeaderText = "Ngày sinh";
+            this.dateofbirthcol.MinimumWidth = 6;
+            this.dateofbirthcol.Name = "dateofbirthcol";
+            this.dateofbirthcol.ReadOnly = true;
+            this.dateofbirthcol.Width = 120;
+            // 
+            // statuscol
+            // 
+            this.statuscol.HeaderText = "Trạng thái";
+            this.statuscol.MinimumWidth = 6;
+            this.statuscol.Name = "statuscol";
+            this.statuscol.ReadOnly = true;
+            this.statuscol.Width = 120;
+            // 
             // addnewbutton
             // 
             this.addnewbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -90,7 +132,7 @@ namespace School_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.addnewbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addnewbutton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.addnewbutton.Location = new System.Drawing.Point(95, 383);
+            this.addnewbutton.Location = new System.Drawing.Point(67, 383);
             this.addnewbutton.Name = "addnewbutton";
             this.addnewbutton.Size = new System.Drawing.Size(141, 43);
             this.addnewbutton.TabIndex = 3;
@@ -105,9 +147,9 @@ namespace School_Project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.deletebutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deletebutton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.deletebutton.Location = new System.Drawing.Point(575, 383);
+            this.deletebutton.Location = new System.Drawing.Point(588, 383);
             this.deletebutton.Name = "deletebutton";
-            this.deletebutton.Size = new System.Drawing.Size(103, 43);
+            this.deletebutton.Size = new System.Drawing.Size(141, 43);
             this.deletebutton.TabIndex = 4;
             this.deletebutton.Text = "Xóa học sinh";
             this.deletebutton.UseVisualStyleBackColor = true;
@@ -118,11 +160,13 @@ namespace School_Project
             this.editbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.editbutton.BackColor = System.Drawing.SystemColors.Control;
             this.editbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editbutton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.editbutton.Location = new System.Drawing.Point(352, 383);
+            this.editbutton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.editbutton.Location = new System.Drawing.Point(331, 383);
             this.editbutton.Name = "editbutton";
-            this.editbutton.Size = new System.Drawing.Size(98, 43);
+            this.editbutton.Size = new System.Drawing.Size(141, 43);
             this.editbutton.TabIndex = 5;
             this.editbutton.Text = "Cập nhật thông tin";
             this.editbutton.UseVisualStyleBackColor = true;
@@ -219,49 +263,6 @@ namespace School_Project
             this.resetbutton.UseVisualStyleBackColor = true;
             this.resetbutton.Click += new System.EventHandler(this.resetbutton_Click);
             // 
-            // idcol
-            // 
-            this.idcol.HeaderText = "ID";
-            this.idcol.Name = "idcol";
-            this.idcol.ReadOnly = true;
-            this.idcol.Width = 70;
-            // 
-            // namecol
-            // 
-            this.namecol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.namecol.HeaderText = "Họ và tên";
-            this.namecol.MinimumWidth = 6;
-            this.namecol.Name = "namecol";
-            this.namecol.ReadOnly = true;
-            // 
-            // agecol
-            // 
-            this.agecol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.agecol.HeaderText = "Tuổi";
-            this.agecol.MinimumWidth = 6;
-            this.agecol.Name = "agecol";
-            this.agecol.ReadOnly = true;
-            this.agecol.Width = 55;
-            // 
-            // gendercol
-            // 
-            this.gendercol.HeaderText = "Giới tính";
-            this.gendercol.MinimumWidth = 6;
-            this.gendercol.Name = "gendercol";
-            this.gendercol.ReadOnly = true;
-            this.gendercol.Width = 80;
-            // 
-            // dateofbirthcol
-            // 
-            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dateofbirthcol.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dateofbirthcol.HeaderText = "Ngày sinh";
-            this.dateofbirthcol.MinimumWidth = 6;
-            this.dateofbirthcol.Name = "dateofbirthcol";
-            this.dateofbirthcol.ReadOnly = true;
-            this.dateofbirthcol.Width = 120;
-            // 
             // Mngstudent
             // 
             this.AcceptButton = this.searchbutton;
@@ -281,6 +282,7 @@ namespace School_Project
             this.Controls.Add(this.addnewbutton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.namebox);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -311,8 +313,8 @@ namespace School_Project
         private System.Windows.Forms.Button resetbutton;
         private System.Windows.Forms.DataGridViewTextBoxColumn idcol;
         private System.Windows.Forms.DataGridViewTextBoxColumn namecol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agecol;
         private System.Windows.Forms.DataGridViewTextBoxColumn gendercol;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateofbirthcol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statuscol;
     }
 }

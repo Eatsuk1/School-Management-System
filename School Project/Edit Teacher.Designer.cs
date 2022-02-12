@@ -43,7 +43,7 @@ namespace School_Project
             this.addressbox = new System.Windows.Forms.TextBox();
             this.address = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.subjectbox = new System.Windows.Forms.ComboBox();
+            this.statusbox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // name
@@ -92,7 +92,7 @@ namespace School_Project
             // 
             this.dateofbirth.AutoSize = true;
             this.dateofbirth.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateofbirth.Location = new System.Drawing.Point(83, 161);
+            this.dateofbirth.Location = new System.Drawing.Point(86, 160);
             this.dateofbirth.Name = "dateofbirth";
             this.dateofbirth.Size = new System.Drawing.Size(74, 20);
             this.dateofbirth.TabIndex = 20;
@@ -133,7 +133,7 @@ namespace School_Project
             // 
             this.phonenum.AutoSize = true;
             this.phonenum.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.phonenum.Location = new System.Drawing.Point(56, 352);
+            this.phonenum.Location = new System.Drawing.Point(63, 352);
             this.phonenum.Name = "phonenum";
             this.phonenum.Size = new System.Drawing.Size(97, 20);
             this.phonenum.TabIndex = 31;
@@ -157,7 +157,7 @@ namespace School_Project
             // address
             // 
             this.address.AutoSize = true;
-            this.address.Location = new System.Drawing.Point(109, 260);
+            this.address.Location = new System.Drawing.Point(105, 260);
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(55, 20);
             this.address.TabIndex = 36;
@@ -166,28 +166,31 @@ namespace School_Project
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 409);
+            this.label1.Location = new System.Drawing.Point(85, 409);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 20);
+            this.label1.Size = new System.Drawing.Size(75, 20);
             this.label1.TabIndex = 38;
-            this.label1.Text = "Chuyên môn";
+            this.label1.Text = "Trạng thái";
             // 
-            // subjectbox
+            // statusbox
             // 
-            this.subjectbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.subjectbox.FormattingEnabled = true;
-            this.subjectbox.Location = new System.Drawing.Point(197, 406);
-            this.subjectbox.Name = "subjectbox";
-            this.subjectbox.Size = new System.Drawing.Size(130, 28);
-            this.subjectbox.TabIndex = 39;
-            this.subjectbox.Click += new System.EventHandler(this.subjectbox_Click);
+            this.statusbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.statusbox.FormattingEnabled = true;
+            this.statusbox.Items.AddRange(new object[] {
+            "Đang công tác",
+            "Nghỉ phép",
+            "Về hưu"});
+            this.statusbox.Location = new System.Drawing.Point(197, 406);
+            this.statusbox.Name = "statusbox";
+            this.statusbox.Size = new System.Drawing.Size(130, 28);
+            this.statusbox.TabIndex = 39;
             // 
             // Edit_Teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 489);
-            this.Controls.Add(this.subjectbox);
+            this.Controls.Add(this.statusbox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.address);
             this.Controls.Add(this.addressbox);
@@ -227,6 +230,6 @@ namespace School_Project
         internal System.Windows.Forms.TextBox phonenumbox;
         internal System.Windows.Forms.TextBox addressbox;
         private System.Windows.Forms.Label label1;
-        internal System.Windows.Forms.ComboBox subjectbox;
+        internal System.Windows.Forms.ComboBox statusbox;
     }
 }

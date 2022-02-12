@@ -68,7 +68,10 @@ namespace School_Project
             catch (Exception ex)
             {
                 cn.Close();
-                MessageBox.Show("Lỗi: lớp chưa có giáo viên chủ nhiệm và lớp trưởng để hiển thị", _title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (!Settings1.Default.Dontshow)
+                {
+                    new Formerrorclass().ShowDialog();
+                }
             }
         }
 

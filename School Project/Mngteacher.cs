@@ -33,7 +33,7 @@ namespace School_Project
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
-                dataGridView1.Rows.Add(dr["maGiaoVien"].ToString(), dr["tenGiaoVien"].ToString(), DateTime.Parse(dr["ngaysinhGiaoVien"].ToString()).ToShortDateString(), dr["Gioitinh"].ToString(), dr["Sodienthoai"].ToString(), dr["Chuyenmon"].ToString());
+                dataGridView1.Rows.Add(dr["maGiaoVien"].ToString(), dr["tenGiaoVien"].ToString(), DateTime.Parse(dr["ngaysinhGiaoVien"].ToString()).ToShortDateString(), dr["Gioitinh"].ToString(), dr["Sodienthoai"].ToString(), dr["Trangthai"].ToString());
             }
             dr.Close();
             cn.Close();
@@ -68,7 +68,7 @@ namespace School_Project
                 f.addressbox.Text = dr["Diachi"].ToString();
                 f.phonenumbox.Text = dr["Sodienthoai"].ToString();
                 f.idteacher = dr["maGiaoVien"].ToString();
-                f.subjectbox.Text = dr["Chuyenmon"].ToString();
+                f.statusbox.Text = dr["Trangthai"].ToString();
             }
 
             dr.Close();
@@ -81,7 +81,8 @@ namespace School_Project
         {
             if (MessageBox.Show("Bạn chắc chắn muốn xóa giáo viên này? Nhấn Yes để xóa", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                SqlCommand cm = new SqlCommand("delete from R1 where tenGiaoVien = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
+                
+                SqlCommand cm = new SqlCommand("Delete from R1 where maGiaoVien = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
                 cn.Open();
                 cm.ExecuteNonQuery();
                 cn.Close();
@@ -104,22 +105,22 @@ namespace School_Project
             {
                 if (gender.Checked == true)
                 {
-                    cm = new SqlCommand("select tenGiaoVien, ngaysinhGiaoVien, Gioitinh, Sodienthoai from R1 where Gioitinh = '" + genderbox.Text + "'", cn);
+                    cm = new SqlCommand("select maGiaoVien, tenGiaoVien, ngaysinhGiaoVien, Gioitinh, Sodienthoai, Trangthai from R1 where Gioitinh = '" + genderbox.Text + "'", cn);
                     dr = cm.ExecuteReader();
                     while (dr.Read())
                     {
-                        dataGridView1.Rows.Add(dr["tenGiaoVien"].ToString(), DateTime.Parse(dr["ngaysinhGiaoVien"].ToString()).ToShortDateString(), dr["Gioitinh"].ToString(), dr["Sodienthoai"].ToString());
+                        dataGridView1.Rows.Add(dr["maGiaoVien"].ToString(), dr["tenGiaoVien"].ToString(), DateTime.Parse(dr["ngaysinhGiaoVien"].ToString()).ToShortDateString(), dr["Gioitinh"].ToString(), dr["Sodienthoai"].ToString(), dr["Trangthai"].ToString());
                     }
                     dr.Close();
                     cn.Close();
                 }
                 else if (name.Checked == true)
                 {
-                    cm = new SqlCommand("select tenGiaoVien, ngaysinhGiaoVien, Gioitinh, Sodienthoai from R1 where tenGiaoVien = '" + namebox.Text + "'", cn);
+                    cm = new SqlCommand("select maGiaoVien, tenGiaoVien, ngaysinhGiaoVien, Gioitinh, Sodienthoai, Trangthai from R1 where tenGiaoVien like '%" + namebox.Text + "%'", cn);
                     dr = cm.ExecuteReader();
                     while (dr.Read())
                     {
-                        dataGridView1.Rows.Add(dr["tenGiaoVien"].ToString(), DateTime.Parse(dr["ngaysinhGiaoVien"].ToString()).ToShortDateString(), dr["Gioitinh"].ToString(), dr["Sodienthoai"].ToString());
+                        dataGridView1.Rows.Add(dr["maGiaoVien"].ToString(), dr["tenGiaoVien"].ToString(), DateTime.Parse(dr["ngaysinhGiaoVien"].ToString()).ToShortDateString(), dr["Gioitinh"].ToString(), dr["Sodienthoai"].ToString(), dr["Trangthai"].ToString());
                     }
                     dr.Close();
                     cn.Close();

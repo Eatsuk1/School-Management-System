@@ -35,9 +35,9 @@ namespace School_Project
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namecol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agecol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gendercol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateofbirthcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statuscol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addnewbutton = new System.Windows.Forms.Button();
             this.deletebutton = new System.Windows.Forms.Button();
             this.editbutton = new System.Windows.Forms.Button();
@@ -72,9 +72,9 @@ namespace School_Project
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idcol,
             this.namecol,
-            this.agecol,
             this.gendercol,
-            this.dateofbirthcol});
+            this.dateofbirthcol,
+            this.statuscol});
             this.dataGridView1.Location = new System.Drawing.Point(12, 72);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -98,15 +98,6 @@ namespace School_Project
             this.namecol.Name = "namecol";
             this.namecol.ReadOnly = true;
             // 
-            // agecol
-            // 
-            this.agecol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.agecol.HeaderText = "Tuổi";
-            this.agecol.MinimumWidth = 6;
-            this.agecol.Name = "agecol";
-            this.agecol.ReadOnly = true;
-            this.agecol.Width = 55;
-            // 
             // gendercol
             // 
             this.gendercol.HeaderText = "Giới tính";
@@ -125,6 +116,14 @@ namespace School_Project
             this.dateofbirthcol.Name = "dateofbirthcol";
             this.dateofbirthcol.ReadOnly = true;
             this.dateofbirthcol.Width = 120;
+            // 
+            // statuscol
+            // 
+            this.statuscol.HeaderText = "Trạng thái";
+            this.statuscol.MinimumWidth = 6;
+            this.statuscol.Name = "statuscol";
+            this.statuscol.ReadOnly = true;
+            this.statuscol.Width = 120;
             // 
             // addnewbutton
             // 
@@ -161,15 +160,16 @@ namespace School_Project
             this.editbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editbutton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.editbutton.BackColor = System.Drawing.SystemColors.Control;
             this.editbutton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editbutton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.editbutton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.editbutton.Location = new System.Drawing.Point(331, 383);
             this.editbutton.Name = "editbutton";
             this.editbutton.Size = new System.Drawing.Size(141, 43);
             this.editbutton.TabIndex = 5;
             this.editbutton.Text = "Cập nhật thông tin";
-            this.editbutton.UseVisualStyleBackColor = false;
+            this.editbutton.UseVisualStyleBackColor = true;
             this.editbutton.Click += new System.EventHandler(this.editbutton_Click);
             // 
             // searchfilter
@@ -313,8 +313,8 @@ namespace School_Project
         private System.Windows.Forms.Button resetbutton;
         private System.Windows.Forms.DataGridViewTextBoxColumn idcol;
         private System.Windows.Forms.DataGridViewTextBoxColumn namecol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agecol;
         private System.Windows.Forms.DataGridViewTextBoxColumn gendercol;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateofbirthcol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statuscol;
     }
 }

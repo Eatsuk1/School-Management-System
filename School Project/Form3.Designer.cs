@@ -29,11 +29,12 @@ namespace School_Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.namecol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chuyenmon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trangthaicol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +51,7 @@ namespace School_Project
             this.Column1,
             this.ID,
             this.namecol,
-            this.chuyenmon});
+            this.trangthaicol});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -80,11 +81,11 @@ namespace School_Project
             this.namecol.Name = "namecol";
             this.namecol.ReadOnly = true;
             // 
-            // chuyenmon
+            // trangthaicol
             // 
-            this.chuyenmon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.chuyenmon.HeaderText = "Chuyenmon";
-            this.chuyenmon.Name = "chuyenmon";
+            this.trangthaicol.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.trangthaicol.HeaderText = "Trạng thái";
+            this.trangthaicol.Name = "trangthaicol";
             // 
             // button1
             // 
@@ -105,10 +106,11 @@ namespace School_Project
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form3";
-            this.Text = "Form3";
+            this.Text = "Thêm giáo viên";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form3_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -122,6 +124,6 @@ namespace School_Project
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn namecol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chuyenmon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn trangthaicol;
     }
 }

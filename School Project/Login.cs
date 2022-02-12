@@ -31,7 +31,10 @@ namespace School_Project
             else if (compare() == "giáo viên")
             {
                 this.Hide();
-                s.Manage_Staff.Enabled = false;
+                s.Manage_Teacher.Enabled = false;
+                s.Manage_Users.Enabled = false;
+                s.toolStripLabel1.Enabled = false;
+                s.toolStripLabel3.Enabled = false;
                 s.Show();
             }
             else

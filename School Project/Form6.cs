@@ -30,11 +30,19 @@ namespace School_Project
         {
             dataGridView1.Rows.Clear();
             cn.Open();
-            var a = new SqlCommand("select tenMonHoc, Diemso from R4 where maHocSinh = '" + s.dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Kyhoc = '" + s.comboBox2.Text + "' and Namhoc = '" + s.comboBox3.Text + "' and tenLop = '" + s.comboBox1.Text + "'", cn);
+            var a = new SqlCommand("select * from R4 where maHocSinh = '" + s.dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Kyhoc = '" + s.comboBox2.Text + "' and Namhoc = '" + s.comboBox3.Text + "' and tenLop = '" + s.comboBox1.Text + "'", cn);
             dr = a.ExecuteReader();
             while (dr.Read())
             {
                 dataGridView1.Rows.Add(dr["tenMonHoc"].ToString(), dr["Diemso"].ToString());
+                comboBox1.Text = dr["TuphucvuTuquan"].ToString();
+                comboBox2.Text = dr["Hoptac"].ToString();
+                comboBox3.Text = dr["Tuhocvagiaiquyetvande"].ToString();
+                comboBox4.Text = dr["ChamhocChamlam"].ToString();
+                comboBox5.Text = dr["TutinTrachnhiem"].ToString();
+                comboBox6.Text = dr["TrungthucKyluat"].ToString();
+                comboBox7.Text = dr["DoanketYeuthuong"].ToString();
+
             }
             dr.Close();
             cn.Close();
@@ -66,9 +74,20 @@ namespace School_Project
                 //cn.Close();
                 
                 cn.Open();
-                var a = new SqlCommand("update R4 set Diemso = @Diemso where maHocSinh = '" + s.dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and tenMonHoc = '" +  dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Kyhoc = '" + s.comboBox2.Text + "' and Namhoc = '" + s.comboBox3.Text + "' and tenLop = '" + s.comboBox1.Text + "' and maNangluc = '" + none + "' and maPhamchat = '" + none + "'", cn);
+                var a = new SqlCommand("update R4 set Diemso = @Diemso where maHocSinh = '" + s.dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and tenMonHoc = '" +  dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Kyhoc = '" + s.comboBox2.Text + "' and Namhoc = '" + s.comboBox3.Text + "' and tenLop = '" + s.comboBox1.Text + "'", cn);
                 a.Parameters.AddWithValue("@Diemso", dataGridView1.CurrentRow.Cells[1].Value.ToString());
                 a.ExecuteNonQuery();
+                var b = new SqlCommand("update R4 set TuphucvuTuquan = @TuphucvuTuquan, Hoptac = @Hoptac, Tuhocvagiaiquyetvande = @Tuhocvagiaiquyetvande where maHocSinh = '" + s.dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and tenMonHoc = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Kyhoc = '" + s.comboBox2.Text + "' and Namhoc = '" + s.comboBox3.Text + "' and tenLop = '" + s.comboBox1.Text + "'", cn);
+                b.Parameters.AddWithValue("@TuphucvuTuquan", comboBox1.SelectedItem.ToString());
+                b.Parameters.AddWithValue("@Hoptac", comboBox2.SelectedItem.ToString());
+                b.Parameters.AddWithValue("@Tuhocvagiaiquyetvande", comboBox3.SelectedItem.ToString());
+                b.ExecuteNonQuery();
+                var c = new SqlCommand("update R4 set ChamhocChamlam = @ChamhocChamlam, TutinTrachnhiem = @TutinTrachnhiem, TrungthucKyluat = @TrungthucKyluat, DoanketYeuthuong = @DoanketYeuthuong where maHocSinh = '" + s.dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and tenMonHoc = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Kyhoc = '" + s.comboBox2.Text + "' and Namhoc = '" + s.comboBox3.Text + "' and tenLop = '" + s.comboBox1.Text + "'", cn);
+                c.Parameters.AddWithValue("@ChamhocChamlam", comboBox4.SelectedItem.ToString());
+                c.Parameters.AddWithValue("@TutinTrachnhiem", comboBox5.SelectedItem.ToString());
+                c.Parameters.AddWithValue("@TrungthucKyluat", comboBox6.SelectedItem.ToString());
+                c.Parameters.AddWithValue("@DoanketYeuthuong", comboBox7.SelectedItem.ToString());
+                c.ExecuteNonQuery();
                 cn.Close();
 
                 MessageBox.Show("Đã cập nhật kết quả học tập", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);

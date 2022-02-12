@@ -14,6 +14,7 @@ namespace School_Project
         private Mngstudent f;
         private string _title = "Hệ thống quản lý";
         internal string idstudent;
+        internal string a;
 
         public Edit_Student(Mngstudent f)
         {
@@ -25,11 +26,8 @@ namespace School_Project
 
         #endregion khởi tạo tham số ban đầu cần thiết
 
-        //tự động tinh tuổi khi nhập ngày sinh (thông qua hàm years)
-        private void dateofbirthbox_ValueChanged(object sender, EventArgs e)
-        {
-            agebox.Text = years(dateofbirthbox.Value.Date, DateTime.Now.Date).ToString();
-        }
+        //tự động tinh tuổi khi nhập ngày sinh(thông qua hàm years)
+       
 
         private int years(DateTime start, DateTime end)
         {
@@ -45,9 +43,9 @@ namespace School_Project
                 if (MessageBox.Show("Tất cả thông tin đã được nhập đúng?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    SqlCommand cm = new SqlCommand("UPDATE R2 SET tenHocSinh = @tenHocSinh, Tuoi = @Tuoi, Gioitinh = @Gioitinh, NgaySinh = @NgaySinh, Noisinh = @Noisinh, Dantoc = @Dantoc, Quoctich = @Quoctich, Quequan = @Quequan, Diachi = @Diachi, Tenme = @Tenme, Tenbo = @Tenbo, Sodienthoai = @Sodienthoai, Chieucao = @Chieucao, Cannang = @Cannang where maHocSinh = '" + idstudent + "'", cn);
+                    SqlCommand cm = new SqlCommand("UPDATE R2 SET tenHocSinh = @tenHocSinh, Trangthai = @Trangthai, Gioitinh = @Gioitinh, NgaySinh = @NgaySinh, Noisinh = @Noisinh, Dantoc = @Dantoc, Quoctich = @Quoctich, Quequan = @Quequan, Diachi = @Diachi, Tenme = @Tenme, Tenbo = @Tenbo, Sodienthoai = @Sodienthoai, Chieucao = @Chieucao, Cannang = @Cannang, Tuoi = @Tuoi where maHocSinh = '" + idstudent + "'", cn);
                     cm.Parameters.AddWithValue("@tenHocSinh", namebox.Text);
-                    cm.Parameters.AddWithValue("@Tuoi", agebox.Text);
+                    cm.Parameters.AddWithValue("@Trangthai", statusbox.Text);
                     cm.Parameters.AddWithValue("@Gioitinh", genderbox.SelectedItem.ToString());
                     cm.Parameters.AddWithValue("@NgaySinh", dateofbirthbox.Text);
                     cm.Parameters.AddWithValue("@NoiSinh", placeofbirthbox.Text);
@@ -60,6 +58,7 @@ namespace School_Project
                     cm.Parameters.AddWithValue("@Sodienthoai", phonenumbox.Text);
                     cm.Parameters.AddWithValue("@Chieucao", heightbox.Text);
                     cm.Parameters.AddWithValue("@Cannang", weightbox.Text);
+                    cm.Parameters.AddWithValue("@Tuoi", a);
                     cm.ExecuteNonQuery();
                     cn.Close();
                     MessageBox.Show("Cập nhật thông tin thành công", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -78,15 +77,20 @@ namespace School_Project
         private void clearbutton_Click(object sender, EventArgs e)
         {
             namebox.Clear();
-            genderbox.Items.Clear();
+            genderbox.SelectedIndex = -1;
             ethnicbox.Clear();
             nationalitybox.Clear();
             placeofbirthbox.Clear();
             hometownbox.Clear();
             addressbox.Clear();
             momnamebox.Clear(); dadnamebox.Clear();
-            dateofbirthbox.Value = DateTime.Now; agebox.Clear();
+            dateofbirthbox.Value = DateTime.Now; statusbox.SelectedIndex = -1;
             phonenumbox.Clear();
+        }
+
+        private void dateofbirthbox_ValueChanged(object sender, EventArgs e)
+        {
+            a = years(dateofbirthbox.Value.Date, DateTime.Now.Date).ToString();
         }
     }
 }

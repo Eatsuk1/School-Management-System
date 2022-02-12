@@ -13,6 +13,7 @@ namespace School_Project
         private ClassDB db = new ClassDB();
         private Mngstudent f;
         private string _title = "Hệ thống quản lý";
+        private string a;
 
         public Add_Student(Mngstudent f)
         {
@@ -26,7 +27,7 @@ namespace School_Project
         //tự động tinh tuổi khi nhập ngày sinh (thông qua hàm years)
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            agebox.Text = years(dateofbirthbox.Value.Date, DateTime.Now.Date).ToString();
+            a = years(dateofbirthbox.Value.Date, DateTime.Now.Date).ToString();
         }
 
         private int years(DateTime start, DateTime end)
@@ -43,7 +44,7 @@ namespace School_Project
             textbox.Add(namebox.Text); textbox.Add(genderbox.Text); textbox.Add(placeofbirthbox.Text);
             textbox.Add(ethnicbox.Text); textbox.Add(nationalitybox.Text); textbox.Add(hometownbox.Text); textbox.Add(addressbox.Text);
             textbox.Add(momnamebox.Text); textbox.Add(dadnamebox.Text); textbox.Add(heightbox.Text); textbox.Add(weightbox.Text);
-            textbox.Add(phonenumbox.Text); textbox.Add(agebox.Text);
+            textbox.Add(phonenumbox.Text); textbox.Add(statusbox.Text);
 
             try
             {
@@ -58,9 +59,9 @@ namespace School_Project
                 if (MessageBox.Show("Tất cả thông tin đã được nhập đúng?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    SqlCommand cm = new SqlCommand("INSERT INTO R2(tenHocSinh,Tuoi,Gioitinh,NgaySinh,Noisinh,Dantoc,Quoctich,Quequan,Diachi,Tenme,Tenbo,Sodienthoai,Chieucao,Cannang) VALUES(@tenHocSinh,@Tuoi,@Gioitinh,@NgaySinh,@Noisinh,@Dantoc,@Quoctich,@Quequan,@Diachi,@Tenme,@Tenbo,@Sodienthoai,@Chieucao,@Cannang)", cn);
+                    SqlCommand cm = new SqlCommand("INSERT INTO R2(tenHocSinh,Trangthai,Gioitinh,NgaySinh,Noisinh,Dantoc,Quoctich,Quequan,Diachi,Tenme,Tenbo,Sodienthoai,Chieucao,Cannang, Tuoi) VALUES(@tenHocSinh,@Trangthai,@Gioitinh,@NgaySinh,@Noisinh,@Dantoc,@Quoctich,@Quequan,@Diachi,@Tenme,@Tenbo,@Sodienthoai,@Chieucao,@Cannang, @Tuoi)", cn);
                     cm.Parameters.AddWithValue("@tenHocSinh", namebox.Text);
-                    cm.Parameters.AddWithValue("@Tuoi", agebox.Text);
+                    cm.Parameters.AddWithValue("@Trangthai", statusbox.Text);
                     cm.Parameters.AddWithValue("@Gioitinh", genderbox.SelectedItem.ToString());
                     cm.Parameters.AddWithValue("@NgaySinh", dateofbirthbox.Text);
                     cm.Parameters.AddWithValue("@NoiSinh", placeofbirthbox.Text);
@@ -73,6 +74,7 @@ namespace School_Project
                     cm.Parameters.AddWithValue("@Sodienthoai", phonenumbox.Text);
                     cm.Parameters.AddWithValue("@Chieucao", heightbox.Text);
                     cm.Parameters.AddWithValue("@Cannang", weightbox.Text);
+                    cm.Parameters.AddWithValue("@Tuoi", a);
                     cm.ExecuteNonQuery();
                     cn.Close();
                     MessageBox.Show("Lưu thông tin thành công", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -98,13 +100,8 @@ namespace School_Project
             hometownbox.Clear();
             addressbox.Clear();
             momnamebox.Clear(); dadnamebox.Clear();
-            dateofbirthbox.Value = DateTime.Now; agebox.Clear();
+            dateofbirthbox.Value = DateTime.Now; statusbox.SelectedIndex = -1;
             phonenumbox.Clear();
-        }
-
-        private void phonenumbox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

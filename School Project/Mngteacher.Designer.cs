@@ -39,7 +39,7 @@ namespace School_Project
             this.dateofbirthcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gendercol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phonenumbercol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chuyenmoncol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.trangthaicol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addnewbutton = new System.Windows.Forms.Button();
             this.editbutton = new System.Windows.Forms.Button();
             this.deletebutton = new System.Windows.Forms.Button();
@@ -88,7 +88,7 @@ namespace School_Project
             this.dateofbirthcol,
             this.gendercol,
             this.phonenumbercol,
-            this.chuyenmoncol});
+            this.trangthaicol});
             this.dataGridView1.Location = new System.Drawing.Point(12, 80);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -140,11 +140,11 @@ namespace School_Project
             this.phonenumbercol.ReadOnly = true;
             this.phonenumbercol.Width = 120;
             // 
-            // chuyenmoncol
+            // trangthaicol
             // 
-            this.chuyenmoncol.HeaderText = "Chuyên môn";
-            this.chuyenmoncol.Name = "chuyenmoncol";
-            this.chuyenmoncol.Width = 120;
+            this.trangthaicol.HeaderText = "Trạng thái";
+            this.trangthaicol.Name = "trangthaicol";
+            this.trangthaicol.Width = 120;
             // 
             // addnewbutton
             // 
@@ -267,6 +267,7 @@ namespace School_Project
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.searchfilter);
             this.Controls.Add(this.searchbutton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -296,6 +297,6 @@ namespace School_Project
         private System.Windows.Forms.DataGridViewTextBoxColumn dateofbirthcol;
         private System.Windows.Forms.DataGridViewTextBoxColumn gendercol;
         private System.Windows.Forms.DataGridViewTextBoxColumn phonenumbercol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chuyenmoncol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn trangthaicol;
     }
 }

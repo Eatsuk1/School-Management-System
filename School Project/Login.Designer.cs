@@ -88,22 +88,25 @@ namespace School_Project
             // 
             // loginbutton
             // 
+            this.loginbutton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.loginbutton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.loginbutton.Location = new System.Drawing.Point(91, 231);
             this.loginbutton.Name = "loginbutton";
             this.loginbutton.Size = new System.Drawing.Size(84, 40);
             this.loginbutton.TabIndex = 5;
             this.loginbutton.Text = "Đăng nhập";
-            this.loginbutton.UseVisualStyleBackColor = true;
+            this.loginbutton.UseVisualStyleBackColor = false;
             this.loginbutton.Click += new System.EventHandler(this.loginbutton_Click);
             // 
             // forgotbutton
             // 
+            this.forgotbutton.BackColor = System.Drawing.SystemColors.ControlLight;
             this.forgotbutton.Location = new System.Drawing.Point(272, 231);
             this.forgotbutton.Name = "forgotbutton";
             this.forgotbutton.Size = new System.Drawing.Size(84, 40);
             this.forgotbutton.TabIndex = 6;
             this.forgotbutton.Text = "Quên mật khẩu";
-            this.forgotbutton.UseVisualStyleBackColor = true;
+            this.forgotbutton.UseVisualStyleBackColor = false;
             this.forgotbutton.Click += new System.EventHandler(this.forgotbutton_Click);
             // 
             // Login
@@ -111,7 +114,7 @@ namespace School_Project
             this.AcceptButton = this.loginbutton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::School_Project.Properties.Resources.k11_1618210390788910112165_23_0_648_1000_crop_1618243934065760570168;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(460, 308);
             this.Controls.Add(this.forgotbutton);

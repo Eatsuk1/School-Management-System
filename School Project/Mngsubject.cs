@@ -50,6 +50,22 @@ namespace School_Project
             }
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cn.Open();
+                var a = new SqlCommand("Delete from R16 where tenMonHoc = '" + dataGridView1.CurrentCell.Value.ToString() + "'", cn);
+                a.ExecuteNonQuery();
+                MessageBox.Show("Đã xóa môn học vừa chọn", _title, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                cn.Close();
+                LoadSubject();
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, _title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

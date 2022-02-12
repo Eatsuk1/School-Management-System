@@ -32,7 +32,7 @@ namespace School_Project
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainwindow));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Manage_Students = new System.Windows.Forms.ToolStripButton();
-            this.Manage_Staff = new System.Windows.Forms.ToolStripButton();
+            this.Manage_Teacher = new System.Windows.Forms.ToolStripButton();
             this.Manage_Marks = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripButton();
@@ -47,7 +47,7 @@ namespace School_Project
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(28, 28);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Manage_Students,
-            this.Manage_Staff,
+            this.Manage_Teacher,
             this.Manage_Marks,
             this.toolStripLabel3,
             this.toolStripLabel1,
@@ -59,7 +59,6 @@ namespace School_Project
             this.toolStrip1.Size = new System.Drawing.Size(876, 35);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // Manage_Students
             // 
@@ -71,15 +70,15 @@ namespace School_Project
             this.Manage_Students.Text = "Quản lý học sinh";
             this.Manage_Students.Click += new System.EventHandler(this.Manage_Students_Click);
             // 
-            // Manage_Staff
+            // Manage_Teacher
             // 
-            this.Manage_Staff.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Manage_Staff.Image = ((System.Drawing.Image)(resources.GetObject("Manage_Staff.Image")));
-            this.Manage_Staff.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.Manage_Staff.Name = "Manage_Staff";
-            this.Manage_Staff.Size = new System.Drawing.Size(141, 32);
-            this.Manage_Staff.Text = "Quản lý giáo viên";
-            this.Manage_Staff.Click += new System.EventHandler(this.Manage_Staff_Click);
+            this.Manage_Teacher.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Manage_Teacher.Image = ((System.Drawing.Image)(resources.GetObject("Manage_Teacher.Image")));
+            this.Manage_Teacher.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Manage_Teacher.Name = "Manage_Teacher";
+            this.Manage_Teacher.Size = new System.Drawing.Size(141, 32);
+            this.Manage_Teacher.Text = "Quản lý giáo viên";
+            this.Manage_Teacher.Click += new System.EventHandler(this.Manage_Teacher_Click);
             // 
             // Manage_Marks
             // 
@@ -134,19 +133,19 @@ namespace School_Project
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::School_Project.Properties.Resources.Trước_C1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(876, 609);
             this.Controls.Add(this.toolStrip1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Mainwindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trang chủ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Mainwindow_FormClosing);
-            this.Load += new System.EventHandler(this.Mainwindow_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -156,12 +155,12 @@ namespace School_Project
 
         #endregion
         internal System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton Manage_Students;
-        private System.Windows.Forms.ToolStripButton Manage_Marks;
-        private System.Windows.Forms.ToolStripButton Manage_Users;
-        protected internal System.Windows.Forms.ToolStripButton Manage_Staff;
-        private System.Windows.Forms.ToolStripButton Log_out;
-        private System.Windows.Forms.ToolStripButton toolStripLabel3;
-        private System.Windows.Forms.ToolStripButton toolStripLabel1;
+        protected internal System.Windows.Forms.ToolStripButton Manage_Teacher;
+        protected internal System.Windows.Forms.ToolStripButton Manage_Students;
+        protected internal System.Windows.Forms.ToolStripButton Manage_Marks;
+        protected internal System.Windows.Forms.ToolStripButton Manage_Users;
+        protected internal System.Windows.Forms.ToolStripButton Log_out;
+        protected internal System.Windows.Forms.ToolStripButton toolStripLabel3;
+        protected internal System.Windows.Forms.ToolStripButton toolStripLabel1;
     }
 }

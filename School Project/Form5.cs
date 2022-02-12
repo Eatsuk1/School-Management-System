@@ -116,15 +116,20 @@ namespace School_Project
                 cn.Open();
                 foreach(DataGridViewRow row in dataGridView1.Rows)
                 {
-                    var c = new SqlCommand("insert into R4(maHocSinh, tenMonHoc, Diemso, maNangLuc, maPhamchat, Kyhoc, Namhoc, tenLop) values(@maHocSinh, @tenMonHoc, @Diemso, @maNangLuc, @maPhamchat, @Kyhoc, @Namhoc, @tenLop)", cn);
+                    var c = new SqlCommand("insert into R4(maHocSinh, tenMonHoc, Diemso, Kyhoc, Namhoc, tenLop, TuphucvuTuquan, Hoptac, Tuhocvagiaiquyetvande, ChamhocChamlam, TutinTrachnhiem, TrungthucKyluat, DoanketYeuthuong) values(@maHocSinh, @tenMonHoc, @Diemso, @Kyhoc, @Namhoc, @tenLop, @TuphucvuTuquan, @Hoptac, @Tuhocvagiaiquyetvande, @ChamhocChamlam, @TutinTrachnhiem, @TrungthucKyluat, @DoanketYeuthuong)", cn);
                     c.Parameters.AddWithValue("maHocSinh", s.dataGridView1.CurrentRow.Cells[0].Value.ToString());
                     c.Parameters.AddWithValue("Diemso", row.Cells[1].Value.ToString());
                     c.Parameters.AddWithValue("tenMonHoc", row.Cells[0].Value.ToString());
-                    c.Parameters.AddWithValue("maNangLuc", none);
-                    c.Parameters.AddWithValue("maPhamchat", none);
                     c.Parameters.AddWithValue("Kyhoc", s.comboBox2.Text);
                     c.Parameters.AddWithValue("Namhoc", s.comboBox3.Text);
                     c.Parameters.AddWithValue("tenLop", s.comboBox1.Text);
+                    c.Parameters.AddWithValue("TuphucvuTuquan", comboBox1.SelectedItem.ToString());
+                    c.Parameters.AddWithValue("Hoptac", comboBox2.SelectedItem.ToString());
+                    c.Parameters.AddWithValue("Tuhocvagiaiquyetvande", comboBox3.SelectedItem.ToString());
+                    c.Parameters.AddWithValue("ChamhocChamlam", comboBox4.SelectedItem.ToString());
+                    c.Parameters.AddWithValue("TutinTrachnhiem", comboBox5.SelectedItem.ToString());
+                    c.Parameters.AddWithValue("TrungthucKyluat", comboBox6.SelectedItem.ToString());
+                    c.Parameters.AddWithValue("DoanketYeuthuong", comboBox7.SelectedItem.ToString());
                     c.ExecuteNonQuery();
                 }
                 cn.Close();

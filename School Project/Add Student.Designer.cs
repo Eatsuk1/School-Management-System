@@ -39,7 +39,6 @@ namespace School_Project
             this.savebutton = new System.Windows.Forms.Button();
             this.clearbutton = new System.Windows.Forms.Button();
             this.age = new System.Windows.Forms.Label();
-            this.agebox = new System.Windows.Forms.TextBox();
             this.ethnic = new System.Windows.Forms.Label();
             this.nationality = new System.Windows.Forms.Label();
             this.placeofbirth = new System.Windows.Forms.Label();
@@ -60,6 +59,7 @@ namespace School_Project
             this.phonenumbox = new System.Windows.Forms.TextBox();
             this.address = new System.Windows.Forms.Label();
             this.addressbox = new System.Windows.Forms.TextBox();
+            this.statusbox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // namebox
@@ -149,18 +149,11 @@ namespace School_Project
             // 
             this.age.AutoSize = true;
             this.age.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.age.Location = new System.Drawing.Point(679, 45);
+            this.age.Location = new System.Drawing.Point(643, 46);
             this.age.Name = "age";
-            this.age.Size = new System.Drawing.Size(38, 20);
+            this.age.Size = new System.Drawing.Size(75, 20);
             this.age.TabIndex = 11;
-            this.age.Text = "Tuổi";
-            // 
-            // agebox
-            // 
-            this.agebox.Location = new System.Drawing.Point(736, 45);
-            this.agebox.Name = "agebox";
-            this.agebox.Size = new System.Drawing.Size(45, 23);
-            this.agebox.TabIndex = 12;
+            this.age.Text = "Trạng thái";
             // 
             // ethnic
             // 
@@ -316,7 +309,6 @@ namespace School_Project
             this.phonenumbox.Name = "phonenumbox";
             this.phonenumbox.Size = new System.Drawing.Size(224, 23);
             this.phonenumbox.TabIndex = 34;
-            this.phonenumbox.TextChanged += new System.EventHandler(this.phonenumbox_TextChanged);
             // 
             // address
             // 
@@ -336,11 +328,25 @@ namespace School_Project
             this.addressbox.Size = new System.Drawing.Size(224, 46);
             this.addressbox.TabIndex = 36;
             // 
+            // statusbox
+            // 
+            this.statusbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.statusbox.FormattingEnabled = true;
+            this.statusbox.Items.AddRange(new object[] {
+            "Đang theo học",
+            "Tốt nghiệp",
+            "Chuyển trường"});
+            this.statusbox.Location = new System.Drawing.Point(721, 45);
+            this.statusbox.Name = "statusbox";
+            this.statusbox.Size = new System.Drawing.Size(91, 23);
+            this.statusbox.TabIndex = 37;
+            // 
             // Add_Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1146, 449);
+            this.ClientSize = new System.Drawing.Size(1205, 456);
+            this.Controls.Add(this.statusbox);
             this.Controls.Add(this.addressbox);
             this.Controls.Add(this.address);
             this.Controls.Add(this.phonenumbox);
@@ -361,7 +367,6 @@ namespace School_Project
             this.Controls.Add(this.placeofbirth);
             this.Controls.Add(this.nationality);
             this.Controls.Add(this.ethnic);
-            this.Controls.Add(this.agebox);
             this.Controls.Add(this.age);
             this.Controls.Add(this.clearbutton);
             this.Controls.Add(this.savebutton);
@@ -401,7 +406,6 @@ namespace School_Project
         private System.Windows.Forms.Label address;
         internal System.Windows.Forms.TextBox namebox;
         internal System.Windows.Forms.DateTimePicker dateofbirthbox;
-        internal System.Windows.Forms.TextBox agebox;
         internal System.Windows.Forms.TextBox ethnicbox;
         internal System.Windows.Forms.TextBox nationalitybox;
         internal System.Windows.Forms.TextBox placeofbirthbox;
@@ -413,5 +417,6 @@ namespace School_Project
         internal System.Windows.Forms.TextBox phonenumbox;
         internal System.Windows.Forms.TextBox addressbox;
         internal System.Windows.Forms.ComboBox genderbox;
+        private System.Windows.Forms.ComboBox statusbox;
     }
 }

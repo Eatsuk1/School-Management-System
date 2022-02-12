@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -11,7 +10,7 @@ namespace School_Project
         private SqlDataReader dr;
         private ClassDB db = new ClassDB();
         private string _title = "Hệ thống quản lý";
-        private string none = "";
+        //private string none = "";
 
         public MngMarks()
         {
@@ -62,22 +61,23 @@ namespace School_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //List<string> monhoc = new List<string>();
-            //cn.Open();
-            //var a = new SqlCommand("select * from R16", cn);
-            //dr = a.ExecuteReader();
-            //while (dr.Read())
-            //{
-            //    monhoc.Add(dr["tenMonHoc"].ToString());
-            //}
-            //dr.Close(); cn.Close();
+            /*List<string> monhoc = new List<string>();
+            cn.Open();
+            var a = new SqlCommand("select * from R16", cn);
+            dr = a.ExecuteReader();
+            while (dr.Read())
+            {
+                monhoc.Add(dr["tenMonHoc"].ToString());
+            }
+            dr.Close(); cn.Close();*/
 
             Form5 s = new Form5(this);
             Form6 s1 = new Form6(this);
-            try {
-            cn.Open();
-            var b = new SqlCommand("select * from R4 where maHocSinh = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Kyhoc = '" + comboBox2.Text + "' and Namhoc = '" + comboBox3.Text + "'", cn);
-            dr = b.ExecuteReader();
+            try
+            {
+                cn.Open();
+                var b = new SqlCommand("select * from R4 where maHocSinh = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Kyhoc = '" + comboBox2.Text + "' and Namhoc = '" + comboBox3.Text + "'", cn);
+                dr = b.ExecuteReader();
                 if (dr.HasRows)
                 {
 
@@ -91,11 +91,12 @@ namespace School_Project
                 }
                 else
                 {
+                    #region bỏ đi
                     //try
                     //{
                     //    dr.Close();
 
-                    //    #region bỏ đi
+
 
                     //    /*var cm = new SqlCommand("insert into R6(TuphucvuTuquan, Hoptac, Tuhocvagiaiquyetvande) values(@TuphucvuTuquan, @Hoptac, @Tuhocvagiaiquyetvande)", cn);
                     //    cm.Parameters.AddWithValue("TuphucvuTuquan", none);
@@ -116,7 +117,7 @@ namespace School_Project
                     //    var cm3 = new SqlCommand("select maPhamchat from R7 where ChamhocChamlam = '" + none + "' and TutinTrachnhiem = '" + none + "' and TrungthucKyluat = '" + none + "' and DoanketYeuthuong = '" + none + "'", cn);
                     //    dr = cm3.ExecuteReader(); dr.Read(); string temp1 = dr["maPhamchat"].ToString(); dr.Close();*/
 
-                    //    #endregion bỏ đi
+
 
                     //    foreach (var item in monhoc)
                     //    {
@@ -139,14 +140,17 @@ namespace School_Project
                     //    cn.Close();
                     //    MessageBox.Show(ex.Message, _title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     //}
+                    #endregion bỏ đi
+
                     dr.Close();
                     cn.Close();
 
                     s.LoadRecords2();
                     s.ShowDialog();
                 }
-            
-            }catch (Exception ex)
+
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, _title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -160,6 +164,30 @@ namespace School_Project
         private void comboBox3_TextChanged(object sender, EventArgs e)
         {
             LoadRecords();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form7 s = new Form7(this);
+            s.LoadRecords();
+            s.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cn.Open();
+                var a = new SqlCommand("Delete from R4 where maHocSinh = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "' and Kyhoc = '" + comboBox2.Text + "' and Namhoc = '" + comboBox3.Text + "' and tenLop = '" + comboBox1.Text + "'", cn);
+                a.ExecuteNonQuery();
+                cn.Close();
+                MessageBox.Show("Đã xóa kết quả học tập của học sinh vừa chọn", _title, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            catch (Exception ex)
+            {
+                cn.Close();
+                MessageBox.Show(ex.Message, _title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

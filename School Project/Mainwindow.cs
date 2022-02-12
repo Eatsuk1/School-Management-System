@@ -20,14 +20,8 @@ namespace School_Project
             s.Show();
         }
 
-        //quản lý giáo viên
-        private void Manage_Staff_Click(object sender, EventArgs e)
-        {
-            Mngteacher s = new Mngteacher();
-            s.LoadRecords();
-            s.Show();
-        }
-
+        
+        //quản lý kết quả học tập
         private void Manage_Marks_Click(object sender, EventArgs e)
         {
             MngMarks s = new MngMarks();
@@ -72,26 +66,26 @@ namespace School_Project
             }
         }
 
+        //quản lý môn học
         private void toolStripLabel3_Click(object sender, EventArgs e)
         {
             Mngsubject s = new Mngsubject();
             s.LoadSubject(); s.Show();
         }
 
+        //quản lý lớp học
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
             Mngclass s = new Mngclass();
             s.Show();
         }
 
-        private void Mainwindow_Load(object sender, EventArgs e)
+        //quản lý giáo viên
+        private void Manage_Teacher_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
+            Mngteacher s = new Mngteacher();
+            s.LoadRecords();
+            s.Show();
         }
     }
 }

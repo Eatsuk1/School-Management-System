@@ -32,7 +32,7 @@ namespace School_Project
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
-                dataGridView1.Rows.Add(dr["maHocSinh"].ToString(), dr["tenHocSinh"].ToString(), dr["Tuoi"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString());
+                dataGridView1.Rows.Add(dr["maHocSinh"].ToString(), dr["tenHocSinh"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString(), dr["Trangthai"].ToString());
             }
             dr.Close();
             cn.Close();
@@ -59,7 +59,7 @@ namespace School_Project
             {
                 f.idstudent = dr["maHocSinh"].ToString();
                 f.namebox.Text = dr["tenHocSinh"].ToString();
-                f.agebox.Text = dr["Tuoi"].ToString();
+                f.statusbox.Text = dr["Trangthai"].ToString();
                 f.genderbox.Text = dr["Gioitinh"].ToString();
                 f.dateofbirthbox.Text = dr["NgaySinh"].ToString();
                 f.placeofbirthbox.Text = dr["NoiSinh"].ToString();
@@ -93,65 +93,65 @@ namespace School_Project
             }
         }
 
+        
+
         #endregion chức năng của quản lý học sinh
 
         #region chức năng tìm kiếm
 
-        //hàm filter cho search
+        //chạy search
         public void LoadSearch()
         {
-            dataGridView1.Rows.Clear();
-            cn.Open();
-            SqlCommand cm;
-            if (age.Checked == true && gender.Checked == false && name.Checked == false)
+            try
             {
-                cm = new SqlCommand("select R2.tenHocSinh, R3.tenLop, R2.Tuoi, R2.Gioitinh, R2.NgaySinh from R2,R3 where R2.maLop = R3.maLop and R2.Tuoi = " + agenumeric.Value, cn);
-                dr = cm.ExecuteReader();
-                while (dr.Read())
+                dataGridView1.Rows.Clear();
+                cn.Open();
+                SqlCommand cm;
+                if (age.Checked == true && gender.Checked == false && name.Checked == false)
                 {
-                    dataGridView1.Rows.Add(dr["tenHocSinh"].ToString(), dr["tenLop"].ToString(), dr["Tuoi"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString());
+                    cm = new SqlCommand("select * from R2 where Tuoi = '" + agenumeric.Value + "'", cn);
+                    dr = cm.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        dataGridView1.Rows.Add(dr["maHocSinh"].ToString(), dr["tenHocSinh"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString(), dr["Trangthai"].ToString());
+                    }
+                    dr.Close();
+                    cn.Close();
                 }
-                dr.Close();
-                cn.Close();
-            }
-            else if (gender.Checked == true && age.Checked == false && name.Checked == false)
-            {
-                cm = new SqlCommand("select R2.tenHocSinh, R3.tenLop, R2.Tuoi, R2.Gioitinh, R2.NgaySinh from R2,R3 where R2.maLop = R3.maLop and R2.Gioitinh = '" + genderbox.Text + "'", cn);
-                dr = cm.ExecuteReader();
-                while (dr.Read())
+                else if (age.Checked == false && gender.Checked == false && name.Checked == true)
                 {
-                    dataGridView1.Rows.Add(dr["tenHocSinh"].ToString(), dr["tenLop"].ToString(), dr["Tuoi"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString());
+                    cm = new SqlCommand("select * from R2 where tenHocSinh like '%" + namebox.Text + "%'", cn);
+                    dr = cm.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        dataGridView1.Rows.Add(dr["maHocSinh"].ToString(), dr["tenHocSinh"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString(), dr["Trangthai"].ToString());
+                    }
+                    dr.Close();
+                    cn.Close();
                 }
-                dr.Close();
-                cn.Close();
-            }
-            else if (age.Checked == true && gender.Checked == true && name.Checked == false)
-            {
-                cm = new SqlCommand("select R2.tenHocSinh, R3.tenLop, R2.Tuoi, R2.Gioitinh, R2.NgaySinh from R2,R3 where R2.maLop = R3.maLop and R2.Tuoi = " + agenumeric.Value + " and R2.Gioitinh = '" + genderbox.Text + "'", cn);
-                dr = cm.ExecuteReader();
-                while (dr.Read())
+                else if (age.Checked == false && gender.Checked == true && name.Checked == false)
                 {
-                    dataGridView1.Rows.Add(dr["tenHocSinh"].ToString(), dr["tenLop"].ToString(), dr["Tuoi"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString());
+
+                    cm = new SqlCommand("select * from R2 where Gioitinh = '" + genderbox.Text + "'", cn);
+                    dr = cm.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        dataGridView1.Rows.Add(dr["maHocSinh"].ToString(), dr["tenHocSinh"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString(), dr["Trangthai"].ToString());
+                    }
+                    dr.Close();
+                    cn.Close();
                 }
-                dr.Close();
-                cn.Close();
-            }
-            else if (name.Checked == true && age.Checked == false && gender.Checked == false)
-            {
-                cm = new SqlCommand("select R2.tenHocSinh, R3.tenLop, R2.Tuoi, R2.Gioitinh, R2.NgaySinh from R2,R3 where R2.maLop = R3.maLop and R2.tenHocSinh = '" + namebox.Text + "'", cn);
-                dr = cm.ExecuteReader();
-                while (dr.Read())
+                else if (name.Checked == true && age.Checked == true || name.Checked == true && gender.Checked == true)
                 {
-                    dataGridView1.Rows.Add(dr["tenHocSinh"].ToString(), dr["tenLop"].ToString(), dr["Tuoi"].ToString(), dr["Gioitinh"].ToString(), DateTime.Parse(dr["NgaySinh"].ToString()).ToShortDateString());
+                    cn.Close();
+                    MessageBox.Show("Bộ lọc không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    LoadRecords();
                 }
-                dr.Close();
                 cn.Close();
-            }
-            else if (name.Checked == true && age.Checked == true || name.Checked == true && gender.Checked == true)
+            }catch (Exception ex)
             {
                 cn.Close();
-                MessageBox.Show("Bộ lọc không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                LoadRecords();
+                MessageBox.Show(ex.Message, _title, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -24,27 +24,28 @@ namespace School_Project
         {
             try
             {
-                cn.Open();
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    if (Convert.ToBoolean(row.Cells[0].Value) == true)
-                    {
-                        var a = new SqlCommand("select maHocSinh, tenHocSinh from R2 where maHocSinh = '" + row.Cells[1].Value.ToString() + "'", cn);
-                        dr = a.ExecuteReader(); dr.Read();
-                        var b = new SqlCommand("insert into R10(maHocSinh, tenLop, Namhoc, tenHocSinh) values(@maHocSinh, @tenLop, @Namhoc, @tenHocSinh)", cn);
-                        b.Parameters.AddWithValue("maHocSinh", dr["maHocSinh"].ToString());
-                        b.Parameters.AddWithValue("tenLop", s.classbox.SelectedItem.ToString());
-                        b.Parameters.AddWithValue("Namhoc", s.schoolyearbox.SelectedItem.ToString());
-                        b.Parameters.AddWithValue("tenHocSinh", dr["tenHocSinh"].ToString());
-                        b.ExecuteNonQuery();
-                        dr.Close();
-                    }
-                }
                 if (MessageBox.Show("Thêm học sinh đã chọn?", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    cn.Open();
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value) == true)
+                        {
+                            var a = new SqlCommand("select maHocSinh, tenHocSinh from R2 where maHocSinh = '" + row.Cells[1].Value.ToString() + "'", cn);
+                            dr = a.ExecuteReader(); dr.Read();
+                            var b = new SqlCommand("insert into R10(maHocSinh, tenLop, Namhoc, tenHocSinh) values(@maHocSinh, @tenLop, @Namhoc, @tenHocSinh)", cn);
+                            b.Parameters.AddWithValue("maHocSinh", dr["maHocSinh"].ToString());
+                            b.Parameters.AddWithValue("tenLop", s.classbox.SelectedItem.ToString());
+                            b.Parameters.AddWithValue("Namhoc", s.schoolyearbox.SelectedItem.ToString());
+                            b.Parameters.AddWithValue("tenHocSinh", dr["tenHocSinh"].ToString());
+                            b.ExecuteNonQuery();
+                            dr.Close();
+                        }
+                    }
                     MessageBox.Show("Lưu thông tin thành công", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    cn.Close();
                 }
-                cn.Close();
             }
             catch (Exception ex)
             {

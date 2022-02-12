@@ -72,20 +72,21 @@ namespace School_Project
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button1.Location = new System.Drawing.Point(147, 125);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 43);
             this.button1.TabIndex = 4;
             this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::School_Project.Properties.Resources.download__1_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(413, 211);
             this.Controls.Add(this.button1);
@@ -93,9 +94,13 @@ namespace School_Project
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Thêm năm học";
             this.ResumeLayout(false);
             this.PerformLayout();
 

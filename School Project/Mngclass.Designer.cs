@@ -164,7 +164,6 @@ namespace School_Project
             this.label4.Size = new System.Drawing.Size(54, 15);
             this.label4.TabIndex = 5;
             this.label4.Text = "Học sinh";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // classbox
             // 
@@ -233,9 +232,9 @@ namespace School_Project
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(680, 423);
+            this.button4.Location = new System.Drawing.Point(680, 420);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(42, 20);
+            this.button4.Size = new System.Drawing.Size(42, 23);
             this.button4.TabIndex = 12;
             this.button4.Text = "Xóa";
             this.button4.UseVisualStyleBackColor = true;
@@ -279,9 +278,9 @@ namespace School_Project
             // 
             this.button5.Location = new System.Drawing.Point(40, 420);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(237, 22);
+            this.button5.Size = new System.Drawing.Size(237, 23);
             this.button5.TabIndex = 17;
-            this.button5.Text = "Thêm gíáo viên chủ nhiệm và lớp trưởng";
+            this.button5.Text = "Thêm giáo viên chủ nhiệm và lớp trưởng";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 

@@ -79,6 +79,7 @@ namespace School_Project
         //xóa giáo viên
         private void deletebutton_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 if (MessageBox.Show("Bạn chắc chắn muốn xóa giáo viên này? Nhấn Yes để xóa", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)

@@ -50,13 +50,12 @@ namespace School_Project
                     {
                         if (Convert.ToBoolean(row.Cells[0].Value) == true)
                         {
-                            var a = new SqlCommand("select maGiaoVien, tenGiaoVien from R1 where maGiaoVien = '" + row.Cells[1].Value.ToString() + "'", cn);
+                            var a = new SqlCommand("select maGiaoVien from R1 where maGiaoVien = '" + row.Cells[1].Value.ToString() + "'", cn);
                             dr = a.ExecuteReader(); dr.Read();
-                            var b = new SqlCommand("insert into R9(maGiaoVien, tenLop, Namhoc, tenGiaoVien) values(@maGiaoVien, @tenLop, @Namhoc, @tenGiaoVien)", cn);
+                            var b = new SqlCommand("insert into R9(maGiaoVien, tenLop, Namhoc) values(@maGiaoVien, @tenLop, @Namhoc)", cn);
                             b.Parameters.AddWithValue("maGiaoVien", dr["maGiaoVien"].ToString());
                             b.Parameters.AddWithValue("tenLop", s.classbox.SelectedItem.ToString());
                             b.Parameters.AddWithValue("Namhoc", s.schoolyearbox.SelectedItem.ToString());
-                            b.Parameters.AddWithValue("tenGiaoVien", dr["tenGiaoVien"].ToString());
                             b.ExecuteNonQuery();
                             dr.Close();
 

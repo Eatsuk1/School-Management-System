@@ -31,13 +31,12 @@ namespace School_Project
                     {
                         if (Convert.ToBoolean(row.Cells[0].Value) == true)
                         {
-                            var a = new SqlCommand("select maHocSinh, tenHocSinh from R2 where maHocSinh = '" + row.Cells[1].Value.ToString() + "'", cn);
+                            var a = new SqlCommand("select maHocSinh from R2 where maHocSinh = '" + row.Cells[1].Value.ToString() + "'", cn);
                             dr = a.ExecuteReader(); dr.Read();
-                            var b = new SqlCommand("insert into R10(maHocSinh, tenLop, Namhoc, tenHocSinh) values(@maHocSinh, @tenLop, @Namhoc, @tenHocSinh)", cn);
+                            var b = new SqlCommand("insert into R10(maHocSinh, tenLop, Namhoc) values(@maHocSinh, @tenLop, @Namhoc)", cn);
                             b.Parameters.AddWithValue("maHocSinh", dr["maHocSinh"].ToString());
                             b.Parameters.AddWithValue("tenLop", s.classbox.SelectedItem.ToString());
                             b.Parameters.AddWithValue("Namhoc", s.schoolyearbox.SelectedItem.ToString());
-                            b.Parameters.AddWithValue("tenHocSinh", dr["tenHocSinh"].ToString());
                             b.ExecuteNonQuery();
                             dr.Close();
                         }

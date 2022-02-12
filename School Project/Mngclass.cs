@@ -26,7 +26,7 @@ namespace School_Project
         {
             dataGridViewtch.Rows.Clear();
             cn.Open();
-            SqlCommand cm = new SqlCommand("select maGiaoVien, tenGiaoVien from R9 where tenLop = '" + classbox.Text + "' and Namhoc = '" + schoolyearbox.Text + "'", cn);
+            SqlCommand cm = new SqlCommand("select R9.maGiaoVien, R1.tenGiaoVien from R9, R1 where tenLop = '" + classbox.Text + "' and Namhoc = '" + schoolyearbox.Text + "' and R9.maGiaoVien = R1.maGiaoVien", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -40,7 +40,7 @@ namespace School_Project
         {
             dataGridViewstd.Rows.Clear();
             cn.Open();
-            SqlCommand cm = new SqlCommand("select maHocSinh, tenHocSinh from R10 where tenLop = '" + classbox.Text + "' and Namhoc = '" + schoolyearbox.Text + "'", cn);
+            SqlCommand cm = new SqlCommand("select R10.maHocSinh, R2.tenHocSinh from R10, R2 where tenLop = '" + classbox.Text + "' and Namhoc = '" + schoolyearbox.Text + "' and R10.maHocSinh = R2.maHocSinh", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -56,11 +56,11 @@ namespace School_Project
             {
                 textBox1.Clear(); textBox2.Clear(); textBox3.Clear();
                 cn.Open();
-                SqlCommand cm = new SqlCommand("select tenGVCN, Loptruong, Siso from R3 where tenLop = '" + classbox.Text + "' and Namhoc = '" + schoolyearbox.Text + "'", cn);
+                SqlCommand cm = new SqlCommand("select R3.maGVCN, R3.maLoptruong, R3.Siso, R1.tenGiaoVien, R2.tenHocSinh from R3, R1, R2 where tenLop = '" + classbox.Text + "' and Namhoc = '" + schoolyearbox.Text + "' and R3.maGVCN = R1.maGiaoVien and R3.maLoptruong = R2.maHocSinh", cn);
                 dr = cm.ExecuteReader();
                 dr.Read();
-                textBox1.Text = dr["tenGVCN"].ToString();
-                textBox2.Text = dr["Loptruong"].ToString();
+                textBox1.Text = dr["tenGiaoVien"].ToString();
+                textBox2.Text = dr["tenHocSinh"].ToString();
                 textBox3.Text = dr["Siso"].ToString();
                 dr.Close();
                 cn.Close();
@@ -189,14 +189,12 @@ namespace School_Project
                 }
                 if (i == 0)
                 {
-                    var a = new SqlCommand("insert into R3(tenLop, tenGVCN, Loptruong, Siso, Namhoc, maGiaoVien, maHocSinh) values(@tenLop, @tenGVCN, @Loptruong, @Siso, @Namhoc, @maGiaoVien, @maHocSinh)", cn);
+                    var a = new SqlCommand("insert into R3(tenLop, Siso, Namhoc, maGVCN, maLoptruong) values(@tenLop, @Siso, @Namhoc, @maGVCN, @maLoptruong)", cn);
                     a.Parameters.AddWithValue("tenLop", classbox.Text);
-                    a.Parameters.AddWithValue("tenGVCN", dataGridViewtch.CurrentRow.Cells[1].Value.ToString());
-                    a.Parameters.AddWithValue("Loptruong", dataGridViewstd.CurrentRow.Cells[1].Value.ToString());
                     a.Parameters.AddWithValue("Siso", Siso());
                     a.Parameters.AddWithValue("Namhoc", schoolyearbox.Text);
-                    a.Parameters.AddWithValue("maGiaoVien", dataGridViewtch.CurrentRow.Cells[0].Value.ToString());
-                    a.Parameters.AddWithValue("maHocSinh", dataGridViewstd.CurrentRow.Cells[0].Value.ToString());
+                    a.Parameters.AddWithValue("maGVCN", dataGridViewtch.CurrentRow.Cells[0].Value.ToString());
+                    a.Parameters.AddWithValue("maLoptruong", dataGridViewstd.CurrentRow.Cells[0].Value.ToString());
                     a.ExecuteNonQuery();
                     dr.Close();
                     cn.Close();
@@ -224,11 +222,9 @@ namespace School_Project
             try
             {
                 cn.Open();
-                var a = new SqlCommand("update R3 set tenGVCN = @tenGVCN, Loptruong = @Loptruong, maGiaoVien = @maGiaoVien, maHocSinh = @maHocSinh where tenLop = '" + classbox.Text + "' and Namhoc = '" + schoolyearbox.Text + "'", cn);
-                a.Parameters.AddWithValue("tenGVCN", dataGridViewtch.CurrentRow.Cells[1].Value.ToString());
-                a.Parameters.AddWithValue("Loptruong", dataGridViewstd.CurrentRow.Cells[1].Value.ToString());
-                a.Parameters.AddWithValue("maGiaoVien", dataGridViewtch.CurrentRow.Cells[0].Value.ToString());
-                a.Parameters.AddWithValue("maHocSinh", dataGridViewstd.CurrentRow.Cells[0].Value.ToString());
+                var a = new SqlCommand("update R3 set maGVCN = @maGVCN, maLoptruong = @maLoptruong where tenLop = '" + classbox.Text + "' and Namhoc = '" + schoolyearbox.Text + "'", cn);
+                a.Parameters.AddWithValue("maGVCN", dataGridViewtch.CurrentRow.Cells[0].Value.ToString());
+                a.Parameters.AddWithValue("maLoptruong", dataGridViewstd.CurrentRow.Cells[0].Value.ToString());
                 a.ExecuteNonQuery(); cn.Close();
                 MessageBox.Show("Đã đổi giáo viên chủ nhiệm và lớp trưởng", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadRecordsTch();

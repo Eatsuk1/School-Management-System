@@ -72,14 +72,18 @@ namespace School_Project
             // 
             // UserList
             // 
+            this.UserList.AllowUserToAddRows = false;
+            this.UserList.AllowUserToDeleteRows = false;
             this.UserList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UserList.Location = new System.Drawing.Point(326, 119);
             this.UserList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UserList.Name = "UserList";
+            this.UserList.ReadOnly = true;
             this.UserList.RowHeadersWidth = 51;
             this.UserList.RowTemplate.Height = 29;
             this.UserList.Size = new System.Drawing.Size(375, 200);
             this.UserList.TabIndex = 2;
+            this.UserList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UserList_CellClick);
             // 
             // label1
             // 
@@ -204,8 +208,10 @@ namespace School_Project
             this.Controls.Add(this.UserList);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "MngUser";
             this.Text = "Quản lý tài khoản";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MngUser_FormClosing);

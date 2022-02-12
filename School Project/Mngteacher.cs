@@ -79,15 +79,22 @@ namespace School_Project
         //xóa giáo viên
         private void deletebutton_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn chắc chắn muốn xóa giáo viên này? Nhấn Yes để xóa", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                
-                SqlCommand cm = new SqlCommand("Delete from R1 where maGiaoVien = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
-                cn.Open();
-                cm.ExecuteNonQuery();
-                cn.Close();
-                MessageBox.Show("Đã xóa giáo viên vừa chọn", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadRecords();
+                if (MessageBox.Show("Bạn chắc chắn muốn xóa giáo viên này? Nhấn Yes để xóa", _title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    SqlCommand cm = new SqlCommand("Delete from R1 where maGiaoVien = '" + dataGridView1.CurrentRow.Cells[0].Value.ToString() + "'", cn);
+                    cn.Open();
+                    cm.ExecuteNonQuery();
+                    cn.Close();
+                    MessageBox.Show("Đã xóa giáo viên vừa chọn", _title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadRecords();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, _title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
